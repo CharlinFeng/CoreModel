@@ -6,9 +6,13 @@ Charlin自有框架
 # CoreClass
     Charlin私有框架！！
 <br />
+
+#### 框架依赖：<br />
+.CoreStatus<br />
+<br /><br />
+
 ####框架特性：<br />
 >1.Charin私有框架！<br />
->2.此框架依赖CoreStatus框架。<br />
 
 <br /><br />
 
