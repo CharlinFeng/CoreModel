@@ -9,6 +9,8 @@ Charlin自有框架
 
 #### 框架依赖：<br />
 .CoreStatus<br />
+.MJExtension<br />
+.CoreCategory<br />
 <br /><br />
 
 ####框架特性：<br />
