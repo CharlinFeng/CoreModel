@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "BaseTF.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -16,12 +17,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    BaseTF *tf = [[BaseTF alloc] initWithFrame:CGRectMake(0, 20, 200, 30)];
+    tf.borderStyle = UITextBorderStyleLine;
+   
+    tf.leftPadding = 20;
+    
+    tf.maxCountNum =5;
+    
+//    tf.delegate = self;
+    
+    [self.view addSubview:tf];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSLog(@"来了");
+    return YES;
 }
 
 @end

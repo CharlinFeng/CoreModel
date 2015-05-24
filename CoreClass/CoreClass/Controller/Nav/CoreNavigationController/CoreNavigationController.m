@@ -99,7 +99,7 @@
     
     blackMask.alpha = alpha;
     
-    CGFloat aa = abs(startBackViewX)/kkBackViewWidth;
+    CGFloat aa = ABS(startBackViewX)/kkBackViewWidth;
     CGFloat y = x*aa;
     
     UIImage *lastScreenShot = [self.screenShotsList lastObject];
