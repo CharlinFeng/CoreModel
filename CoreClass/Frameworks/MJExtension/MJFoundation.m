@@ -3,12 +3,11 @@
 //  MJExtensionExample
 //
 //  Created by MJ Lee on 14/7/16.
-//  Copyright (c) 2014年 小码哥. All rights reserved.
+//  Copyright (c) 2014年 itcast. All rights reserved.
 //
 
 #import "MJFoundation.h"
 #import "MJConst.h"
-#import <CoreData/CoreData.h>
 
 static NSSet *_foundationClasses;
 
@@ -28,7 +27,6 @@ static NSSet *_foundationClasses;
                           [NSMutableArray class],
                           [NSDictionary class],
                           [NSMutableDictionary class],
-                          [NSManagedObject class],
                           [NSString class],
                           [NSMutableString class], nil];
 }

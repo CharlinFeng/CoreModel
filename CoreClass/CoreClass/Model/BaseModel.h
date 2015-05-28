@@ -7,10 +7,37 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+MJKeyValue.h"
+#import "BaseModelProtocol.h"
 
-@interface BaseModel : NSObject
 
+@interface BaseModel : NSObject<BaseModelProtocol>
+
+
+
+/** 服务器数据的ID */
 @property (nonatomic,assign) NSInteger hostID;
+
+
+/** 父级模型名称：此属性用于完成级联添加以及查询，框架将自动处理，请不要手动修改！ */
+@property (nonatomic,copy,readonly) NSString *pModel;
+
+
+/** 父模型的hostID：此属性用于完成级联添加以及查询，框架将自动处理，请不要手动修改！ */
+@property (nonatomic,assign,readonly) NSInteger pid;
+
+
+/** 模型对比时需要忽略的字段 */
++(NSArray *)constrastIgnorFields;
+
+
+
+/** 读取 */
+/** 目前是不考虑上拉下拉刷新 */
+/** 不论是本地查询还是网络请求，均是延时操作，返回block均在子线程中 */
++(void)selectWithParams:(NSDictionary *)params beginBlock:(void(^)(BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,BaseModelDataSource source))successBlock errorBlock:(void(^)(NSString *errorResult))errorBlock;
+
+
+
+
 
 @end
