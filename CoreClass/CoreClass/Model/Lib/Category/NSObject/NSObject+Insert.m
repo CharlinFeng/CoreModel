@@ -8,7 +8,7 @@
 
 #import "NSObject+Insert.h"
 #import "BaseModel.h"
-#import "MJIvar.h"
+#import "MJProperty.h"
 #import "MJType.h"
 #import "NSObject+BaseModelCommon.h"
 #import "BaseMoelConst.h"
@@ -65,55 +65,56 @@
     NSMutableString *values=[NSMutableString string];
 
     //遍历成员属性
-    [self enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
-
+    [self enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+        
         //如果是过滤字段，直接跳过
-        BOOL skip=[self skipField:ivar];
-
+        BOOL skip=[self skipField:property];
+        
         if(!skip){
-
-            NSString *sqliteTye=[self sqliteType:ivar.type.code];
-
-            id value =[model valueForKeyPath:ivar.propertyName];
-
+            
+            NSString *sqliteTye=[self sqliteType:property.type.code];
+            
+            id value =[model valueForKeyPath:property.name];
+            
             if(![sqliteTye isEqualToString:EmptyString]){
-
+                
                 //拼接属性名
-                [fields appendFormat:@"%@,",ivar.propertyName];
-
+                [fields appendFormat:@"%@,",property.name];
+                
                 //拼接属性值
                 //字符串需要再处理
-
-                if([ivar.type.code isEqualToString:CoreNSString]){
-
+                
+                if([property.type.code isEqualToString:CoreNSString]){
+                    
                     if(value == nil) value=@"";
-
+                    
                     //添加引号表明字符串
                     value=[NSString stringWithFormat:@"'%@'",value];
                 }
                 [values appendFormat:@"%@,",value];
-
+                
             }else{
-
+                
                 //此属性是模型，且已经动态生成模型字段对应的数据表
-                if(ivar.propertyName!=nil && value!=nil){
-
+                if(property.name!=nil && value!=nil){
+                    
                     BaseModel *childModel=(BaseModel *)value;
-
+                    
                     //自动处理pModel:KVO
                     [childModel setValue:NSStringFromClass(baseModel.class) forKey:@"pModel"];
-
+                    
                     //自动处理pid:KVO
                     [childModel setValue:@(baseModel.hostID) forKey:@"pid"];
-
+                    
                     //级联保存数据
-                    BOOL childInsertRes = [NSClassFromString(ivar.type.code) insert:value];
+                    BOOL childInsertRes = [NSClassFromString(property.type.code) insert:value];
                     
                     if(!childInsertRes) NSLog(@"错误：级联保存数据失败！级联父类：%@，子属性为：%@",NSStringFromClass(baseModel.class),value);
                 }
             }
         }
     }];
+
 
     //删除最后的字符
     NSString *fields_sub=[self deleteLastChar:fields];

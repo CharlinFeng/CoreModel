@@ -11,8 +11,8 @@
 #import "CoreFMDB.h"
 #import "NSObject+Select.h"
 #import "BaseModel.h"
-#import "NSObject+MJIvar.h"
-#import "MJIvar.h"
+#import "NSObject+MJProperty.h"
+#import "MJProperty.h"
 #import "MJType.h"
 #import "BaseMoelConst.h"
 
@@ -58,21 +58,20 @@
     //遍历模型对象
     for (BaseModel *baseModle in deleteModels) {
         
-        [baseModle.class enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
-            
+        [baseModle.class enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
             //如果是过滤字段，直接跳过
-            BOOL skip=[self skipField:ivar];
+            BOOL skip=[self skipField:property];
             
             if(!skip){
                 
-                NSString *sqliteTye=[self sqliteType:ivar.type.code];
+                NSString *sqliteTye=[self sqliteType:property.type.code];
                 
-//                id value =[baseModle valueForKeyPath:ivar.propertyName];
+                //                id value =[baseModle valueForKeyPath:ivar.propertyName];
                 
                 if([sqliteTye isEqualToString:EmptyString]){//模型字段
                     
                     //级联删除
-                    Class ModelClass=NSClassFromString(ivar.type.code);
+                    Class ModelClass=NSClassFromString(property.type.code);
                     
                     NSString *where=[NSString stringWithFormat:@"pModel='%@' AND pid=%@",NSStringFromClass(baseModle.class),@(baseModle.hostID)];
                     
@@ -80,6 +79,7 @@
                 }
             }
         }];
+
     }
     
     //执行

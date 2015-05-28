@@ -3,7 +3,7 @@
 //  MJExtension
 //
 //  Created by mj on 14-1-15.
-//  Copyright (c) 2014年 itcast. All rights reserved.
+//  Copyright (c) 2014年 小码哥. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,6 +12,10 @@
  */
 @protocol MJCoding <NSObject>
 @optional
+/**
+ *  这个数组中的属性名才会进行归档
+ */
++ (NSArray *)allowedCodingPropertyNames;
 /**
  *  这个数组中的属性名将会被忽略：不进行归档
  */

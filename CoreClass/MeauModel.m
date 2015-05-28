@@ -24,7 +24,7 @@
 
 /** 是否需要本地缓存 */
 +(BOOL)baseModel_NeedFMDB{
-    return YES;
+    return NO;
 }
 
 /** 缓存周期：单位秒 */

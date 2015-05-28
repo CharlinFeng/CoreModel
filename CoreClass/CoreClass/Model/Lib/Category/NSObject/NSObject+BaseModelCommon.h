@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+MJIvar.h"
+#import "NSObject+MJProperty.h"
 
 
 @interface NSObject (BaseModelCommon)
@@ -19,7 +19,7 @@
  *
  *  @return 字段sql
  */
-+(NSString *)fieldSql:(MJIvar *)ivar;
++(NSString *)fieldSql:(MJProperty *)ivar;
 
 
 
@@ -31,7 +31,7 @@
  *
  *  @return 结果
  */
-+(BOOL)skipField:(MJIvar *)ivar;
++(BOOL)skipField:(MJProperty *)ivar;
 
 
 

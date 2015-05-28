@@ -7,8 +7,8 @@
 //
 
 #import "BaseModel.h"
-#import "NSObject+MJIvar.h"
-#import "MJIvar.h"
+#import "NSObject+MJProperty.h"
+#import "MJProperty.h"
 #import "MJType.h"
 #import "BaseMoelConst.h"
 #import "CoreFMDB.h"
@@ -291,7 +291,7 @@
         BaseModel *baseModel = [self objectWithKeyValues:userfullHostData];
         
         //得到模型：单个
-        modelData = baseModel;
+        modelData = @[baseModel];
         
     }else if (BaseModelHostDataTypeModelArray == dataType){//模型：数组
         

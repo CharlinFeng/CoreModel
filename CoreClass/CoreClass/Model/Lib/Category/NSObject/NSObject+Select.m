@@ -8,7 +8,7 @@
 
 #import "NSObject+Select.h"
 #import "CoreFMDB.h"
-#import "MJIvar.h"
+#import "MJProperty.h"
 #import "MJType.h"
 #import "BaseModel.h"
 #import "NSObject+BaseModelCommon.h"
@@ -64,28 +64,30 @@
             
             BaseModel *model=[[self alloc] init];
             
-            [self enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+            [self enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
                 
-                BOOL skip=[self skipField:ivar];
+                BOOL skip=[self skipField:property];
                 
                 if(!skip){
                     
-                    NSString *sqliteTye=[self sqliteType:ivar.type.code];
+                    NSString *sqliteTye=[self sqliteType:property.type.code];
                     
                     if(![sqliteTye isEqualToString:EmptyString]){
                         
-                        NSString *propertyName = ivar.propertyName;
+                        NSString *propertyName = property.name;
                         NSString *value=[set stringForColumn:propertyName];
+                        
+                        
                         
                         //设置值
                         [model setValue:value forKey:propertyName];
                         
                     }else{
-                        if(![fieldsArrayM containsObject:ivar]) [fieldsArrayM addObject:ivar];
+                        if(![fieldsArrayM containsObject:property]) [fieldsArrayM addObject:property];
                     }
                 }
-                
             }];
+
             
             [resultsM addObject:model];
         }
@@ -96,7 +98,7 @@
         //联级查询
         [resultsM enumerateObjectsUsingBlock:^(BaseModel *model, NSUInteger idx, BOOL *stop) {
             
-            [fieldsArrayM enumerateObjectsUsingBlock:^(MJIvar *ivar, NSUInteger idx, BOOL *stop) {
+            [fieldsArrayM enumerateObjectsUsingBlock:^(MJProperty *ivar, NSUInteger idx, BOOL *stop) {
                 
                 NSString *where_childModelField=[NSString stringWithFormat:@"pModel='%@' AND pid=%@",NSStringFromClass(model.class),@(model.hostID)];
                 
@@ -104,7 +106,7 @@
                 
                 BaseModel *childModel=[NSClassFromString(ivar.type.code) selectWhere:where_childModelField groupBy:nil orderBy:nil limit:limit].firstObject;
                 
-                [model setValue:childModel forKey:ivar.propertyName];
+                [model setValue:childModel forKey:ivar.name];
             }];
             
         }];

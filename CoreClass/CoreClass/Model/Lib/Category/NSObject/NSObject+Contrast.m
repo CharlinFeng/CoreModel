@@ -8,8 +8,8 @@
 
 #import "NSObject+Contrast.h"
 #import "BaseModel.h"
-#import "NSObject+MJIvar.h"
-#import "MJIvar.h"
+#import "NSObject+MJProperty.h"
+#import "MJProperty.h"
 #import "MJType.h"
 #import "BaseMoelConst.h"
 
@@ -55,16 +55,16 @@
     __block BOOL contrastRes = YES;
     
     //遍历成员属性
-    [model1.class enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+    [model1.class enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
         
-        NSString *propertyName = ivar.propertyName;
+        NSString *propertyName = property.name;
         
         if(![[BaseModel constrastIgnorFields] containsObject:propertyName]){
             
             id value1 = [model1 valueForKeyPath:propertyName];
             id value2 = [model2 valueForKeyPath:propertyName];
             
-            NSString *code=ivar.type.code;
+            NSString *code=property.type.code;
             BOOL res = YES;
             
             NSArray *integerConstStrings = @[CoreNSInteger,CoreNSUInteger,CoreEnum_int];
@@ -135,12 +135,11 @@
                 contrastRes = NO;
                 *stop=YES;
             }
-
+            
         }
-        
+
     }];
-    
-    
+
     return contrastRes;
 }
 

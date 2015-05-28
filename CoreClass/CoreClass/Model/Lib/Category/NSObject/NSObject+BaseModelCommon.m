@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+BaseModelCommon.h"
-#import "MJIvar.h"
+#import "MJProperty.h"
 #import "MJType.h"
 #import "BaseMoelConst.h"
 #import "CoreFMDB.h"
@@ -22,10 +22,10 @@
  *
  *  @return 字段sql
  */
-+(NSString *)fieldSql:(MJIvar *)ivar{
++(NSString *)fieldSql:(MJProperty *)ivar{
 
     //处理成员属性名(字段名)
-    NSString *fieldName = ivar.propertyName;
+    NSString *fieldName = ivar.name;
 
     //判断其数据类型
     NSString *fieldType = ivar.type.code;
@@ -51,14 +51,14 @@
  *
  *  @return 结果
  */
-+(BOOL)skipField:(MJIvar *)ivar{
++(BOOL)skipField:(MJProperty *)ivar{
 
     //检查是否有需要忽略的属性不需要转为数据库字段
     NSArray *ignoredPropertyNames = nil;
     if ([[self class] respondsToSelector:@selector(ignoredPropertyNamesForSqlTransform)]) {
         ignoredPropertyNames = [[self class] ignoredPropertyNamesForSqlTransform];
     }
-    BOOL skip=ignoredPropertyNames!=nil && [ignoredPropertyNames containsObject:ivar.propertyName];
+    BOOL skip=ignoredPropertyNames!=nil && [ignoredPropertyNames containsObject:ivar.name];
     
     return skip;
 }
@@ -68,7 +68,7 @@
 /**
  *  这个数组中的属性名将会被忽略：不会被自动转换为数据库中的字段
  */
-+ (NSArray *)ignoredPropertyNamesForSqlTransform{return nil;}
++ (NSArray *)ignoredPropertyNamesForSqlTransform{return @[@"hash",@"superclass",@"description",@"debugDescription"];}
 
 
 

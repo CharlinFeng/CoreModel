@@ -10,8 +10,9 @@
 #import "NSObject+BaseModelCommon.h"
 #import "BaseMoelConst.h"
 #import "CoreFMDB.h"
-#import "MJIvar.h"
+#import "MJProperty.h"
 #import "MJType.h"
+#import "NSObject+MJProperty.h"
 
 @implementation NSObject (Create)
 
@@ -35,21 +36,22 @@
     //在遍历成员变量时记录入数组
     NSMutableArray *ivarsM=[NSMutableArray array];
 
-    [self enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+    [self enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
         
-        NSString *sql_field = [self fieldSql:ivar];
+        NSString *sql_field = [self fieldSql:property];
         
-        BOOL skip=[self skipField:ivar];
-
+        BOOL skip=[self skipField:property];
+        
         //如果遇到了模型字段，则需要跳过
         if(![sql_field isEqualToString:EmptyString] && !skip){
-
+            
             [sql appendString:sql_field];
-
+            
             //记录
-            [ivarsM addObject:ivar];
+            [ivarsM addObject:property];
         }
     }];
+
 
     //删除最后一个分号
     NSString *subSql = [self deleteLastChar:sql];
@@ -90,10 +92,10 @@
 
     //如果运行到这里，表明模型有新增字段
     //遍历模型字段数据
-    for (MJIvar *ivar in ivars) {
+    for (MJProperty *ivar in ivars) {
 
         //如果数据库中包含模型字段，则不处理
-        if([columnsM containsObject:ivar.propertyName]) continue;
+        if([columnsM containsObject:ivar.name]) continue;
 
         NSMutableString *sql_addM=[NSMutableString stringWithFormat:@"ALTER TABLE '%@' ADD COLUMN %@",table,[self fieldSql:ivar]];
 
@@ -111,7 +113,7 @@
             return;
         }
         
-        NSLog(@"注意：模型 %@ 有新增加的字段 %@,已经实时添加到数据库中！",table,ivar.propertyName);
+        NSLog(@"注意：模型 %@ 有新增加的字段 %@,已经实时添加到数据库中！",table,ivar.name);
     }
     
     

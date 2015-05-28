@@ -7,7 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import "NSObject+MJProperty.h"
+#import "MeauModel.h"
+#import "MJProperty.h"
 
 @interface ViewController ()
 
@@ -18,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [MeauModel enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+        NSLog(@"%@",property.name);
+    }];
 
     
 }

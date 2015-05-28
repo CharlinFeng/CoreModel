@@ -3,17 +3,23 @@
 //  MJExtension
 //
 //  Created by mj on 13-8-24.
-//  Copyright (c) 2013年 itcast. All rights reserved.
+//  Copyright (c) 2013年 小码哥. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "MJConst.h"
+#import <CoreData/CoreData.h>
 
 /**
  *  KeyValue协议
  */
 @protocol MJKeyValue <NSObject>
 @optional
+/**
+ *  只有这个数组中的属性名才允许进行字典和模型的转换
+ */
++ (NSArray *)allowedPropertyNames;
+
 /**
  *  这个数组中的属性名将会被忽略：不进行字典和模型的转换
  */
@@ -25,24 +31,13 @@
  *  @return 字典中的key是属性名，value是从字典中取值用的key
  */
 + (NSDictionary *)replacedKeyFromPropertyName;
-- (NSDictionary *)replacedKeyFromPropertyName MJDeprecated("请使用+ (NSDictionary *)replacedKeyFromPropertyName方法");
-
-/**
- *  将属性名换为其他key去字典中取值
- *  @param propertyName 属性名
- *
- *  @return 字典中的key
- */
-+ (NSString *)replacedKeyFromPropertyName:(NSString *)propertyName;
-// 方法优先级：replacedKeyFromPropertyName: > replacedKeyFromPropertyName
 
 /**
  *  数组中需要转换的模型类
  *
- *  @return 字典中的key是数组属性名，value是数组中存放模型的Class
+ *  @return 字典中的key是数组属性名，value是数组中存放模型的Class（Class类型或者NSString类型）
  */
 + (NSDictionary *)objectClassInArray;
-- (NSDictionary *)objectClassInArray MJDeprecated("请使用+ (NSDictionary *)objectClassInArray方法");
 
 /**
  *  当字典转模型完毕时调用
@@ -60,15 +55,27 @@
  *  将字典的键值对转成模型属性
  *  @param keyValues 字典
  */
-- (instancetype)setKeyValues:(NSDictionary *)keyValues;
-- (instancetype)setKeyValues:(NSDictionary *)keyValues error:(NSError **)error;
+- (instancetype)setKeyValues:(id)keyValues;
+- (instancetype)setKeyValues:(id)keyValues error:(NSError **)error;
+
+/**
+ *  将字典的键值对转成模型属性
+ *  @param keyValues 字典
+ *  @param context   CoreData上下文
+ */
+- (instancetype)setKeyValues:(id)keyValues context:(NSManagedObjectContext *)context;
+- (instancetype)setKeyValues:(id)keyValues context:(NSManagedObjectContext *)context error:(NSError **)error;
 
 /**
  *  将模型转成字典
  *  @return 字典
  */
 - (NSDictionary *)keyValues;
+- (NSDictionary *)keyValuesWithKeys:(NSArray *)keys;
+- (NSDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys;
 - (NSDictionary *)keyValuesWithError:(NSError **)error;
+- (NSDictionary *)keyValuesWithKeys:(NSArray *)keys error:(NSError **)error;
+- (NSDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys error:(NSError **)error;
 
 /**
  *  通过模型数组来创建一个字典数组
@@ -76,7 +83,11 @@
  *  @return 字典数组
  */
 + (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys;
 + (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray error:(NSError **)error;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys error:(NSError **)error;
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys error:(NSError **)error;
 
 #pragma mark - 字典转模型
 /**
@@ -92,8 +103,17 @@
  *  @param keyValues 字典
  *  @return 新建的对象
  */
-+ (instancetype)objectWithKeyValues:(NSDictionary *)keyValues;
-+ (instancetype)objectWithKeyValues:(NSDictionary *)keyValues error:(NSError **)error;
++ (instancetype)objectWithKeyValues:(id)keyValues;
++ (instancetype)objectWithKeyValues:(id)keyValues error:(NSError **)error;
+
+/**
+ *  通过字典来创建一个CoreData模型
+ *  @param keyValues 字典
+ *  @param context   CoreData上下文
+ *  @return 新建的对象
+ */
++ (instancetype)objectWithKeyValues:(id)keyValues context:(NSManagedObjectContext *)context;
++ (instancetype)objectWithKeyValues:(id)keyValues context:(NSManagedObjectContext *)context error:(NSError **)error;
 
 /**
  *  通过plist来创建一个模型
@@ -125,8 +145,17 @@
  *  @param keyValuesArray 字典数组
  *  @return 模型数组
  */
-+ (NSArray *)objectArrayWithKeyValuesArray:(NSArray *)keyValuesArray;
-+ (NSArray *)objectArrayWithKeyValuesArray:(NSArray *)keyValuesArray error:(NSError **)error;
++ (NSArray *)objectArrayWithKeyValuesArray:(id)keyValuesArray;
++ (NSArray *)objectArrayWithKeyValuesArray:(id)keyValuesArray error:(NSError **)error;
+
+/**
+ *  通过字典数组来创建一个模型数组
+ *  @param keyValuesArray 字典数组
+ *  @param context        CoreData上下文
+ *  @return 模型数组
+ */
++ (NSArray *)objectArrayWithKeyValuesArray:(id)keyValuesArray context:(NSManagedObjectContext *)context;
++ (NSArray *)objectArrayWithKeyValuesArray:(id)keyValuesArray context:(NSManagedObjectContext *)context error:(NSError **)error;
 
 /**
  *  通过plist来创建一个模型数组

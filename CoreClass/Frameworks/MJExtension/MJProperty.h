@@ -1,27 +1,26 @@
 //
-//  MJIvar.h
-//  MJExtension
+//  MJProperty.h
+//  MJExtensionExample
 //
-//  Created by mj on 14-1-15.
-//  Copyright (c) 2014年 itcast. All rights reserved.
-//  包装一个成员变量
+//  Created by MJ Lee on 15/4/17.
+//  Copyright (c) 2015年 小码哥. All rights reserved.
+//  包装一个成员属性
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 @class MJType;
 
 /**
- *  包装一个成员变量
+ *  包装一个成员
  */
-@interface MJIvar : NSObject
-/** 成员变量 */
-@property (nonatomic, assign) Ivar ivar;
-/** 成员名 */
-@property (nonatomic, copy) NSString *name;
+@interface MJProperty : NSObject
+/** 成员属性 */
+@property (nonatomic, assign) objc_property_t property;
 /** 成员属性名 */
-@property (nonatomic, copy, readonly) NSString *propertyName;
+@property (nonatomic, readonly) NSString *name;
+
 /** 成员变量的类型 */
-@property (nonatomic, strong, readonly) MJType *type;
+@property (nonatomic, readonly) MJType *type;
 /** 成员来源于哪个类（可能是父类） */
 @property (nonatomic, assign) Class srcClass;
 
@@ -49,10 +48,6 @@
 
 /**
  *  初始化
- *
- *  @param ivar      成员变量
- *
- *  @return 初始化好的对象
  */
-+ (instancetype)cachedIvarWithIvar:(Ivar)ivar;
++ (instancetype)cachedPropertyWithProperty:(objc_property_t)property;
 @end
