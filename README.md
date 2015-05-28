@@ -11,6 +11,9 @@ Charlin自有框架
 .CoreStatus<br />
 .MJExtension<br />
 .CoreCategory<br />
+.CoreArchive<br />
+.CoreHttp<br />
+.CoreFMDB<br />
 <br /><br />
 
 ####框架特性：<br />
