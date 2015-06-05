@@ -186,6 +186,7 @@
 		891E0FA91B16E1A900B20093 /* CoreArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreArchive.h; sourceTree = "<group>"; };
 		891E0FAA1B16E1A900B20093 /* CoreArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreArchive.m; sourceTree = "<group>"; };
 		891E0FAE1B16E6F700B20093 /* BaseModelType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseModelType.h; sourceTree = "<group>"; };
+		893C7C8A1B21E179003A6D1D /* BaseCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
 		8965A6511B11A8C40067043C /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
 		8965A6521B11A8C40067043C /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
 		8965A6551B11A8E50067043C /* BaseTF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTF.h; sourceTree = "<group>"; };
@@ -618,6 +619,7 @@
 			children = (
 				8965A6511B11A8C40067043C /* BaseCell.h */,
 				8965A6521B11A8C40067043C /* BaseCell.m */,
+				893C7C8A1B21E179003A6D1D /* BaseCellProtocol.h */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";

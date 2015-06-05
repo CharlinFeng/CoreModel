@@ -7,45 +7,24 @@
 //  cell基类
 
 
-
-
 #import <UIKit/UIKit.h>
-#import "BaseModel.h"
+#import "BaseCellProtocol.h"
 
 
+@interface BaseCell : UITableViewCell<BaseCellProtocol>
 
-@interface BaseCell : UITableViewCell
-
-
-
-
-
-
-/**
- *  indexPath
- */
+/** indexPath */
 @property (nonatomic,strong) NSIndexPath *indexPath;
 
+/** 模型 */
+@property (nonatomic,strong) BaseModel *baseModel;
 
 
-@property (nonatomic,strong) BaseModel *model;
 
 
-
-
-/**
- *  cell实例：必须从xib创建
- *
- *  @param tableView tableView
- *
- *  @return 实例
- */
+/** cell实例：必须从xib创建 */
 +(instancetype)cellFromTableView:(UITableView *)tableView;
 
 
-/**
- *  填充数据
- */
--(void)dataFillUseModel;
 
 @end

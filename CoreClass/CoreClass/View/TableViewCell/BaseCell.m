@@ -35,16 +35,13 @@
 }
 
 
--(void)setModel:(BaseModel *)model{
-    
-    _model=model;
-    [self dataFillUseModel];
-}
 
-/**
- *  子类实现此方法
- */
--(void)dataFillUseModel{}
+-(void)setBaseModel:(BaseModel *)baseModel{
+    
+    _baseModel = baseModel;
+    
+    [self dataFill:baseModel];
+}
 
 
 
