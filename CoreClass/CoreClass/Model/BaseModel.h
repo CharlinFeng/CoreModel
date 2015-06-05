@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseModelProtocol.h"
+#import "BasePageModelProtocol.h"
 
-
-@interface BaseModel : NSObject<BaseModelProtocol>
+@interface BaseModel : NSObject<BaseModelProtocol,BasePageModelProtocol>
 
 
 /** 服务器数据的ID */

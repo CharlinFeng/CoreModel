@@ -374,6 +374,8 @@
  */
 
 
+/** 普通模型代理方法区 */
+
 /** 接口地址 */
 +(NSString *)baseModel_UrlString{
     return nil;
@@ -414,6 +416,12 @@
 +(BaseModelHostDataType)baseModel_hostDataType{
     return BaseModelHostDataTypeModelSingle;
 }
+
+
+
+
+/** 分页模型代理方法区 */
+
 
 /**
  *  是否为分页数据

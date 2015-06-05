@@ -230,6 +230,7 @@
 		8965A68E1B11AB5C0067043C /* UIView+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extend.m"; sourceTree = "<group>"; };
 		8965A6901B11AB5C0067043C /* UIWindow+Launch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Launch.h"; sourceTree = "<group>"; };
 		8965A6911B11AB5C0067043C /* UIWindow+Launch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Launch.m"; sourceTree = "<group>"; };
+		897884831B219D3500033B01 /* BasePageModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePageModelProtocol.h; sourceTree = "<group>"; };
 		89B9E8DC1B213A9C001C054A /* ReadMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadMe.h; sourceTree = "<group>"; };
 		89B9E8E41B21407F001C054A /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
 		89B9E8E51B21407F001C054A /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
@@ -467,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				891E01B21B16BF4400FDF43F /* BaseModelProtocol.h */,
+				897884831B219D3500033B01 /* BasePageModelProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";

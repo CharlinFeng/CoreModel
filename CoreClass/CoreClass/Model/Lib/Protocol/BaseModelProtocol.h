@@ -50,28 +50,6 @@
 
 
 
-/**
- *  是否为分页数据
- *
- *  @return 如果为分页模型请返回YES，否则返回NO
- */
-+(BOOL)baseModel_isPageEnable;
-
-
-/** page字段 */
-+(NSString *)baseModel_PageKey;
-
-
-/** pagesize字段 */
-+(NSString *)baseModel_PageSizeKey;
-
-
-/** 页码起点 */
-+(NSUInteger)baseModel_StartPage;
-
-
-/** 每页数据量 */
-+(NSUInteger)baseModel_PageSize;
 
 
 
