@@ -92,11 +92,54 @@
         
     }else{//需要本地缓存
         
+        //archiverTimeKey：考虑分页
+        BOOL isPageEnable = [self baseModel_isPageEnable];
+        
+        //where需要区分是单数还是分页
+        //单页数据情况下，直接转为sqlWhere
+        //分页情况下，请求参数中含有page与pagesize信息，需要从sqlWhere中剔除，并转换为limit数据
         //请求参数
-        NSString *where = params.sqlWhere;
+        NSString *where = nil;
+        NSString *limit = nil;
+        NSString *orderBy = nil;
+        NSUInteger page = 0;
+    
+        //处理where
+        if(isPageEnable){//分页
+            
+            //获取key
+            NSString *pageKey = [self baseModel_PageKey];
+            
+            //记录page
+            page = [[params objectForKey:pageKey] integerValue];
+            
+            //获取pagesize
+            NSUInteger pagesize = [self baseModel_PageSize];
+            
+            NSMutableDictionary *tempDictM = [NSMutableDictionary dictionaryWithDictionary:params];
+            
+            //移除page这个key
+            [tempDictM removeObjectForKey:pageKey];
+            
+            where = tempDictM.sqlWhere;
+            
+            //计算order信息
+            orderBy = @"hostID desc";
+            
+            //limit：页码修正
+            NSUInteger startPage = [self baseModel_StartPage];
+            
+            //计算limit信息
+            limit = [NSString stringWithFormat:@"%@,%@",@((page - startPage) * pagesize),@(pagesize)];
+            
+        }else{
+            
+            where = params.sqlWhere;
+        }
+        
         
         //从数据库读取
-        NSArray *model_sqlite_Array = [self selectWhere:where groupBy:nil orderBy:nil limit:nil];
+        NSArray *model_sqlite_Array = [self selectWhere:where groupBy:nil orderBy:orderBy limit:limit];
         
         if(model_sqlite_Array==nil || model_sqlite_Array.count == 0){//说明本地没有数据
           
@@ -112,8 +155,14 @@
         //看情况决定是否执行网络请求，以下两种情况不需要执行网络请求
         //1.不需要本地缓存：这个本身就不成立，因为此时正在处理需要缓存处理的情况
         //2.还没到缓存周期
-#warning 现在不考虑分页，直接用类名作为key，如果未来考虑分页，可以考虑类名+page作为key
+
+        //archiverTimeKey：不考虑分页
         NSString *archiverTimeKey = NSStringFromClass(self);
+        
+        if(isPageEnable){
+            
+            archiverTimeKey = [NSString stringWithFormat:@"%@%@",archiverTimeKey,@(page)];
+        }
         
         //读取上次请求时间
         NSTimeInterval lastRequestTime = [CoreArchive doubleForKey:archiverTimeKey];
@@ -319,7 +368,11 @@
 
 
 
-/** 协议方法区 */
+
+/*
+ *  协议方法区
+ */
+
 
 /** 接口地址 */
 +(NSString *)baseModel_UrlString{
@@ -342,7 +395,7 @@
 }
 
 /**
- *  错误数据解析
+ *  错误数据解析：请求成功，但服务器返回的接口状态码抛出错误
  *
  *  @param hostData 服务器数据
  *
@@ -361,5 +414,39 @@
 +(BaseModelHostDataType)baseModel_hostDataType{
     return BaseModelHostDataTypeModelSingle;
 }
+
+/**
+ *  是否为分页数据
+ *
+ *  @return 如果为分页模型请返回YES，否则返回NO
+ */
++(BOOL)baseModel_isPageEnable{
+    return NO;
+}
+
+
+/** page字段 */
++(NSString *)baseModel_PageKey{
+    return @"page";
+}
+
+
+/** pagesize字段 */
++(NSString *)baseModel_PageSizeKey{
+    return @"pagesize";
+}
+
+
+/** 页码起点 */
++(NSUInteger)baseModel_StartPage{
+    return 1;
+}
+
+
+/** 每页数据量 */
++(NSUInteger)baseModel_PageSize{
+    return 20;
+}
+
 
 @end

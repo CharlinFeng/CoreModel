@@ -69,6 +69,9 @@
 		8965A6A11B11AB5C0067043C /* UITableViewCell+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A68B1B11AB5C0067043C /* UITableViewCell+Extend.m */; };
 		8965A6A21B11AB5C0067043C /* UIView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A68E1B11AB5C0067043C /* UIView+Extend.m */; };
 		8965A6A31B11AB5C0067043C /* UIWindow+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A6911B11AB5C0067043C /* UIWindow+Launch.m */; };
+		89B9E8E71B21407F001C054A /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9E8E51B21407F001C054A /* NewsVC.m */; };
+		89B9E8E81B21407F001C054A /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B9E8E61B21407F001C054A /* NewsVC.xib */; };
+		89B9E8EB1B2140A0001C054A /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9E8EA1B2140A0001C054A /* NewsModel.m */; };
 		EE58390D1AB98EDD00516AC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390C1AB98EDD00516AC1 /* main.m */; };
 		EE5839101AB98EDD00516AC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390F1AB98EDD00516AC1 /* AppDelegate.m */; };
 		EE5839131AB98EDD00516AC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839121AB98EDD00516AC1 /* ViewController.m */; };
@@ -227,6 +230,12 @@
 		8965A68E1B11AB5C0067043C /* UIView+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extend.m"; sourceTree = "<group>"; };
 		8965A6901B11AB5C0067043C /* UIWindow+Launch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Launch.h"; sourceTree = "<group>"; };
 		8965A6911B11AB5C0067043C /* UIWindow+Launch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Launch.m"; sourceTree = "<group>"; };
+		89B9E8DC1B213A9C001C054A /* ReadMe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadMe.h; sourceTree = "<group>"; };
+		89B9E8E41B21407F001C054A /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
+		89B9E8E51B21407F001C054A /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
+		89B9E8E61B21407F001C054A /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
+		89B9E8E91B2140A0001C054A /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
+		89B9E8EA1B2140A0001C054A /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
 		EE5839071AB98EDD00516AC1 /* CoreClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58390B1AB98EDD00516AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE58390C1AB98EDD00516AC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -515,6 +524,7 @@
 		891E0F8E1B16C38A00B20093 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				89B9E8DD1B213FC0001C054A /* News */,
 				8906EDB91B170B3E005C668F /* Home */,
 				891E0F8F1B16C39B00B20093 /* Contact */,
 			);
@@ -790,6 +800,42 @@
 			path = UIWindow;
 			sourceTree = "<group>";
 		};
+		89B9E8DD1B213FC0001C054A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				89B9E8E01B213FD9001C054A /* Controller */,
+				89B9E8DF1B213FD3001C054A /* Model */,
+				89B9E8DE1B213FCE001C054A /* View */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
+		89B9E8DE1B213FCE001C054A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		89B9E8DF1B213FD3001C054A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89B9E8E91B2140A0001C054A /* NewsModel.h */,
+				89B9E8EA1B2140A0001C054A /* NewsModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		89B9E8E01B213FD9001C054A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				89B9E8E41B21407F001C054A /* NewsVC.h */,
+				89B9E8E51B21407F001C054A /* NewsVC.m */,
+				89B9E8E61B21407F001C054A /* NewsVC.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		EE5838FE1AB98EDD00516AC1 = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +956,7 @@
 				891E018C1B16BA6700FDF43F /* Lib */,
 				EE5839451AB98EE900516AC1 /* BaseModel.h */,
 				EE5839461AB98EE900516AC1 /* BaseModel.m */,
+				89B9E8DC1B213A9C001C054A /* ReadMe.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -998,6 +1045,7 @@
 				EE5839161AB98EDD00516AC1 /* Main.storyboard in Resources */,
 				EE58394F1AB98EE900516AC1 /* ToolNetWorkSolveVC.xib in Resources */,
 				EE58391B1AB98EDD00516AC1 /* LaunchScreen.xib in Resources */,
+				89B9E8E81B21407F001C054A /* NewsVC.xib in Resources */,
 				EE5839181AB98EDD00516AC1 /* Images.xcassets in Resources */,
 				EE5839511AB98EE900516AC1 /* ToolNetWorkView.xib in Resources */,
 			);
@@ -1061,6 +1109,7 @@
 				8965A69A1B11AB5C0067043C /* UIDevice+Extend.m in Sources */,
 				EE58394E1AB98EE900516AC1 /* ToolNetWorkSolveVC.m in Sources */,
 				891E01AD1B16BA6700FDF43F /* NSObject+Update.m in Sources */,
+				89B9E8EB1B2140A0001C054A /* NewsModel.m in Sources */,
 				EE5839531AB98EE900516AC1 /* UINavigationController+Appearance.m in Sources */,
 				891E0F8C1B16C1A600B20093 /* UploadFile.m in Sources */,
 				EE58390D1AB98EDD00516AC1 /* main.m in Sources */,
@@ -1074,6 +1123,7 @@
 				8906EDD81B17140D005C668F /* MJType.m in Sources */,
 				8965A69E1B11AB5C0067043C /* UIImage+Extend.m in Sources */,
 				891E0F981B16C42E00B20093 /* ContactModel.m in Sources */,
+				89B9E8E71B21407F001C054A /* NewsVC.m in Sources */,
 				891E01AB1B16BA6700FDF43F /* NSObject+Save.m in Sources */,
 				8965A6601B11AB2D0067043C /* Reachability.m in Sources */,
 				8965A65F1B11AB2D0067043C /* CoreStatus.m in Sources */,

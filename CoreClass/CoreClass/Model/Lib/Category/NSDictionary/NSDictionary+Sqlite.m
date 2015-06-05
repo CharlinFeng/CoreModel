@@ -16,7 +16,7 @@
  */
 -(NSString *)sqlWhere{
     
-    if(![self isKindOfClass:[NSDictionary class]]) return nil;
+    if(![self isKindOfClass:[NSDictionary class]] || self.count == 0) return nil;
     
     NSMutableString *strM=[NSMutableString string];
     

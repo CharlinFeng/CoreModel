@@ -10,6 +10,8 @@
 #import "NSObject+MJProperty.h"
 #import "MeauModel.h"
 #import "MJProperty.h"
+#import "NewsVC.h"
+
 
 @interface ViewController ()
 
@@ -26,6 +28,16 @@
 
     
 }
+
+
+- (IBAction)pageVC:(id)sender {
+    
+    NewsVC *newsVC = [[NewsVC alloc] init];
+    
+    [self.navigationController pushViewController:newsVC animated:YES];
+}
+
+
 
 
 

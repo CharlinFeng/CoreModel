@@ -10,6 +10,7 @@
 
 @implementation MeauModel
 
+
 /** 协议方法区 */
 
 /** 接口地址 */
@@ -24,12 +25,12 @@
 
 /** 是否需要本地缓存 */
 +(BOOL)baseModel_NeedFMDB{
-    return NO;
+    return YES;
 }
 
 /** 缓存周期：单位秒 */
 +(NSTimeInterval)baseModel_Duration{
-    return 5;
+    return 10;
 }
 
 /**
@@ -56,6 +57,8 @@
 +(BaseModelHostDataType)baseModel_hostDataType{
     return BaseModelHostDataTypeModelArray;
 }
+
+
 
 
 @end

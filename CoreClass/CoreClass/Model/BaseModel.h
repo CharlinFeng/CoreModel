@@ -13,7 +13,6 @@
 @interface BaseModel : NSObject<BaseModelProtocol>
 
 
-
 /** 服务器数据的ID */
 @property (nonatomic,assign) NSInteger hostID;
 
@@ -28,7 +27,6 @@
 
 /** 模型对比时需要忽略的字段 */
 +(NSArray *)constrastIgnorFields;
-
 
 
 /** 读取 */
