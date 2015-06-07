@@ -46,7 +46,7 @@
     
     NSDictionary *params = @{@"areaCode":@"028"};
     
-    [ContactModel selectWithParams:params beginBlock:^(BOOL needHUD) {
+    [ContactModel selectWithParams:params userInfo:nil beginBlock:^(BOOL isNetWorkRequest,BOOL needHUD) {
         
         if(needHUD){
             NSLog(@"请求开始，需要HUD");
@@ -54,7 +54,7 @@
             NSLog(@"不显示HUD");
         }
         
-    }  successBlock:^(NSArray *models,BaseModelDataSource source) {
+    }  successBlock:^(NSArray *models,BaseModelDataSourceType source,NSDictionary *userInfo) {
         
         
         ContactModel *contactModle = models.firstObject;
@@ -72,7 +72,7 @@
         });
         
         
-    } errorBlock:^(NSString *errorResult) {
+    } errorBlock:^(NSString *errorResult,NSDictionary *userInfo) {
         NSLog(@"请求失败，错误原因：%@",errorResult);
     }];
 }

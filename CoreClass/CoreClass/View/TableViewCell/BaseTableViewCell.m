@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 muxi. All rights reserved.
 //
 
-#import "BaseCell.h"
+#import "BaseTableViewCell.h"
 
-@implementation BaseCell
+@implementation BaseTableViewCell
 
 
 
@@ -25,7 +25,7 @@
     
     NSString *rid=NSStringFromClass(self);
     
-    BaseCell *cell=[tableView dequeueReusableCellWithIdentifier:rid];
+    BaseTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:rid];
     
     if(cell==nil){
         cell=[[[NSBundle mainBundle] loadNibNamed:rid owner:nil options:nil] firstObject];

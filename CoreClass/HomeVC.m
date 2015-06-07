@@ -33,13 +33,13 @@
     
     NSDictionary *params = @{@"location":@"Home"};
     
-    [MeauModel selectWithParams:params beginBlock:^(BOOL needHUD) {
+    [MeauModel selectWithParams:params userInfo:nil beginBlock:^(BOOL isNetWorkRequest,BOOL needHUD) {
         if(needHUD){
             NSLog(@"需要HUD");
         }else{
             NSLog(@"不需要HUD");
         }
-    } successBlock:^(NSArray *models, BaseModelDataSource source) {
+    } successBlock:^(NSArray *models, BaseModelDataSourceType source,NSDictionary *userInfo) {
 
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -52,7 +52,7 @@
         
         NSLog(@"请求成功");
         
-    } errorBlock:^(NSString *errorResult) {
+    } errorBlock:^(NSString *errorResult,NSDictionary *userInfo) {
         
         NSLog(@"请求出错");
     }];

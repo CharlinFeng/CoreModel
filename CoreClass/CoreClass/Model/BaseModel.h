@@ -32,7 +32,7 @@
 /** 读取 */
 /** 目前是不考虑上拉下拉刷新 */
 /** 不论是本地查询还是网络请求，均是延时操作，返回block均在子线程中 */
-+(void)selectWithParams:(NSDictionary *)params beginBlock:(void(^)(BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,BaseModelDataSource source))successBlock errorBlock:(void(^)(NSString *errorResult))errorBlock;
++(void)selectWithParams:(NSDictionary *)params userInfo:(NSDictionary *)userInfo beginBlock:(void(^)(BOOL isNetWorkRequest,BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,BaseModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock;
 
 
 

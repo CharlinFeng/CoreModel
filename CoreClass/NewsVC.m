@@ -57,11 +57,11 @@
     
     NSDictionary *params = @{[NewsModel baseModel_PageKey] : @(currentPage)};
     
-    [NewsModel selectWithParams:params beginBlock:nil successBlock:^(NSArray *models, BaseModelDataSource source) {
+    [NewsModel selectWithParams:params userInfo:nil beginBlock:nil successBlock:^(NSArray *models, BaseModelDataSourceType source,NSDictionary *userInfo) {
         
         NSLog(@"请求成功");
         
-    } errorBlock:^(NSString *errorResult) {
+    } errorBlock:^(NSString *errorResult,NSDictionary *userInfo) {
         
         NSLog(@"请求失败");
         

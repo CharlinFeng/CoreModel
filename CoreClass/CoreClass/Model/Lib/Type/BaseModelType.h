@@ -39,13 +39,19 @@ typedef enum{
 /** 模型数据来源 */
 typedef enum{
     
+    //默认值：无来源
+    BaseModelDataSourceTypeNone,
+    
     //本地数据库
-    BaseModelDataSourceSqlite=0,
+    BaseModelDataSourceTypeSqlite,
     
-    //服务器
-    BaseModelDataSourceHost
+    //服务器数据，且本地数据库无数据
+    BaseModelDataSourceHostType_Sqlite_Nil,
     
-}BaseModelDataSource;
+    //服务器数据，本地数据库有数据，但本地数据过期
+    BaseModelDataSourceHostType_Sqlite_Deprecated,
+    
+}BaseModelDataSourceType;
 
 
 

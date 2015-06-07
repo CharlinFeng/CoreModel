@@ -11,7 +11,7 @@
 #import "BaseCellProtocol.h"
 
 
-@interface BaseCell : UITableViewCell<BaseCellProtocol>
+@interface BaseTableViewCell : UITableViewCell<BaseCellProtocol>
 
 /** indexPath */
 @property (nonatomic,strong) NSIndexPath *indexPath;

@@ -39,7 +39,7 @@
 /** 读取 */
 /** 目前是不考虑上拉下拉刷新 */
 /** 不论是本地查询还是网络请求，均是延时操作，返回block均在子线程中 */
-+(void)selectWithParams:(NSDictionary *)params beginBlock:(void(^)(BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,BaseModelDataSource source))successBlock errorBlock:(void(^)(NSString *errorResult))errorBlock{
++(void)selectWithParams:(NSDictionary *)params userInfo:(NSDictionary *)userInfo beginBlock:(void(^)(BOOL isNetWorkRequest,BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,BaseModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock{
     
     //首页判断是否需要本地缓存
     BOOL needFMDB = [self baseModel_NeedFMDB];
@@ -49,7 +49,7 @@
         //开始
         dispatch_async(dispatch_get_main_queue(), ^{
             
-            if(beginBlock != nil) beginBlock(YES);
+            if(beginBlock != nil) beginBlock(YES,YES);
         });
         
         //请求URL
@@ -67,12 +67,12 @@
             [CoreHttp getUrl:url params:requestParams success:^(id obj) {
                 
                 //不做本地缓存的网络请求GET/POST成功统一处理
-                [self hostWithouSqliteRequestHandleData:obj successBlock:successBlock errorBlock:errorBlock];
+                [self hostWithouSqliteRequestHandleData:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock];
                 
             } errorBlock:^(CoreHttpErrorType errorType) {
                 
                 //错误处理
-                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG);
+                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
             }];
             
         }else{//POST请求
@@ -80,12 +80,12 @@
             [CoreHttp postUrl:url params:requestParams success:^(id obj) {
                 
                 //不做本地缓存的网络请求GET/POST成功统一处理
-                [self hostWithouSqliteRequestHandleData:obj successBlock:successBlock errorBlock:errorBlock];
+                [self hostWithouSqliteRequestHandleData:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock];
                 
             } errorBlock:^(CoreHttpErrorType errorType) {
                 
                 //错误处理
-                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG);
+                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
             }];
         }
         
@@ -107,12 +107,14 @@
         //处理where
         if(isPageEnable){//分页
             
-            //获取key
+            //获取PageKey
             NSString *pageKey = [self baseModel_PageKey];
+            //获取PageSizeKey
+            NSString *pagesizeKey = [self baseModel_PageSizeKey];
             
             //记录page
             page = [[params objectForKey:pageKey] integerValue];
-            
+            NSLog(@"这是第%@页面-----------",@(page));
             //获取pagesize
             NSUInteger pagesize = [self baseModel_PageSize];
             
@@ -120,6 +122,8 @@
             
             //移除page这个key
             [tempDictM removeObjectForKey:pageKey];
+            //移除pagesize这个key
+            [tempDictM removeObjectForKey:pagesizeKey];
             
             where = tempDictM.sqlWhere;
             
@@ -137,20 +141,19 @@
             where = params.sqlWhere;
         }
         
+        //开始回调：从数据库读取
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if(beginBlock != nil) beginBlock(NO,NO);
+        });
         
         //从数据库读取
         NSArray *model_sqlite_Array = [self selectWhere:where groupBy:nil orderBy:orderBy limit:limit];
+
+            
+        //直接执行成功回调
+        if(successBlock != nil) successBlock(model_sqlite_Array,BaseModelDataSourceTypeSqlite,userInfo);
         
-        if(model_sqlite_Array==nil || model_sqlite_Array.count == 0){//说明本地没有数据
-          
-            //直接执行成功回调
-            if(successBlock != nil) successBlock(nil,BaseModelDataSourceSqlite);
-            
-        }else{//本地有数据
-            
-            //直接执行成功回调
-            if(successBlock != nil) successBlock(model_sqlite_Array,BaseModelDataSourceSqlite);
-        }
         
         //看情况决定是否执行网络请求，以下两种情况不需要执行网络请求
         //1.不需要本地缓存：这个本身就不成立，因为此时正在处理需要缓存处理的情况
@@ -171,11 +174,7 @@
         
         BOOL needHUD = lastRequestTime <=0 || (lastRequestTime>0 && model_sqlite_Array.count == 0);
         
-        //开始
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            if(beginBlock != nil) beginBlock(needHUD);
-        });
+
         
         BOOL needHttpRequest = nowTime - lastRequestTime >= [self baseModel_Duration];
         
@@ -190,18 +189,24 @@
         //请求方式
         BaseModelHttpType httpType = [self baseModel_HttpType];
         
+        //开始回调：从数据库读取
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if(beginBlock != nil) beginBlock(YES,needHUD);
+        });
+        
         //开始请求
         if(BaseModelHttpTypeGET == httpType){//GET请求
             
             [CoreHttp getUrl:url params:requestParams success:^(id obj) {
                 
                 //需要本地数据库缓存的情况下统一处理GET/POST返回的数据
-                [self sqliteNeedHandleHttpDataObj:obj successBlock:successBlock errorBlock:errorBlock model_sqlite_Array:model_sqlite_Array nowTime:nowTime archiverTimeKey:archiverTimeKey];
+                [self sqliteNeedHandleHttpDataObj:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock model_sqlite_Array:model_sqlite_Array nowTime:nowTime archiverTimeKey:archiverTimeKey];
                 
             } errorBlock:^(CoreHttpErrorType errorType) {
                 
                 //错误处理
-                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG);
+                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
             }];
             
         }else{//POST请求
@@ -209,12 +214,12 @@
             [CoreHttp postUrl:url params:requestParams success:^(id obj) {
                 
                 //需要本地数据库缓存的情况下统一处理GET/POST返回的数据
-                [self sqliteNeedHandleHttpDataObj:obj successBlock:successBlock errorBlock:errorBlock model_sqlite_Array:model_sqlite_Array nowTime:nowTime archiverTimeKey:archiverTimeKey];
+                [self sqliteNeedHandleHttpDataObj:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock model_sqlite_Array:model_sqlite_Array nowTime:nowTime archiverTimeKey:archiverTimeKey];
                 
             } errorBlock:^(CoreHttpErrorType errorType) {
                 
                 //错误处理
-                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG);
+                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
             }];
         }
     }
@@ -229,12 +234,12 @@
 
 
 /** 需要本地数据库缓存的情况下统一处理GET/POST返回的数据 */
-+(void)sqliteNeedHandleHttpDataObj:(id)obj successBlock:(void(^)(id modelData,BaseModelDataSource source))successBlock errorBlock:(void(^)(NSString *errorResult))errorBlock model_sqlite_Array:(NSArray *)model_sqlite_Array nowTime:(NSTimeInterval)nowTime archiverTimeKey:(NSString *)archiverTimeKey{
++(void)sqliteNeedHandleHttpDataObj:(id)obj userInfo:(NSDictionary *)userInfo successBlock:(void(^)(id modelData,BaseModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock model_sqlite_Array:(NSArray *)model_sqlite_Array nowTime:(NSTimeInterval)nowTime archiverTimeKey:(NSString *)archiverTimeKey{
     
     //错误数据解析
     NSString *errorResult = [self baseModel_parseErrorData:obj];
     
-    if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult); return;}
+    if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult,userInfo); return;}
     
     //服务器返回数据GET/POST统一处理(已经经过所有错误处理)
     id modelData = [self hostDataHandle:obj];
@@ -242,13 +247,22 @@
     //服务器返回数据，我们需要和刚刚的数据库数据进行对比
     //网络数据和服务器数据对比
     BOOL isTheSame = [self contrastWithHostModelData:modelData sqliteModelData:model_sqlite_Array];
+
     
     //相同即返回
     if(isTheSame) return;
     NSLog(@"写入数据库");
     //不相同
     //执行回调
-    if(successBlock !=nil ) successBlock(modelData,BaseModelDataSourceHost);
+    
+    BaseModelDataSourceType sourceType = BaseModelDataSourceHostType_Sqlite_Deprecated;
+    
+    if(model_sqlite_Array == nil || model_sqlite_Array.count ==0){ // 本地无数据，服务器请求有数据
+        sourceType = BaseModelDataSourceHostType_Sqlite_Nil;
+    }
+    
+    
+    if(successBlock !=nil ) successBlock(modelData,sourceType,userInfo);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         //存入数据库
@@ -257,23 +271,22 @@
     
     //保存时间
     [CoreArchive setDouble:nowTime key:archiverTimeKey];
-
 }
 
 
 /** 不做本地缓存的网络请求GET/POST成功统一处理 */
-+(void)hostWithouSqliteRequestHandleData:(id)obj successBlock:(void(^)(id modelData,BaseModelDataSource source))successBlock errorBlock:(void(^)(NSString *errorResult))errorBlock{
++(void)hostWithouSqliteRequestHandleData:(id)obj userInfo:(NSDictionary *)userInfo successBlock:(void(^)(id modelData,BaseModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock{
     
     //错误数据解析
     NSString *errorResult = [self baseModel_parseErrorData:obj];
     
-    if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult); return;}
+    if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult,userInfo); return;}
     
     //服务器返回数据GET/POST统一处理(已经经过所有错误处理)
     id modelData = [self hostDataHandle:obj];
     
     //成功回调
-    if(successBlock !=nil ) successBlock(modelData,BaseModelDataSourceHost);
+    if(successBlock !=nil ) successBlock(modelData,BaseModelDataSourceHostType_Sqlite_Nil,userInfo);
 }
 
 

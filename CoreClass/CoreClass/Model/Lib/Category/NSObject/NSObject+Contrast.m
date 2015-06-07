@@ -25,8 +25,21 @@
  *  @return 对比结果
  */
 +(BOOL)contrastModel1:(BaseModel *)model1 model2:(BaseModel *)model2{
+  
+    Class BaseModelClass = [BaseModel class];
+   
+    //经过实践证明，如果是BaseModel本尊子类，对比会导致崩溃
+    BOOL isMember1 = [NSStringFromClass(model1.class) isEqualToString:NSStringFromClass(BaseModelClass)];
     
-    if(![model1 isKindOfClass:self] || ![model2 isKindOfClass:self]){
+    BOOL isMember2 = [NSStringFromClass(model1.class) isEqualToString:NSStringFromClass(BaseModelClass)];
+    
+    if(!isMember1 || !isMember2) return YES;
+    
+    BOOL res1= [model1.class isSubclassOfClass:BaseModelClass];
+    
+    BOOL res2= [model2.class isSubclassOfClass:BaseModelClass];
+    
+    if(!res1 || !res2){
         
         NSLog(@"错误：请传入标准的BaseModel模型或其子类，您当前传入的模型为：%@，%@",NSStringFromClass(model1.class),NSStringFromClass(model2.class));
         return NO;
