@@ -80,6 +80,7 @@
 		8965A6A11B11AB5C0067043C /* UITableViewCell+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A68B1B11AB5C0067043C /* UITableViewCell+Extend.m */; };
 		8965A6A21B11AB5C0067043C /* UIView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A68E1B11AB5C0067043C /* UIView+Extend.m */; };
 		8965A6A31B11AB5C0067043C /* UIWindow+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A6911B11AB5C0067043C /* UIWindow+Launch.m */; };
+		896959DF1B280A660047DBFB /* BaseGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 896959DE1B280A660047DBFB /* BaseGradientView.m */; };
 		89B9E8E71B21407F001C054A /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9E8E51B21407F001C054A /* NewsVC.m */; };
 		89B9E8E81B21407F001C054A /* NewsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B9E8E61B21407F001C054A /* NewsVC.xib */; };
 		89B9E8EB1B2140A0001C054A /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B9E8EA1B2140A0001C054A /* NewsModel.m */; };
@@ -253,6 +254,8 @@
 		8965A68E1B11AB5C0067043C /* UIView+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extend.m"; sourceTree = "<group>"; };
 		8965A6901B11AB5C0067043C /* UIWindow+Launch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Launch.h"; sourceTree = "<group>"; };
 		8965A6911B11AB5C0067043C /* UIWindow+Launch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Launch.m"; sourceTree = "<group>"; };
+		896959DD1B280A660047DBFB /* BaseGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGradientView.h; sourceTree = "<group>"; };
+		896959DE1B280A660047DBFB /* BaseGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGradientView.m; sourceTree = "<group>"; };
 		89B9E8E41B21407F001C054A /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
 		89B9E8E51B21407F001C054A /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
 		89B9E8E61B21407F001C054A /* NewsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsVC.xib; sourceTree = "<group>"; };
@@ -678,6 +681,7 @@
 		8955C1F01B24291800135D55 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				896959DC1B280A660047DBFB /* BaseGradientView */,
 				8955C1F11B24291800135D55 /* CollectionViewCell */,
 				8955C1F41B24291800135D55 /* TableViewCell */,
 				8955C1F81B24291800135D55 /* TextField */,
@@ -882,6 +886,15 @@
 				8965A6911B11AB5C0067043C /* UIWindow+Launch.m */,
 			);
 			path = UIWindow;
+			sourceTree = "<group>";
+		};
+		896959DC1B280A660047DBFB /* BaseGradientView */ = {
+			isa = PBXGroup;
+			children = (
+				896959DD1B280A660047DBFB /* BaseGradientView.h */,
+				896959DE1B280A660047DBFB /* BaseGradientView.m */,
+			);
+			path = BaseGradientView;
 			sourceTree = "<group>";
 		};
 		89B9E8DD1B213FC0001C054A /* News */ = {
@@ -1136,6 +1149,7 @@
 				8906EDD71B17140D005C668F /* MJProperty.m in Sources */,
 				8965A6A01B11AB5C0067043C /* UIImage+Water.m in Sources */,
 				8965A6941B11AB5C0067043C /* NSArray+Extend.m in Sources */,
+				896959DF1B280A660047DBFB /* BaseGradientView.m in Sources */,
 				8906EDC21B170C6F005C668F /* MeauModel.m in Sources */,
 				891E0F871B16C1A600B20093 /* NSString+CoreHttp.m in Sources */,
 				8955C20A1B24291800135D55 /* NSObject+Delete.m in Sources */,
