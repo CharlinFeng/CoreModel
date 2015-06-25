@@ -27,7 +27,7 @@
     
     textView.placeholder = @"请输入您的意见...";
     
-    textView.font = [UIFont systemFontOfSize:18];
+    textView.font = [UIFont systemFontOfSize:60];
     textView.layer.borderWidth = 1;
     
     [self.view addSubview:textView];
