@@ -11,6 +11,7 @@
 #import "MeauModel.h"
 #import "MJProperty.h"
 #import "NewsVC.h"
+#import "BaseTextView.h"
 
 
 @interface ViewController ()
@@ -21,20 +22,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [MeauModel enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
-        NSLog(@"%@",property.name);
-    }];
 
+    BaseTextView *textView = [[BaseTextView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
     
+    textView.placeholder = @"请输入您的意见...";
+    
+    textView.font = [UIFont systemFontOfSize:18];
+    textView.layer.borderWidth = 1;
+    
+    [self.view addSubview:textView];
+
 }
 
 
 - (IBAction)pageVC:(id)sender {
     
-    NewsVC *newsVC = [[NewsVC alloc] init];
-    
-    [self.navigationController pushViewController:newsVC animated:YES];
 }
 
 
