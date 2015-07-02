@@ -112,10 +112,10 @@ Charlin Feng开源： OPEN SOURCE
 
 关于Swift：ABOUT SWIFT
 ===============
-此框架已经为swift做了大量兼容，不可可惜的是runtime机制以及oc的很多特性在swift中做了变更，简单说就是MJExtension在
+此框架已经为swift做了大量兼容，不过可惜的是runtime机制以及oc的很多特性在swift中做了变更，简单说就是MJExtension在
 swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<br />
 >.MJ：不建议在Swift中使用MJExtension了哈，MJRefresh还可以用，因为Swift和OC中有些函数的用法完全不一样。我尽快推出Swift版本的MJExtension.<br />
->.Swift对NSClassFromString的支持跟OC不一致导致的。。。看来要写个Swift版本的MJExtension了.<br />
+>.MJ：Swift对NSClassFromString的支持跟OC不一致导致的。。。看来要写个Swift版本的MJExtension了.<br />
 
 #####不过不要担心，我目前项目是swift项目，需要使用MJExtension以及CoreModel还是可以的，只要让框架活在oc的世界就行了。
 <br /><br /><br />
