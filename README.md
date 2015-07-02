@@ -29,10 +29,10 @@ https://github.com/nsdictionary/CoreArchive
 https://github.com/nsdictionary/CoreClass
 
 第四季：CoreModel模型动态缓存、列表模型动态缓存。<br />
-请加群归队，获取最新信息（群信息在下面）！！！请支持第三季！
+暂未开源！请加群归队，获取最新信息（群信息在下面）！！！请支持第三季！
 
 第五季：动态缓存list终结者。<br />
-请加群归队，获取最新信息（群信息在下面）！！！请支持第三季！
+暂未开源！请加群归队，获取最新信息（群信息在下面）！！！请支持第三季！
 
 <br /><br /><br />
 本框架是隶属于MJExtension续作，我给这系列框架取了一个整体上的名字叫做：CoreModel。
