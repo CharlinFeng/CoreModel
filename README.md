@@ -10,7 +10,7 @@
 
 
 
-框架截图 CUT
+框架截图 ，你真的要先认真看看文档 CUT
 ===============
 ![image](./CoreClass/show.gif)<br />
 
