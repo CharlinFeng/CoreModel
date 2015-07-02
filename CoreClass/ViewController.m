@@ -12,7 +12,7 @@
 #import "MJProperty.h"
 #import "MJType.h"
 #import "User.h"
-
+#import "FBShimmeringView.h"
 
 @interface ViewController ()
 
@@ -23,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    //纯展示，非框架
+    [self show];
     
     //测试用户模型
     [self studentTest];
@@ -74,7 +75,23 @@
 
 
 
-
+-(void)show{
+    
+    CGFloat wh = 136;
+    
+    CGFloat x = (320 - wh) * .5f;
+    CGFloat y =100;
+    
+    FBShimmeringView *sv = [[FBShimmeringView alloc] initWithFrame:CGRectMake(x, y, wh, wh)];
+    
+    UIImageView *imageV = [[UIImageView alloc] initWithFrame:sv.bounds];
+    imageV.image = [UIImage imageNamed:@"mj"];
+    sv.contentView = imageV;
+    sv.shimmering = YES;
+    [self.view addSubview:sv];
+    
+    
+}
 
 
 @end

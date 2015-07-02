@@ -81,6 +81,8 @@
 		89CB4FEE1B44EA2500B9C214 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FE61B44EA2500B9C214 /* NSString+MJExtension.m */; };
 		89CB4FF11B44EAB700B9C214 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FF01B44EAB700B9C214 /* Pen.m */; };
 		89CB51351B451A2B00B9C214 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB51341B451A2B00B9C214 /* User.m */; };
+		89CB513D1B453CE300B9C214 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB513A1B453CE300B9C214 /* FBShimmeringLayer.m */; };
+		89CB513E1B453CE300B9C214 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB513C1B453CE300B9C214 /* FBShimmeringView.m */; };
 		EE58390D1AB98EDD00516AC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390C1AB98EDD00516AC1 /* main.m */; };
 		EE5839101AB98EDD00516AC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390F1AB98EDD00516AC1 /* AppDelegate.m */; };
 		EE5839131AB98EDD00516AC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839121AB98EDD00516AC1 /* ViewController.m */; };
@@ -253,6 +255,12 @@
 		89CB4FF01B44EAB700B9C214 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
 		89CB51331B451A2B00B9C214 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		89CB51341B451A2B00B9C214 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		89CB51371B453CE300B9C214 /* FBShimmering-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBShimmering-Prefix.pch"; sourceTree = "<group>"; };
+		89CB51381B453CE300B9C214 /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
+		89CB51391B453CE300B9C214 /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
+		89CB513A1B453CE300B9C214 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
+		89CB513B1B453CE300B9C214 /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
+		89CB513C1B453CE300B9C214 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
 		EE5839071AB98EDD00516AC1 /* CoreClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58390B1AB98EDD00516AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE58390C1AB98EDD00516AC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -614,6 +622,7 @@
 		8965A6581B11AA3C0067043C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89CB51361B453CE300B9C214 /* FBShimmering */,
 				89CB4FD51B44EA2500B9C214 /* MJExtension */,
 				891E0FA51B16E1A900B20093 /* CoreArchive */,
 				891E0F751B16C1A600B20093 /* CoreHttp */,
@@ -824,6 +833,19 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
+		89CB51361B453CE300B9C214 /* FBShimmering */ = {
+			isa = PBXGroup;
+			children = (
+				89CB51371B453CE300B9C214 /* FBShimmering-Prefix.pch */,
+				89CB51381B453CE300B9C214 /* FBShimmering.h */,
+				89CB51391B453CE300B9C214 /* FBShimmeringLayer.h */,
+				89CB513A1B453CE300B9C214 /* FBShimmeringLayer.m */,
+				89CB513B1B453CE300B9C214 /* FBShimmeringView.h */,
+				89CB513C1B453CE300B9C214 /* FBShimmeringView.m */,
+			);
+			path = FBShimmering;
+			sourceTree = "<group>";
+		};
 		EE5838FE1AB98EDD00516AC1 = {
 			isa = PBXGroup;
 			children = (
@@ -1027,6 +1049,7 @@
 				8955C20F1B24291800135D55 /* NSString+Stackoverflow.m in Sources */,
 				89CB4FED1B44EA2500B9C214 /* NSObject+MJProperty.m in Sources */,
 				8955C2101B24291800135D55 /* BaseCollectionViewCell.m in Sources */,
+				89CB513D1B453CE300B9C214 /* FBShimmeringLayer.m in Sources */,
 				89CB4FD41B44E80E00B9C214 /* Student.m in Sources */,
 				EE5839101AB98EDD00516AC1 /* AppDelegate.m in Sources */,
 				8965A69C1B11AB5C0067043C /* UIImage+Color.m in Sources */,
@@ -1042,6 +1065,7 @@
 				8965A6941B11AB5C0067043C /* NSArray+Extend.m in Sources */,
 				896959DF1B280A660047DBFB /* BaseGradientView.m in Sources */,
 				89CB4FEA1B44EA2500B9C214 /* MJType.m in Sources */,
+				89CB513E1B453CE300B9C214 /* FBShimmeringView.m in Sources */,
 				891E0F871B16C1A600B20093 /* NSString+CoreHttp.m in Sources */,
 				8955C20A1B24291800135D55 /* NSObject+Delete.m in Sources */,
 				8965A69E1B11AB5C0067043C /* UIImage+Extend.m in Sources */,
