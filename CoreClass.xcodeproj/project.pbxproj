@@ -83,6 +83,7 @@
 		89CB51351B451A2B00B9C214 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB51341B451A2B00B9C214 /* User.m */; };
 		89CB513D1B453CE300B9C214 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB513A1B453CE300B9C214 /* FBShimmeringLayer.m */; };
 		89CB513E1B453CE300B9C214 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB513C1B453CE300B9C214 /* FBShimmeringView.m */; };
+		89CB51401B45447000B9C214 /* show.gif in Resources */ = {isa = PBXBuildFile; fileRef = 89CB513F1B45447000B9C214 /* show.gif */; };
 		EE58390D1AB98EDD00516AC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390C1AB98EDD00516AC1 /* main.m */; };
 		EE5839101AB98EDD00516AC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390F1AB98EDD00516AC1 /* AppDelegate.m */; };
 		EE5839131AB98EDD00516AC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839121AB98EDD00516AC1 /* ViewController.m */; };
@@ -261,6 +262,7 @@
 		89CB513A1B453CE300B9C214 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
 		89CB513B1B453CE300B9C214 /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
 		89CB513C1B453CE300B9C214 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
+		89CB513F1B45447000B9C214 /* show.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = show.gif; sourceTree = "<group>"; };
 		EE5839071AB98EDD00516AC1 /* CoreClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58390B1AB98EDD00516AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE58390C1AB98EDD00516AC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -880,6 +882,7 @@
 		EE58390A1AB98EDD00516AC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89CB513F1B45447000B9C214 /* show.gif */,
 				891E01AF1B16BC0400FDF43F /* libsqlite3.0.dylib */,
 				EE58390B1AB98EDD00516AC1 /* Info.plist */,
 				EE58390C1AB98EDD00516AC1 /* main.m */,
@@ -989,6 +992,7 @@
 				8955C2011B24291800135D55 /* ToolNetWorkView.xib in Resources */,
 				EE5839161AB98EDD00516AC1 /* Main.storyboard in Resources */,
 				EE58391B1AB98EDD00516AC1 /* LaunchScreen.xib in Resources */,
+				89CB51401B45447000B9C214 /* show.gif in Resources */,
 				EE5839181AB98EDD00516AC1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
