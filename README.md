@@ -38,6 +38,7 @@ CoreArchive是系列第二季，共有5季，连载中，允加群关注最新�
 <br /><br /><br />
 开源说明：（必看！！！！） YOU MUST SEE IT
 ===============
+请支持开源，勿辜负开源精神！！！
 此原创框架系列（共有5季）算是是本人几年的精华所在，现在免费开源给大家，目前承诺给大家开源到了第三季。
 后续还有两季：<br />
 >.CoreModel模型动态缓存<br />
@@ -448,12 +449,250 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 
 
 
-#### 6.一键CURD之数据操作：
+#### 6.一键CURD之数据批量操作：批量插入
+
+        //一键CURD：批量插入
+         BOOL res = [User inserts:@[user1,user2]];
+
+#### 7.一键CURD之数据批量操作：批量保存
+
+        //一键CURD：批量插入
+        BOOL res = [User saveModels:@[user1,user2]];
+
+#### 8.一键CURD之数据批量操作：模糊保存
+如果你要保存模型，但不确定这是单个模型还是一个模型数组，可模糊保存
+
+        //一键CURD：模糊保存
+        BOOL res = [User saveDirect:@[user1,user2]];
 
 
 
 
+级联操作
+===============
 
+所有操作都是全自动的，你将不会再看到一条sql。如果你不会sql，那本框架将是您的福音！
+
+上面其实都是小菜，下面才是重点！！！！
+
+级联操作：正如MJExtension所做的，如果一个模型有一个成员变量是另外一个模型，那是多麻烦的事情啊！放心，本框架也已经做了这个处理啦！
+
+为了更好的演示这个情况，我们不用刚刚的User模型，重新来建立两个新的模型：Student（学生）模型、Pen（钢笔）模型且一个学生有一支钢笔。
+
+先来看看类结构吧！
+
+Student类：
+
+        //  Created by 冯成林 on 15/7/2.
+        //  Copyright (c) 2015年 muxi. All rights reserved.
+        //
+        #import <Foundation/Foundation.h>
+        #import "BaseModel.h"
+        #import "Pen.h"
+        
+        typedef enum{
+            
+            StudentTypeGood=0,
+            
+            StudentTypeBad
+            
+        }StudentType;
+        
+        
+        @interface Student : BaseModel
+        
+        @property (nonatomic,copy) NSString *name;
+        
+        @property (nonatomic,assign) NSInteger childNum;
+        
+        @property (nonatomic,assign) float height;
+        
+        @property (nonatomic,assign) double earn;
+        
+        @property (nonatomic,assign) BOOL isMan;
+        
+        @property (nonatomic,assign) StudentType type;
+        
+        @property (nonatomic,assign) NSUInteger age;
+        
+        @property (nonatomic,strong) Pen *pen;
+        
+        @property (nonatomic,assign) int count;
+        
+        @property (nonatomic,assign) CGFloat money;
+        
+        @end
+
+
+钢笔类：
+
+        //  Created by 冯成林 on 15/7/2.
+        //  Copyright (c) 2015年 muxi. All rights reserved.
+        //
+        
+        #import "BaseModel.h"
+        #import <UIKit/UIKit.h>
+        
+        
+        
+        @interface Pen : BaseModel
+        
+        @property (nonatomic,copy) NSString *brandName;
+        
+        @property (nonatomic,assign) NSUInteger usageYear;
+        
+        @property (nonatomic,assign) CGFloat price;
+        
+        @end
+
+
+建立好了模型，我们先来初始化使用一下吧：
+
+    Pen *pen = [[Pen alloc] init];
+    Student *stu = [[Student alloc] init];
+    stu.pen =pen;
+
+还是和刚刚一样，什么都没做，我们直接运行一下吧，看看会怎么样？？？
+运行成功，查看控制台输出：
+
+    2015-07-02 16:56:47.141 CoreClass[5736:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/985C6FAD-E454-4581-B312-07F998EBC490/Documents/CoreClass/CoreClass.sql
+    2015-07-02 16:56:47.144 CoreClass[5736:607] 表创建完毕<NSThread: 0x79726820>{name = (null), num = 1}
+    2015-07-02 16:56:47.145 CoreClass[5736:607] 字段也检查完毕<NSThread: 0x79726820>{name = (null), num = 1}
+    2015-07-02 16:56:47.147 CoreClass[5736:607] 表创建完毕<NSThread: 0x79726820>{name = (null), num = 1}
+    2015-07-02 16:56:47.147 CoreClass[5736:607] 字段也检查完毕<NSThread: 0x79726820>{name = (null), num = 1}
+
+好像好了？不可能吧，看看数据库里面都有什么了?
+
+    sqlite> select name from sqlite_master where type="table";
+    +-----------------+
+    | name            |
+    +-----------------+
+    | Pen             |
+    | sqlite_sequence |
+    | Student         |
+    +-----------------+
+    3 rows in set (0.01 sec)
+    
+我们看到，表已经创建好了，而且是级联哦。
+
+分别来看看各自的表结构是否正确？
+    
+Student表：
+
+    sqlite> PRAGMA table_info (Student);
+    +------+----------+---------+---------+------------+------+
+    | cid  | name     | type    | notnull | dflt_value | pk   |
+    +------+----------+---------+---------+------------+------+
+    | 0    | id       | INTEGER | 1       | 0          | 1    |
+    | 1    | name     | TEXT    | 1       | ''         | 0    |
+    | 2    | childNum | INTEGER | 1       | 0          | 0    |
+    | 3    | height   | REAL    | 1       | 0.0        | 0    |
+    | 4    | earn     | REAL    | 1       | 0.0        | 0    |
+    | 5    | isMan    | INTEGER | 1       | 0          | 0    |
+    | 6    | type     | INTEGER | 1       | 0          | 0    |
+    | 7    | age      | INTEGER | 1       | 0          | 0    |
+    | 8    | count    | INTEGER | 1       | 0          | 0    |
+    | 9    | money    | REAL    | 1       | 0.0        | 0    |
+    | 10   | hostID   | INTEGER | 1       | 0          | 0    |
+    | 11   | pModel   | TEXT    | 1       | ''         | 0    |
+    | 12   | pid      | INTEGER | 1       | 0          | 0    |
+    +------+----------+---------+---------+------------+------+
+    13 rows in set (0.08 sec)
+
+正确！再看看Pen表
+
+    sqlite> 
+        PRAGMA table_info (Pen);
+        +------+-----------+---------+---------+------------+------+
+        | cid  | name      | type    | notnull | dflt_value | pk   |
+        +------+-----------+---------+---------+------------+------+
+        | 0    | id        | INTEGER | 1       | 0          | 1    |
+        | 1    | brandName | TEXT    | 1       | ''         | 0    |
+        | 2    | usageYear | INTEGER | 1       | 0          | 0    |
+        | 3    | price     | REAL    | 1       | 0.0        | 0    |
+        | 4    | hostID    | INTEGER | 1       | 0          | 0    |
+        | 5    | pModel    | TEXT    | 1       | ''         | 0    |
+        | 6    | pid       | INTEGER | 1       | 0          | 0    |
+        +------+-----------+---------+---------+------------+------+
+        7 rows in set (0.01 sec)
+
+    yes,完成正确！！！！
+    
+迫不及待级联插入数据看看了！！！
+首页，我们来创建两个有数据对象，然后执行数据插入吧！！！切记要传hostID!!!
+
+
+自定义数据如下：
+
+开始：级联插入：
+
+        Pen *pen = [[Pen alloc] init];
+        pen.hostID=1;
+        pen.price = 10;
+        pen.usageYear = 3;
+        pen.brandName = @"国产好铅笔";
+        
+        Student *stu = [[Student alloc] init];
+        stu.hostID=1;
+        stu.name = @"冯成林";
+        stu.pen = pen;
+        stu.money = 8866;
+        
+        //级联插入
+        [Student insert:stu];
+    
+
+查看控制台输出：
+
+        
+        2015-07-02 17:09:20.554 CoreClass[5775:607] 表创建完毕<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.555 CoreClass[5775:607] 字段也检查完毕<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.556 CoreClass[5775:607] 表创建完毕<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.556 CoreClass[5775:607] 字段也检查完毕<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.557 CoreClass[5775:607] 数据插入开始<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.557 CoreClass[5775:607] 查询开始：<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.558 CoreClass[5775:607] 查询完成：<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.558 CoreClass[5775:607] 数据插入开始<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.559 CoreClass[5775:607] 查询开始：<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:20.559 CoreClass[5775:607] 查询完成：<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:21.113 CoreClass[5775:607] 数据插入结束<NSThread: 0x7b77e740>{name = (null), num = 1}
+        2015-07-02 17:09:21.115 CoreClass[5775:607] 数据插入结束<NSThread: 0x7b77e740>{name = (null), num = 1}
+
+
+迫不及待的打开数据库，查看Student表：
+
+    sqlite> select * from  Student;
+    +----+-----------+----------+--------+------+-------+------+-----+-------+--------+--------+--------+-----+
+    | id | name      | childNum | height | earn | isMan | type | age | count | money  | hostID | pModel | pid |
+    +----+-----------+----------+--------+------+-------+------+-----+-------+--------+--------+--------+-----+
+    | 1  | 冯成林 | 0        | 0.0    | 0.0  | 0     | 0    | 0   | 0     | 8866.0 | 1      |        | 0   |
+    +----+-----------+----------+--------+------+-------+------+-----+-------+--------+--------+--------+-----+
+    1 rows in set (0.02 sec)
+
+
+YES,成功！！！！ 那个Pen表对应真的自动级联了吗？看看Pen表！！！！马上！！！
+
+    sqlite> select * from Pen;
+    +----+-----------------+-----------+-------+--------+---------+-----+
+    | id | brandName       | usageYear | price | hostID | pModel  | pid |
+    +----+-----------------+-----------+-------+--------+---------+-----+
+    | 1  | 国产好铅笔 | 3         | 10.0  | 1      | Student | 1   |
+    +----+-----------------+-----------+-------+--------+---------+-----+
+    1 rows in set (0.02 sec)
+
+celebrate！！！！欢呼！！！！成功！！！！
+
+
+到此，一切都安静了！！！
+
+
+结束语： OVER
+===============
+到了这里，一键ORM第三季暂时告一段落了！！！但是远远还没有结束！！！
+BaseModel里面还有非常多的强大特性还没有介绍！ 如果你支持我！请支持CoreClass,让更多的人看到，用到。
+我和您一样期待分享CoreModel第四季！！！！！！
+
+谢谢！再见！！
 
 
 
