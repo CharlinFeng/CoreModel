@@ -172,8 +172,6 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
         [self userTest];
     
         }
-    
-    
         /** 测试用户模型 */
         -(void)userTest{
             
@@ -181,8 +179,9 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
             User *user = [[User alloc] init];
         }
 
+
 好了，现在请查看控制台有以下输出：
-                2015-07-02 15:15:51.153 CoreClass[4727:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/1DD11CA9-E785-4C5D-88D2-3E0E1648462C/Documents/CoreClass/CoreClass.sql
+      2015-07-02 15:15:51.153 CoreClass[4727:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/1DD11CA9-E785-4C5D-88D2-3E0E1648462C/Documents/CoreClass/CoreClass.sql
         2015-07-02 15:15:51.235 CoreClass[4727:607] 表创建完毕<NSThread: 0x7b72f3e0>{name = (null), num = 1}
         2015-07-02 15:15:51.235 CoreClass[4727:607] 字段也检查完毕<NSThread: 0x7b72f3e0>{name = (null), num = 1}
 
@@ -201,6 +200,18 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
         +------+--------------+---------+---------+------------+------+
 已经神奇的为您创建了表，而且你输入的字段已经全部在表里面了！是不是很方便？
 
+sqlite> PRAGMA table_info (User);
++------+--------------+---------+---------+------------+------+
+| cid  | name         | type    | notnull | dflt_value | pk   |
++------+--------------+---------+---------+------------+------+
+| 0    | id           | INTEGER | 1       | 0          | 1    |
+| 1    | userName     | TEXT    | 1       | ''         | 0    |
+| 2    | level        | INTEGER | 1       | 0          | 0    |
+| 3    | accountMoney | REAL    | 1       | 0.0        | 0    |
+| 4    | hostID       | INTEGER | 1       | 0          | 0    |
+| 5    | pModel       | TEXT    | 1       | ''         | 0    |
+| 6    | pid          | INTEGER | 1       | 0          | 0    |
++------+--------------+---------+---------+------------+------+
 
 
 
