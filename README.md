@@ -204,9 +204,107 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 已经神奇的为您创建了表，而且你输入的字段已经全部在表里面了！是不是很方便？
 
 
+#### 2.字段自增：
+
+下面来这个需求，当你表已经自动创建好，好开心！
+
+产品狗突然说：“不好意思，我们要加个vip的字段！！！”
+
+你：“。。。。。。。，什么？？？？fuck！！！。。。”
+
+之前我在华西做一款应用叫爱哟的时候，就发生了上面这真实的一幕！！！好吧，哥受够产品狗了，我已经考虑了这个情况，先在你的模型里面添加一个字段吧，添加完后是这个样子的：
+
+    注：请注意最后一个新加的字段：isVip
+        
+        #import "BaseModel.h"
+        #import <UIKit/UIKit.h>
+        
+        @interface User : BaseModel
+        
+        /** 用户名 */
+        @property (nonatomic,copy) NSString *userName;
+        
+        /** 级别 */
+        @property (nonatomic,assign) NSUInteger level;
+        
+        /** 账户余额 */
+        @property (nonatomic,assign) CGFloat accountMoney;
+        
+        /** 是否是vip：产品狗新加 */
+        @property (nonatomic,assign) BOOL isVip;
+        
+        
+        @end
 
 
+我们就加了一个字段而已，二话不说，再运行一下项目，看看是不是有奇迹？？？？
 
+请注意查看控制台输入：
+
+        2015-07-02 15:35:26.348 CoreClass[4803:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/1DD11CA9-E785-4C5D-88D2-3E0E1648462C/Documents/CoreClass/CoreClass.sql
+        2015-07-02 15:35:26.350 CoreClass[4803:607] 表创建完毕<NSThread: 0x7a034340>{name = (null), num = 1}
+        2015-07-02 15:35:26.351 CoreClass[4803:607] 字段也检查完毕<NSThread: 0x7a034340>{name = (null), num = 1}
+        2015-07-02 15:35:26.353 CoreClass[4803:607] 注意：模型 User 有新增加的字段 isVip,已经实时添加到数据库中！
+
+
+再次打开navicat，或者终端查看表结构：
+
+请注意最后一个字段：isVip：
+
+    sqlite> PRAGMA table_info (User);
+    +------+--------------+---------+---------+------------+------+
+    | cid  | name         | type    | notnull | dflt_value | pk   |
+    +------+--------------+---------+---------+------------+------+
+    | 0    | id           | INTEGER | 1       | 0          | 1    |
+    | 1    | userName     | TEXT    | 1       | ''         | 0    |
+    | 2    | level        | INTEGER | 1       | 0          | 0    |
+    | 3    | accountMoney | REAL    | 1       | 0.0        | 0    |
+    | 4    | hostID       | INTEGER | 1       | 0          | 0    |
+    | 5    | pModel       | TEXT    | 1       | ''         | 0    |
+    | 6    | pid          | INTEGER | 1       | 0          | 0    |
+    | 7    | isVip        | INTEGER | 1       | 0          | 0    |
+    +------+--------------+---------+---------+------------+------+
+    8 rows in set (0.01 sec)
+
+是不是很轻松？你还什么都没动呢？另急，还有更强大的后面！！！！
+
+
+#### 3.一键CURD之保存：一键CURD请全部使用类方法完成！
+
+保存模型，请注意一定要有hostID，原因请查看前面的说明！！！！非常重要。
+
+        User *user = [[User alloc] init];
+        
+        //模拟服务器ID
+        user.hostID = 1;
+        user.userName = @"张三";
+        user.level = 99;
+        user.accountMoney = 1200.0f;
+        user.isVip = YES;
+        
+        //上面是模拟数据，真实使用是MJExtension解析服务器数据
+        
+        //一键CURD：保存
+        BOOL res = [User insert:user];
+        
+        if(res){
+            NSLog(@"保存成功");
+        }else{
+            NSLog(@"保存失败");
+        }
+    
+    此时，控制台有以下输出：
+    
+    
+    
+        2015-07-02 15:43:34.820 CoreClass[4850:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/1DD11CA9-E785-4C5D-88D2-3E0E1648462C/Documents/CoreClass/CoreClass.sql
+        2015-07-02 15:43:34.822 CoreClass[4850:607] 表创建完毕<NSThread: 0x79f59e50>{name = (null), num = 1}
+        2015-07-02 15:43:34.823 CoreClass[4850:607] 字段也检查完毕<NSThread: 0x79f59e50>{name = (null), num = 1}
+        2015-07-02 15:43:34.823 CoreClass[4850:607] 数据插入开始<NSThread: 0x79f59e50>{name = (null), num = 1}
+        2015-07-02 15:43:34.824 CoreClass[4850:607] 查询开始：<NSThread: 0x79f59e50>{name = (null), num = 1}
+        2015-07-02 15:43:34.824 CoreClass[4850:607] 查询完成：<NSThread: 0x79f59e50>{name = (null), num = 1}
+        2015-07-02 15:43:34.826 CoreClass[4850:607] 数据插入结束<NSThread: 0x79f59e50>{name = (null), num = 1}
+        2015-07-02 15:43:34.826 CoreClass[4850:607] 保存成功
 
 
 
