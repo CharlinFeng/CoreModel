@@ -8,6 +8,13 @@
 
 <br /><br />
 
+
+
+框架截图 CUT
+===============
+![image](./CoreClass/show.gif)<br />
+
+
 # CoreClass
     【CoreModel】MJExtension续作之三：一键ORM,全自动CURD，是时候抛弃Core Data了！！！
     
