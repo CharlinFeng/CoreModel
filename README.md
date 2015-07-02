@@ -708,3 +708,19 @@ BaseModel里面还有非常多的强大特性还没有介绍！ 如果你支持�
 <br /><br />
 
 
+致谢 THANKS
+===============
+#####1.感谢MJ    Thanks MJ!
+![image](https://github.com/nsdictionary/CoreFMDB/blob/master/CoreFMDB/3.png)<br />
+感谢杰哥！致敬MJExtension！希望大家支持杰哥的事业！ <br />
+
+小码哥IT教育：http://www.520it.com
+
+ <br /> <br />
+#####2.感谢小饭   Thanks XiaoFan!
+
+![image](https://github.com/nsdictionary/CoreFMDB/blob/master/CoreFMDB/4.png)<br />
+ 感谢小饭提供的英文翻译帮助，谢谢！
+<br /> <br /><br />
+
+
