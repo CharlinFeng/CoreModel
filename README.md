@@ -136,7 +136,7 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 
 ### 开始实战：
 开始之前，如果你发现了30个错误，请确定你导入了sqlite3的lib库文件：
-
+<br />
 #### 1.新建一个类User：注意请继承自BaseModel
 
     注：此类是一个基本类，成员属性含有各种数据类型，但不含有自定义对象  
@@ -203,7 +203,7 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 
 已经神奇的为您创建了表，而且你输入的字段已经全部在表里面了！是不是很方便？
 
-
+<br />
 #### 2.字段自增：
 
 下面来这个需求，当你表已经自动创建好，好开心！
@@ -293,18 +293,30 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
             NSLog(@"保存失败");
         }
     
-    此时，控制台有以下输出：
     
+此时，控制台有以下输出：
+
+    2015-07-02 15:43:34.822 CoreClass[4850:607] 表创建完毕<NSThread: 0x79f59e50>{name = (null), num = 1}
+    2015-07-02 15:43:34.823 CoreClass[4850:607] 字段也检查完毕<NSThread: 0x79f59e50>{name = (null), num = 1}
+    2015-07-02 15:43:34.823 CoreClass[4850:607] 数据插入开始<NSThread: 0x79f59e50>{name = (null), num = 1}
+    2015-07-02 15:43:34.824 CoreClass[4850:607] 查询开始：<NSThread: 0x79f59e50>{name = (null), num = 1}
+    2015-07-02 15:43:34.824 CoreClass[4850:607] 查询完成：<NSThread: 0x79f59e50>{name = (null), num = 1}
+    2015-07-02 15:43:34.826 CoreClass[4850:607] 数据插入结束<NSThread: 0x79f59e50>{name = (null), num = 1}
+    2015-07-02 15:43:34.826 CoreClass[4850:607] 保存成功
+
+一切保存已经完成啦，看看数据库里面有没有？
+
+        sqlite> select * from User;
+        +----+----------+-------+--------------+--------+--------+-----+-------+
+        | id | userName | level | accountMoney | hostID | pModel | pid | isVip |
+        +----+----------+-------+--------------+--------+--------+-----+-------+
+        | 1  | 张三   | 99    | 1200.0       | 1      |        | 0   | 1     |
+        +----+----------+-------+--------------+--------+--------+-----+-------+
+        1 rows in set (0.12 sec)
+
+
     
-    
-        2015-07-02 15:43:34.820 CoreClass[4850:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/1DD11CA9-E785-4C5D-88D2-3E0E1648462C/Documents/CoreClass/CoreClass.sql
-        2015-07-02 15:43:34.822 CoreClass[4850:607] 表创建完毕<NSThread: 0x79f59e50>{name = (null), num = 1}
-        2015-07-02 15:43:34.823 CoreClass[4850:607] 字段也检查完毕<NSThread: 0x79f59e50>{name = (null), num = 1}
-        2015-07-02 15:43:34.823 CoreClass[4850:607] 数据插入开始<NSThread: 0x79f59e50>{name = (null), num = 1}
-        2015-07-02 15:43:34.824 CoreClass[4850:607] 查询开始：<NSThread: 0x79f59e50>{name = (null), num = 1}
-        2015-07-02 15:43:34.824 CoreClass[4850:607] 查询完成：<NSThread: 0x79f59e50>{name = (null), num = 1}
-        2015-07-02 15:43:34.826 CoreClass[4850:607] 数据插入结束<NSThread: 0x79f59e50>{name = (null), num = 1}
-        2015-07-02 15:43:34.826 CoreClass[4850:607] 保存成功
+
 
 
 
