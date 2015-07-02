@@ -45,11 +45,11 @@ CoreArchive是系列第二季，共有5季，连载中，允加群关注最新�
 免费开源最后两季之前，我希望本框架能够得到大家足够的支持：<br />
 
 -----
-####本框架star数量在1000以上<br />
+####请帮助本框架star数量在1000以上<br />
 
 ----------
 
-希望大家支持我！！！！！！！！谢谢！！！！！
+star框架，是您支持我认可我的唯一方式，希望大家支持我！！！！！！！！谢谢！！！！！
 
 <br /><br /><br />
 
@@ -88,7 +88,7 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 .>MJ：不建议在Swift中使用MJExtension了哈，MJRefresh还可以用，因为Swift和OC中有些函数的用法完全不一样。我尽快推出Swift版本的MJExtension<br />
 .>Swift对NSClassFromString的支持跟OC不一致导致的。。。看来要写个Swift版本的MJExtension了<br />
 
-不过不要担心，我目前项目是swift项目，需要使用MJExtension以及CoreModel还是可以的，只要让框架活在oc的世界就行了。
+#####不过不要担心，我目前项目是swift项目，需要使用MJExtension以及CoreModel还是可以的，只要让框架活在oc的世界就行了。
 
 
 
