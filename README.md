@@ -6,13 +6,13 @@
 
     Charlin出框架的目标：简单、易用、实用、高度封装、绝对解耦！
 
-<br /><br /><br />
+<br /><br />
 
 # CoreClass
     【CoreModel】MJExtension续作之三：一键ORM,全自动CURD，是时候抛弃Core Data了！！！
     
 
-<br /><br /><br />
+<br /><br />
 
 
 
@@ -690,6 +690,9 @@ celebrate！！！！欢呼！！！！成功！！！！
 
 到此，一切都安静了！！！
 
+
+
+<br /><br /><br />
 
 结束语： OVER
 ===============
