@@ -7,10 +7,24 @@
     Charlin出框架的目标：简单、易用、实用、高度封装、绝对解耦！
 
 # CoreClass
-    Charlin私有框架！！
+    【CoreModel】MJExtension续作之三：一键ORM,一键CURD，是时候抛弃Core Data了！！！
 <br />
+<br />
+框架说明：（必看！）
+===============
+本作是CoreModel系列第三作，是整个系列真正核心价值所在，也是真正点题MJExtension续作的地方。其复杂度与框架深度绝不比MJExtension低。此框架能够让您完成一键ORM映射，并全自动CURD与多表级联。
 
-#### 框架依赖：<br />
+
+
+
+
+
+
+
+
+
+框架依赖：
+===============
 .CoreStatus<br />
 .MJExtension<br />
 .CoreCategory<br />
@@ -19,8 +33,8 @@
 .CoreFMDB<br />
 <br /><br />
 
-####框架特性：<br />
->1.Charin私有框架！<br />
+
+
 
 <br /><br />
 
