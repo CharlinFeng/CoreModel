@@ -79,18 +79,20 @@ Charlin Feng开源： OPEN SOURCE
 
 特别强调：（必看！） STRESS
 ===============
-一、特别强调：本框架作为MJExtension的续作，重点在于处理网络服务器数据的本地解析与持久化，很多朋友说是否支持数据迁移？
-是否支持事务？锁表？<br />
+一、凭什么口出狂言要取代Core Data?<br />
+特别强调：本框架作为MJExtension的续作，重点在于处理网络服务器数据的本地解析与持久化，很多朋友说是否支持数据迁移？是否支持事务？锁表？<br />
 统一回答：本框架的核心目的再一次强调，是解决ORM映射，一键CURD以及多表级联操作。真正要实现一个数据库所有功能并不是我想要的，
-我和大家一样，每次请求网络服务器数据，就想简单的安安静静的做个缓存，以便CURD而已。这也是我做这个框架的初衷。<br />
+我和大家一样，每次请求网络服务器数据，就想简单的安安静静的做个缓存，以便CURD而已。这也是我做这个框架的初衷。至少对于我来说，我目前几年使用Core Model后从未使用Core Data，对于我来说，算是取代了Core Data。这个问题见仁见智。<br />
 
 二、为什么需要依赖很多框架？<br />
 如果你了解我的框架多了，你就明白。这也是我多年的经验。简单说就两个字：解耦。如果你没有洁癖或者强迫症请自行忽略此段<br />
 
 
+三、为什么框架叫CoreClass?<br />
+还是因为解耦与框架模块化，准备说本框架的核心叫BaseModel,而CoreClass里面含有若干BaseClass，BaseModel作为其中一个子集和
+其他BaseClass是平等共存在CoreClass的。<br />
+
 <br /><br /><br />
-
-
 
 关于Swift：ABOUT SWIFT
 ===============
@@ -120,6 +122,90 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 
 正式开源 Let's Go!!!
 ===============
+下面请跟随Charlin Feng来一起实现ORM，我会用一个过程来向大家展示这个框架的使用流程，这个流程也是我当时写框架的功能方向走势。
+注：本框架有一套理论，就像Core Data需要建立模型表关联，RAC中的sinal机制一样，本框架一样有一些理论需要大家首页要明确！
+
+### 基本理论：
+1.想要完成全自动CURD,请继承BaseModel.<br />
+2.BaseModel是MJExtension的续作，解决的是服务器数据的后续处理，并不是处理你本地自定义的一个非常数据结构复杂的模型。如含有以下成员类型的属性：NSData、UIImage、结构体、上下文等。如果实在有传结构体的，请以为字符串的形式保存。<br />
+3.模型有一个字段必须有值:hostID,此属性是服务器数据库的id字段生成，框架已经自动将服务器的数据id对应映射为hostID。
+本地sqlite有本地的id字段。<br />
+4.根据网络数据处理原则：服务器数据和本地缓存数据对比来说，服务器数据最可靠可信，因此，你使用baseModel解析网络数据，请确保接口一定要传服务器id字段给你，且本框架只信任服务器id即模型的hostID。本地数据库的id仅仅是为了符合数据库3NF而存在。<br />
+5.根据多年经验来说，同时参考MVVM设计模式：所有网络请求放在模型内部完成最好，BaseModel完成了所有的数据统一性：网络请求，本地数据缓存请求。关于数据统一请求性同样有一套理论，并在CoreModel第四季做详细说明。此处先行略过。<br />
+
+
+### 开始实战：
+开始之前，如果你发现了30个错误，请确定你导入了sqlite3的lib库文件：
+
+#### 1.新建一个类User：注意请继承自BaseModel
+
+    注：此类是一个基本类，成员属性含有各种数据类型，但不含有自定义对象  
+
+        #import "BaseModel.h"
+        #import <UIKit/UIKit.h>
+        
+        @interface User : BaseModel
+        
+        /** 用户名：字符串 */
+        @property (nonatomic,copy) NSString *userName;
+        
+        /** 级别：整型 */
+        @property (nonatomic,assign) NSUInteger level;
+        
+        /** 账户余额：浮点 */
+        @property (nonatomic,assign) CGFloat accountMoney;
+        
+        
+        @end
+
+
+    好了，先不说这么多，我们先用一个这个模型，第一次使用模型类会自动触发很多事情，请拭目以待！
+    
+    请注意：我们现在还基本没有做任何事情哦？
+    
+    在控制器执行以下代码，并随便调用User类的任一方法：
+    
+        - (void)viewDidLoad {
+        [super viewDidLoad];
+        
+        //测试用户模型
+        [self userTest];
+    
+        }
+    
+    
+        /** 测试用户模型 */
+        -(void)userTest{
+            
+            //随便调用User类的任一方法，这里直接创建一个User对象
+            User *user = [[User alloc] init];
+        }
+
+好了，现在请查看控制台有以下输出：
+                2015-07-02 15:15:51.153 CoreClass[4727:607] dbPath:/Users/Charlin/Library/Developer/CoreSimulator/Devices/E1B1C2D8-DC98-4571-AF45-8A6D76F07497/data/Applications/1DD11CA9-E785-4C5D-88D2-3E0E1648462C/Documents/CoreClass/CoreClass.sql
+        2015-07-02 15:15:51.235 CoreClass[4727:607] 表创建完毕<NSThread: 0x7b72f3e0>{name = (null), num = 1}
+        2015-07-02 15:15:51.235 CoreClass[4727:607] 字段也检查完毕<NSThread: 0x7b72f3e0>{name = (null), num = 1}
+
+我们使用navicat打开控制台输入的sql文件查看发生了什么奇迹？
+        sqlite> PRAGMA table_info (User);
+        +------+--------------+---------+---------+------------+------+
+        | cid  | name         | type    | notnull | dflt_value | pk   |
+        +------+--------------+---------+---------+------------+------+
+        | 0    | id           | INTEGER | 1       | 0          | 1    |
+        | 1    | userName     | TEXT    | 1       | ''         | 0    |
+        | 2    | level        | INTEGER | 1       | 0          | 0    |
+        | 3    | accountMoney | REAL    | 1       | 0.0        | 0    |
+        | 4    | hostID       | INTEGER | 1       | 0          | 0    |
+        | 5    | pModel       | TEXT    | 1       | ''         | 0    |
+        | 6    | pid          | INTEGER | 1       | 0          | 0    |
+        +------+--------------+---------+---------+------------+------+
+已经神奇的为您创建了表，而且你输入的字段已经全部在表里面了！是不是很方便？
+
+
+
+
+
+
 
 
 
