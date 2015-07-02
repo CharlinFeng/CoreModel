@@ -28,15 +28,15 @@ https://github.com/nsdictionary/CoreArchive
 第三季：CoreClass
 https://github.com/nsdictionary/CoreClass
 
-第四季：CoreModel模型动态缓存、列表模型动态缓存
+第四季：CoreModel模型动态缓存、列表模型动态缓存。<br />
 请加群归队，获取最新信息（群信息在下面）！！！请支持第三季！
 
-第五季：动态缓存list终结者。
+第五季：动态缓存list终结者。<br />
 请加群归队，获取最新信息（群信息在下面）！！！请支持第三季！
 
 <br /><br /><br />
 本框架是隶属于MJExtension续作，我给这系列框架取了一个整体上的名字叫做：CoreModel。
-CoreArchive是系列第二季，共有5季，连载中，允加群关注最新动态
+CoreArchive是系列第二季，共有5季，连载中，允加群关注最新动态！<br /><br />
 成都iOS开发群：<br />
 二群：369870753（新开，新鲜着呢，快加） <br />
 一群：163865401（已爆满，加不上了）  <br /><br />
