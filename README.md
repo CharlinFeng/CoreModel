@@ -26,13 +26,14 @@ https://github.com/nsdictionary/CoreArchive
 第三季：CoreClass
 https://github.com/nsdictionary/CoreClass
 
+<br /><br /><br />
 本框架是隶属于MJExtension续作，我给这系列框架取了一个整体上的名字叫做：CoreModel。
 CoreArchive是系列第二季，共有5季，连载中，允加群关注最新动态
 成都iOS开发群：<br />
 二群：369870753（新开，新鲜着呢，快加） <br />
 一群：163865401（已爆满，加不上了）  <br /><br />
 
-<br /><br />
+<br /><br /><br />
 开源说明：（必看！！！！） YOU MUST SEE IT
 ===============
 此原创框架系列（共有5季）算是是本人几年的精华所在，现在免费开源给大家，目前承诺给大家开源到了第三季。
@@ -57,14 +58,14 @@ Charlin Feng开源： OPEN SOURCE
 ===============
 此框架已经存在几年了，实际年龄应该和MJExtension差不多，只是今天开源而已，
 期间经历了6-8个版本的大更新，也经历了本人7个企业级项目的考验与磨砺，最终呈现在您眼前的算是一个比较成熟的版本。
-
+<br /><br /><br />
 
 
 
 框架说明：EXPLAIN
 ===============
 本作是CoreModel系列第三作，是整个系列真正核心价值所在，也是真正点题MJExtension续作的地方。其复杂度与框架深度绝不比MJExtension低。
-<br /><br />
+<br /><br /><br />
 
 
 
@@ -72,7 +73,7 @@ Charlin Feng开源： OPEN SOURCE
 框架功能：FUNCTIONS
 ===============
 本框架重点目标是实现ORM映射，并完成全自动CURD，并完成多表级联操作，从此您不再需要写一句sql！！！！数据持久化从此可以抛弃Core Data!!!!
-<br /><br />
+<br /><br /><br />
 
 特别强调：（必看！） STRESS
 ===============
@@ -80,6 +81,8 @@ Charlin Feng开源： OPEN SOURCE
 是否支持事务？锁表？<br />
 统一回答：本框架的核心目的再一次强调，是解决ORM映射，一键CURD以及多表级联操作。真正要实现一个数据库所有功能并不是我想要的，
 我和大家一样，每次请求网络服务器数据，就想简单的安安静静的做个缓存，以便CURD而已。这也是我做这个框架的初衷。
+<br /><br /><br />
+
 
 关于Swift：ABOUT SWIFT
 ===============
@@ -89,7 +92,7 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 .>Swift对NSClassFromString的支持跟OC不一致导致的。。。看来要写个Swift版本的MJExtension了<br />
 
 #####不过不要担心，我目前项目是swift项目，需要使用MJExtension以及CoreModel还是可以的，只要让框架活在oc的世界就行了。
-
+<br /><br /><br />
 
 
 框架依赖：DEPENDENCE
