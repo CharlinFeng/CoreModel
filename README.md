@@ -6,11 +6,13 @@
 
     Charlin出框架的目标：简单、易用、实用、高度封装、绝对解耦！
 
+<br /><br /><br />
+
 # CoreClass
     【CoreModel】MJExtension续作之三：一键ORM,全自动CURD，是时候抛弃Core Data了！！！
     
 
-<br /><br />
+<br /><br /><br />
 
 
 
@@ -77,22 +79,32 @@ Charlin Feng开源： OPEN SOURCE
 
 特别强调：（必看！） STRESS
 ===============
-特别强调：本框架作为MJExtension的续作，重点在于处理网络服务器数据的本地解析与持久化，很多朋友说是否支持数据迁移？
+一、特别强调：本框架作为MJExtension的续作，重点在于处理网络服务器数据的本地解析与持久化，很多朋友说是否支持数据迁移？
 是否支持事务？锁表？<br />
 统一回答：本框架的核心目的再一次强调，是解决ORM映射，一键CURD以及多表级联操作。真正要实现一个数据库所有功能并不是我想要的，
-我和大家一样，每次请求网络服务器数据，就想简单的安安静静的做个缓存，以便CURD而已。这也是我做这个框架的初衷。
+我和大家一样，每次请求网络服务器数据，就想简单的安安静静的做个缓存，以便CURD而已。这也是我做这个框架的初衷。<br />
+
+二、为什么需要依赖很多框架？<br />
+如果你了解我的框架多了，你就明白。这也是我多年的经验。简单说就两个字：解耦。如果你没有洁癖或者强迫症请自行忽略此段<br />
+
+
 <br /><br /><br />
+
 
 
 关于Swift：ABOUT SWIFT
 ===============
 此框架已经为swift做了大量兼容，不可可惜的是runtime机制以及oc的很多特性在swift中做了变更，简单说就是MJExtension在
 swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<br />
-.>MJ：不建议在Swift中使用MJExtension了哈，MJRefresh还可以用，因为Swift和OC中有些函数的用法完全不一样。我尽快推出Swift版本的MJExtension<br />
-.>Swift对NSClassFromString的支持跟OC不一致导致的。。。看来要写个Swift版本的MJExtension了<br />
+>.MJ：不建议在Swift中使用MJExtension了哈，MJRefresh还可以用，因为Swift和OC中有些函数的用法完全不一样。我尽快推出Swift版本的MJExtension.<br />
+>.Swift对NSClassFromString的支持跟OC不一致导致的。。。看来要写个Swift版本的MJExtension了.<br />
 
 #####不过不要担心，我目前项目是swift项目，需要使用MJExtension以及CoreModel还是可以的，只要让框架活在oc的世界就行了。
 <br /><br /><br />
+
+
+
+
 
 
 框架依赖：DEPENDENCE
