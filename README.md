@@ -58,6 +58,8 @@ CoreArchive是系列第二季，共有5季，连载中，允加群关注最新�
 
 Charlin Feng开源： OPEN SOURCE
 ===============
+由于本人做过LAMP开发，之前一直是使用ThinkPHP开发，受ThinkPHP的数据库操作影响非常深远，如果你了解ThinkPHP，
+你会发现本框架和ThinkPHP的数据库操作太相似了！
 此框架已经存在几年了，实际年龄应该和MJExtension差不多，只是今天开源而已，
 期间经历了6-8个版本的大更新，也经历了本人7个企业级项目的考验与磨砺，最终呈现在您眼前的算是一个比较成熟的版本。
 <br /><br /><br />
@@ -269,7 +271,7 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
 是不是很轻松？你还什么都没动呢？另急，还有更强大的后面！！！！
 
 
-#### 3.一键CURD之保存：一键CURD请全部使用类方法完成！
+#### 3.一键CURD之插入：一键CURD请全部使用类方法完成！ insert
 
 保存模型，请注意一定要有hostID，原因请查看前面的说明！！！！非常重要。
 
@@ -302,7 +304,7 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
     2015-07-02 15:43:34.824 CoreClass[4850:607] 查询开始：<NSThread: 0x79f59e50>{name = (null), num = 1}
     2015-07-02 15:43:34.824 CoreClass[4850:607] 查询完成：<NSThread: 0x79f59e50>{name = (null), num = 1}
     2015-07-02 15:43:34.826 CoreClass[4850:607] 数据插入结束<NSThread: 0x79f59e50>{name = (null), num = 1}
-    2015-07-02 15:43:34.826 CoreClass[4850:607] 保存成功
+    2015-07-02 15:43:34.826 CoreClass[4850:607] 插入成功
 
 一切保存已经完成啦，看看数据库里面有没有？
 
@@ -315,7 +317,142 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
         1 rows in set (0.12 sec)
 
 
+#### 4.一键CURD之修改：请注意修改对应数据的唯一标准是hostID，请注意你hostID的一致性！ update
+
+ 我们先修改数据内容：
+ 
+        User *user = [[User alloc] init];
+        //模拟服务器数据变更
+        user.hostID = 1;
+        user.userName = @"张三";
+        user.level = 0;
+        user.accountMoney = 10.0f;
+        user.isVip = NO;
+        
+        //一键CURD：保存
+        BOOL res = [User update:user];
+        
+        if(res){
+            NSLog(@"修改成功");
+        }else{
+            NSLog(@"修改失败");
+        }
+
+查看控制台输出：
+
+    2015-07-02 16:23:56.560 CoreClass[5486:607] 表创建完毕<NSThread: 0x7b657f80>{name = (null), num = 1}
+    2015-07-02 16:23:56.561 CoreClass[5486:607] 字段也检查完毕<NSThread: 0x7b657f80>{name = (null), num = 1}
+    2015-07-02 16:23:56.562 CoreClass[5486:607] 查询开始：<NSThread: 0x7b657f80>{name = (null), num = 1}
+    2015-07-02 16:23:56.562 CoreClass[5486:607] 查询完成：<NSThread: 0x7b657f80>{name = (null), num = 1}
+    2015-07-02 16:23:56.563 CoreClass[5486:607] 现在是更新
+    2015-07-02 16:23:56.563 CoreClass[5486:607] 查询开始：<NSThread: 0x7b657f80>{name = (null), num = 1}
+    2015-07-02 16:23:56.563 CoreClass[5486:607] 查询完成：<NSThread: 0x7b657f80>{name = (null), num = 1}
+    2015-07-02 16:23:56.565 CoreClass[5486:607] 修改成功
+
+数据已经修改成功，我们查看数据库：
+
+    sqlite> select id,userName,level,accountMoney,hostID,isVip from User;
+    +----+----------+-------+--------------+--------+-------+
+    | id | userName | level | accountMoney | hostID | isVip |
+    +----+----------+-------+--------------+--------+-------+
+    | 1  | 张三   | 0     | 10.0         | 1      | 0     |
+    +----+----------+-------+--------------+--------+-------+
+    1 rows in set (0.00 sec)
+
+
+#### 4.一键CURD之删除：delete
+
+根据hostID快速删除一条记录，还是那句话，hostID是一切的核心！
+
+        User *user = [[User alloc] init];
+        
+        //模拟服务器数据变更
+        user.hostID = 1;
+        
+        //一键CURD：删除
+        /**
+         *  根据hostID快速删除一条记录
+         *
+         *  @param hostID hostID
+         *
+         *  @return 执行结果
+         */
+        BOOL res = [User delete:user.hostID];
+        
+        if(res){
+            NSLog(@"删除成功");
+        }else{
+            NSLog(@"删除失败");
+        }
+
+查看控制台输出：
+
+    2015-07-02 16:30:02.220 CoreClass[5538:607] 表创建完毕<NSThread: 0x7a9742a0>{name = (null), num = 1}
+    2015-07-02 16:30:02.220 CoreClass[5538:607] 字段也检查完毕<NSThread: 0x7a9742a0>{name = (null), num = 1}
+    2015-07-02 16:30:02.221 CoreClass[5538:607] 查询开始：<NSThread: 0x7a9742a0>{name = (null), num = 1}
+    2015-07-02 16:30:02.221 CoreClass[5538:607] 查询完成：<NSThread: 0x7a9742a0>{name = (null), num = 1}
+    2015-07-02 16:30:02.223 CoreClass[5538:607] 删除成功
+
+再看看数据库表：
+
+    sqlite> select id,userName,level,accountMoney,hostID,isVip from User;
+    Empty set (0.00 sec)
     
+可见，根据hostID已经成功删除了数据。
+
+
+#### 5.一键CURD之保存：save
+先说下为什么有这个方法，这个方法是ThinkPHP里面有的，这个方法是这样的，save一个模型，如果这个模型在数据库中不存在，就执行insert
+，如果这个模型应该在数据库中存在，就执行update操作。总之，这个方法之后，这个模型一定会存在数据库中。
+
+现在就来更新一个模型，由于我不确定本地是否有这个数据，但我一定要存，所以我就直接save
+
+        User *user = [[User alloc] init];
+        
+        //模拟服务器数据变更
+        user.hostID = 1;
+        user.userName = @"李四";
+        user.level = 30;
+        user.accountMoney = 80.0f;
+        user.isVip = NO;
+        
+        
+        
+        //一键CURD：保存
+        BOOL res = [User save:user];
+        
+        if(res){
+            NSLog(@"修改成功");
+        }else{
+            NSLog(@"修改失败");
+        }
+        
+控制器有如下输出：
+
+        2015-07-02 16:39:59.933 CoreClass[5639:607] 查询开始：<NSThread: 0x7b8619f0>{name = (null), num = 1}
+        2015-07-02 16:39:59.934 CoreClass[5639:607] 查询完成：<NSThread: 0x7b8619f0>{name = (null), num = 1}
+        2015-07-02 16:39:59.934 CoreClass[5639:607] 现在是更新
+        2015-07-02 16:39:59.935 CoreClass[5639:607] 查询开始：<NSThread: 0x7b8619f0>{name = (null), num = 1}
+        2015-07-02 16:39:59.935 CoreClass[5639:607] 查询完成：<NSThread: 0x7b8619f0>{name = (null), num = 1}
+        2015-07-02 16:39:59.937 CoreClass[5639:607] 修改成功
+
+查看数据库结果：
+
+        sqlite> select id,userName,level,accountMoney,hostID,isVip from User;
+        +----+----------+-------+--------------+--------+-------+
+        | id | userName | level | accountMoney | hostID | isVip |
+        +----+----------+-------+--------------+--------+-------+
+        | 2  | 李四   | 30    | 80.0         | 1      | 0     |
+        +----+----------+-------+--------------+--------+-------+
+        1 rows in set (0.01 sec)
+
+
+
+#### 6.一键CURD之数据操作：
+
+
+
+
 
 
 
