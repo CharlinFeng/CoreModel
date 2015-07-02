@@ -1,5 +1,8 @@
 
-Charlin自有框架
+
+![image](https://github.com/nsdictionary/CoreFMDB/blob/master/CoreFMDB/2.png)<br />
+
+
 
     Charlin出框架的目标：简单、易用、实用、高度封装、绝对解耦！
 
