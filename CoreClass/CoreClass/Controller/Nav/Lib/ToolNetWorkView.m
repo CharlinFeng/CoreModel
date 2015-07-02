@@ -8,6 +8,7 @@
 
 #import "ToolNetWorkView.h"
 #import "ToolNetWorkSolveVC.h"
+#import "NSObject+BaseModelCommon.h"
 
 @interface ToolNetWorkView ()
 
@@ -21,7 +22,7 @@
 
 +(instancetype)netWorkViewWithViewController:(UIViewController *)vc{
     
-    ToolNetWorkView *toolNetWorkView = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+    ToolNetWorkView *toolNetWorkView = [[[NSBundle mainBundle] loadNibNamed:[self modelName] owner:nil options:nil] firstObject];
     toolNetWorkView.vc=vc;
     
     return toolNetWorkView;

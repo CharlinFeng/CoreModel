@@ -22,7 +22,7 @@
  */
 +(void)tableCreate{
 
-    NSString *modelName = NSStringFromClass(self);
+    NSString *modelName = [self modelName];
 
     //本类不需要创建
     if([modelName isEqualToString:@"BaseModel"]) return;
@@ -36,7 +36,7 @@
     //在遍历成员变量时记录入数组
     NSMutableArray *ivarsM=[NSMutableArray array];
 
-    [self enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+    [self enumerateProperties:^(MJProperty *property, BOOL *stop) {
         
         NSString *sql_field = [self fieldSql:property];
         

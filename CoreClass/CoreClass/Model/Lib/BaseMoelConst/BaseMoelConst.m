@@ -42,7 +42,21 @@ NSString *const CoreNSUInteger = @"Q,I";
 /**
  *  CGFloat
  */
-NSString *const CoreCGFloat = @"d";
+NSString *const CoreCGFloat = @"d,f";
+
+
+
+/**
+ *  float
+ */
+NSString *const Corefloat = @"f";
+
+
+
+/**
+ *  double
+ */
+NSString *const Coredouble = @"d";
 
 
 
@@ -56,7 +70,7 @@ NSString *const CoreEnum_int = @"i";
 /**
  *  BOOL
  */
-NSString *const CoreBOOL = @"B";
+NSString *const CoreBOOL = @"B,c";
 
 
 

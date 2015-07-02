@@ -31,13 +31,13 @@
     
     //检查表是否存在，如果不存在，直接返回
     if(![self checkTableExists]){
-        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",NSStringFromClass(self));
+        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",[self modelName]);
         return nil;
     }
     
     NSLog(@"查询开始：%@",[NSThread currentThread]);
     
-    NSMutableString *sqlM=[NSMutableString stringWithFormat:@"SELECT * FROM %@",NSStringFromClass(self)];
+    NSMutableString *sqlM=[NSMutableString stringWithFormat:@"SELECT * FROM %@",[self modelName]];
 
     //where
     if(where != nil) [sqlM appendFormat:@" WHERE %@",where];
@@ -64,7 +64,7 @@
             
             BaseModel *model=[[self alloc] init];
             
-            [self enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+            [self enumerateProperties:^(MJProperty *property, BOOL *stop) {
                 
                 BOOL skip=[self skipField:property];
                 
@@ -125,7 +125,7 @@
     
     //检查表是否存在，如果不存在，直接返回
     if(![self checkTableExists]){
-        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",NSStringFromClass(self));
+        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",[self modelName]);
         return nil;
     }
     

@@ -20,6 +20,7 @@
 #import "CoreArchive.h"
 #import "NSObject+Contrast.h"
 #import "NSObject+Save.h"
+#import "NSObject+BaseModelCommon.h"
 
 @implementation BaseModel
 
@@ -160,7 +161,7 @@
         //2.还没到缓存周期
 
         //archiverTimeKey：不考虑分页
-        NSString *archiverTimeKey = NSStringFromClass(self);
+        NSString *archiverTimeKey = [self modelName];
         
         if(isPageEnable){
             

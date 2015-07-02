@@ -26,7 +26,7 @@
     
     //检查表是否存在，如果不存在，直接返回
     if(![self checkTableExists]){
-        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",NSStringFromClass(self));
+        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",[self modelName]);
         return NO;
     }
     
@@ -36,7 +36,7 @@
     }
     
     if(![model isKindOfClass:[self class]]){
-        NSLog(@"错误：插入数据请使用%@模型类对象，您使用的是%@类型",NSStringFromClass(self),[model class]);
+        NSLog(@"错误：插入数据请使用%@模型类对象，您使用的是%@类型",[self modelName],[model class]);
         return NO;
     }
     

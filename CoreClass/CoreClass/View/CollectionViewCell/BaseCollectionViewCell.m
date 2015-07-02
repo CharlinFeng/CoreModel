@@ -7,6 +7,7 @@
 //
 
 #import "BaseCollectionViewCell.h"
+#import "NSObject+BaseModelCommon.h"
 
 NSString * _CollectionViewCellRid;
 
@@ -41,7 +42,7 @@ NSString * _CollectionViewCellRid;
 +(NSString *)CollectionViewCellRid{
     
     if(_CollectionViewCellRid == nil){
-        _CollectionViewCellRid = NSStringFromClass(self);
+        _CollectionViewCellRid =[self modelName];
     }
     
     return _CollectionViewCellRid;

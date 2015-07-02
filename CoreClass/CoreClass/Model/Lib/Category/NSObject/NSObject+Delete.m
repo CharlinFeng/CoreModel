@@ -37,11 +37,12 @@
 
     //检查表是否存在，如果不存在，直接返回
     if(![self checkTableExists]){
-        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",NSStringFromClass(self));
+        
+        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",[self modelName]);
         return NO;
     }
     
-    NSString *sql=[NSString stringWithFormat:@"DELETE FROM %@",NSStringFromClass(self)];
+    NSString *sql=[NSString stringWithFormat:@"DELETE FROM %@",[self modelName]];
     
     if(where != nil) sql = [NSString stringWithFormat:@"%@ WHERE %@",sql,where];
     
@@ -58,7 +59,7 @@
     //遍历模型对象
     for (BaseModel *baseModle in deleteModels) {
         
-        [baseModle.class enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+        [baseModle.class enumerateProperties:^(MJProperty *property, BOOL *stop) {
             //如果是过滤字段，直接跳过
             BOOL skip=[self skipField:property];
             

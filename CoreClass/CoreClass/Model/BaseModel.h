@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "BaseModelProtocol.h"
 #import "BasePageModelProtocol.h"
+#import "NSObject+Insert.h"
+#import "NSObject+Save.h"
+#import "NSObject+Delete.h"
+#import "NSObject+Update.h"
+#import "NSObject+Select.h"
 
 @interface BaseModel : NSObject<BaseModelProtocol,BasePageModelProtocol>
 

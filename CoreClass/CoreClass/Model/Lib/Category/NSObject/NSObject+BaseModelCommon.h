@@ -23,7 +23,6 @@
 
 
 
-
 /**
  *  是否跳过处理某个字段
  *
@@ -35,15 +34,10 @@
 
 
 
-
-
-
 /**
  *  这个数组中的属性名将会被忽略：不会被自动转换为数据库中的字段
  */
 + (NSArray *)ignoredPropertyNamesForSqlTransform;
-
-
 
 
 /*
@@ -53,15 +47,10 @@
 
 
 
-
-
-
-
 /*
  *  判断表是否存在
  */
 +(BOOL)checkTableExists;
-
 
 
 
@@ -73,6 +62,20 @@
  *  @return sqlite数据类型创表语句
  */
 +(NSString *)sqliteType:(NSString *)fieldType;
+
+
+
+/**
+ *  模型名
+ *  此处是专门为Swift处理
+ *
+ *  @return 模型  名
+ */
++(NSString *)modelName;
+
+
+
+
 
 
 @end

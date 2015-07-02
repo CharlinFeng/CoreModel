@@ -7,6 +7,7 @@
 //
 
 #import "BaseTableViewCell.h"
+#import "NSObject+BaseModelCommon.h"
 
 @implementation BaseTableViewCell
 
@@ -23,7 +24,7 @@
  */
 +(instancetype)cellFromTableView:(UITableView *)tableView{
     
-    NSString *rid=NSStringFromClass(self);
+    NSString *rid=[self modelName];
     
     BaseTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:rid];
     

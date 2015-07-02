@@ -7,7 +7,7 @@
 //
 
 #import "UIView+Extend.h"
-
+#import "NSObject+BaseModelCommon.h"
 
 
 
@@ -79,7 +79,7 @@
  */
 +(instancetype)viewFromXIB{
     
-    NSString *name=NSStringFromClass(self);
+    NSString *name=[self modelName];
     
     UIView *xibView=[[[NSBundle mainBundle] loadNibNamed:name owner:nil options:nil] firstObject];
     

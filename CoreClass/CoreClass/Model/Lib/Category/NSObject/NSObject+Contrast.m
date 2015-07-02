@@ -12,6 +12,7 @@
 #import "MJProperty.h"
 #import "MJType.h"
 #import "BaseMoelConst.h"
+#import "NSObject+BaseModelCommon.h"
 
 @implementation NSObject (Contrast)
 
@@ -51,7 +52,7 @@
         return NO;
     }
     
-    if(![NSStringFromClass(model1.class) isEqualToString:NSStringFromClass(self)]){
+    if(![NSStringFromClass(model1.class) isEqualToString:[self modelName]]){
         
         NSLog(@"错误：方法调用错误，您当前是%@模型，请调用%@的类方法进入对比。",NSStringFromClass(model1.class),NSStringFromClass(model1.class));
         return NO;
@@ -68,7 +69,7 @@
     __block BOOL contrastRes = YES;
     
     //遍历成员属性
-    [model1.class enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+    [model1.class enumerateProperties:^(MJProperty *property, BOOL *stop) {
         
         NSString *propertyName = property.name;
         
@@ -262,7 +263,7 @@
         if(![obj isKindOfClass:self]){
             
             checkRes = NO;
-            NSLog(@"错误：请传入%@模型或者子类的对象",NSStringFromClass(self));
+            NSLog(@"错误：请传入%@模型或者子类的对象",[self modelName]);
             *stop = YES;
         }
     }];

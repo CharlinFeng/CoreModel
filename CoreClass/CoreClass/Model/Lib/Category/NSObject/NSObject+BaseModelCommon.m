@@ -11,6 +11,7 @@
 #import "MJType.h"
 #import "BaseMoelConst.h"
 #import "CoreFMDB.h"
+#import "NSObject+BaseModelCommon.h"
 
 @implementation NSObject (BaseModelCommon)
 
@@ -122,7 +123,7 @@
     
     NSString *alias=@"tableCount";
     
-    NSString *sql=[NSString stringWithFormat:@"SELECT COUNT(*) %@ FROM sqlite_master WHERE type='table' AND name='%@';",alias,NSStringFromClass(self)];
+    NSString *sql=[NSString stringWithFormat:@"SELECT COUNT(*) %@ FROM sqlite_master WHERE type='table' AND name='%@';",alias,[self modelName]];
     
     __block BOOL res=NO;
     
@@ -147,4 +148,13 @@
 }
 
 
+/**
+ *  模型名
+ *  此处是专门为Swift处理
+ *
+ *  @return 模型  名
+ */
++(NSString *)modelName{
+    return [NSStringFromClass(self) componentsSeparatedByString:@"."].lastObject;
+}
 @end

@@ -29,7 +29,8 @@
     
     //检查表是否存在，如果不存在，直接返回
     if(![self checkTableExists]){
-        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",NSStringFromClass(self));
+        
+        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",[self modelName]);
         return NO;
     }
 
@@ -39,7 +40,7 @@
     }
 
     if(![model isKindOfClass:[self class]]){
-        NSLog(@"错误：插入数据请使用%@模型类对象，您使用的是%@类型",NSStringFromClass(self),[model class]);
+        NSLog(@"错误：插入数据请使用%@模型类对象，您使用的是%@类型",[self modelName],[model class]);
         return NO;
     }
     
@@ -65,7 +66,7 @@
     NSMutableString *values=[NSMutableString string];
 
     //遍历成员属性
-    [self enumeratePropertiesWithBlock:^(MJProperty *property, BOOL *stop) {
+    [self enumerateProperties:^(MJProperty *property, BOOL *stop) {
         
         //如果是过滤字段，直接跳过
         BOOL skip=[self skipField:property];
@@ -121,7 +122,7 @@
     NSString *values_sub=[self deleteLastChar:values];
 
     //得到最终的sql
-    NSString *sql=[NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@);",NSStringFromClass(self),fields_sub,values_sub];
+    NSString *sql=[NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@);",[self modelName],fields_sub,values_sub];
     
     //执行添加
     BOOL insertRes = [CoreFMDB executeUpdate:sql];
@@ -145,7 +146,7 @@
     
     //检查表是否存在，如果不存在，直接返回
     if(![self checkTableExists]){
-        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",NSStringFromClass(self));
+        NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！",[self modelName]);
         return NO;
     }
     

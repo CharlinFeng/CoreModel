@@ -7,11 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "NSObject+MJProperty.h"
-#import "MeauModel.h"
+#import "Student.h"
+#import "NSObject+BaseModelCommon.h"
 #import "MJProperty.h"
-#import "NewsVC.h"
-#import "BaseTextView.h"
+#import "MJType.h"
+
 
 
 @interface ViewController ()
@@ -23,21 +23,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    BaseTextView *textView = [[BaseTextView alloc] initWithFrame:CGRectMake(0, 64, 320, 100)];
-    
-    textView.placeholder = @"请输入您的意见...";
-    
-    textView.font = [UIFont systemFontOfSize:60];
-    textView.layer.borderWidth = 1;
-    
-    [self.view addSubview:textView];
+//    [Student enumerateProperties:^(MJProperty *property, BOOL *stop) {
+//        NSLog(@"%@-%@",property.name,property.type.code);
+//    }];
 
+    Pen *pen = [[Pen alloc] init];
+    pen.hostID=1;
+    pen.price = 10;
+    
+    Student *stu = [[Student alloc] init];
+    stu.hostID=1;
+    stu.name = @"张三";
+    stu.pen = pen;
+    
+    [Student insert:stu];
 }
 
 
-- (IBAction)pageVC:(id)sender {
-    
-}
 
 
 
