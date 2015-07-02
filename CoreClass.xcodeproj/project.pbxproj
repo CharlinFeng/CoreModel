@@ -80,6 +80,7 @@
 		89CB4FED1B44EA2500B9C214 /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FE41B44EA2500B9C214 /* NSObject+MJProperty.m */; };
 		89CB4FEE1B44EA2500B9C214 /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FE61B44EA2500B9C214 /* NSString+MJExtension.m */; };
 		89CB4FF11B44EAB700B9C214 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FF01B44EAB700B9C214 /* Pen.m */; };
+		89CB51351B451A2B00B9C214 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB51341B451A2B00B9C214 /* User.m */; };
 		EE58390D1AB98EDD00516AC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390C1AB98EDD00516AC1 /* main.m */; };
 		EE5839101AB98EDD00516AC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EE58390F1AB98EDD00516AC1 /* AppDelegate.m */; };
 		EE5839131AB98EDD00516AC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EE5839121AB98EDD00516AC1 /* ViewController.m */; };
@@ -250,6 +251,8 @@
 		89CB4FE61B44EA2500B9C214 /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		89CB4FEF1B44EAB700B9C214 /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
 		89CB4FF01B44EAB700B9C214 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
+		89CB51331B451A2B00B9C214 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		89CB51341B451A2B00B9C214 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		EE5839071AB98EDD00516AC1 /* CoreClass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreClass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE58390B1AB98EDD00516AC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE58390C1AB98EDD00516AC1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -388,6 +391,8 @@
 				89CB4FD31B44E80E00B9C214 /* Student.m */,
 				89CB4FEF1B44EAB700B9C214 /* Pen.h */,
 				89CB4FF01B44EAB700B9C214 /* Pen.m */,
+				89CB51331B451A2B00B9C214 /* User.h */,
+				89CB51341B451A2B00B9C214 /* User.m */,
 			);
 			name = APP;
 			sourceTree = "<group>";
@@ -1005,6 +1010,7 @@
 				8965A6931B11AB5C0067043C /* CALayer+Transition.m in Sources */,
 				8965A69F1B11AB5C0067043C /* UIImage+FixOrientation.m in Sources */,
 				89CB4FEE1B44EA2500B9C214 /* NSString+MJExtension.m in Sources */,
+				89CB51351B451A2B00B9C214 /* User.m in Sources */,
 				8965A6A21B11AB5C0067043C /* UIView+Extend.m in Sources */,
 				891E01681B16B96600FDF43F /* FMResultSet.m in Sources */,
 				891E01651B16B96600FDF43F /* FMDatabaseAdditions.m in Sources */,

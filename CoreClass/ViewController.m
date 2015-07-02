@@ -11,7 +11,7 @@
 #import "NSObject+BaseModelCommon.h"
 #import "MJProperty.h"
 #import "MJType.h"
-
+#import "User.h"
 
 
 @interface ViewController ()
@@ -22,23 +22,54 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    //测试用户模型
+    [self studentTest];
 
-//    [Student enumerateProperties:^(MJProperty *property, BOOL *stop) {
-//        NSLog(@"%@-%@",property.name,property.type.code);
-//    }];
+}
+
+
+/** 测试用户模型 */
+-(void)userTest{
+    
+    User *user = [[User alloc] init];
+    
+    //模拟服务器数据变更
+    user.hostID = 1;
+    user.userName = @"张三";
+    user.level = 30;
+    user.accountMoney = 80.0f;
+    user.isVip = NO;
+    
+    
+    
+
+    
+    
+    
+    
+}
+
+
+-(void)studentTest{
+    
 
     Pen *pen = [[Pen alloc] init];
     pen.hostID=1;
     pen.price = 10;
+    pen.usageYear = 3;
+    pen.brandName = @"国产好铅笔";
     
     Student *stu = [[Student alloc] init];
     stu.hostID=1;
-    stu.name = @"张三";
+    stu.name = @"冯成林";
     stu.pen = pen;
+    stu.money = 8866;
     
-    [Student insert:stu];
+    
 }
-
 
 
 

@@ -15,6 +15,12 @@
 
 @interface Pen : BaseModel
 
+@property (nonatomic,copy) NSString *brandName;
+
+@property (nonatomic,assign) NSUInteger usageYear;
+
 @property (nonatomic,assign) CGFloat price;
+
+
 
 @end

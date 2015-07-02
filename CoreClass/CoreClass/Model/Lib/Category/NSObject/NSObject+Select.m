@@ -70,7 +70,9 @@
                 
                 if(!skip){
                     
-                    NSString *sqliteTye=[self sqliteType:property.type.code];
+                    NSString *code = property.type.code;
+                    
+                    NSString *sqliteTye=[self sqliteType:code];
                     
                     if(![sqliteTye isEqualToString:EmptyString]){
                         
@@ -78,9 +80,20 @@
                         NSString *value=[set stringForColumn:propertyName];
                         
                         
+                        if([CoreBOOL rangeOfString:code].length>0){//bool
+                            
+                            NSNumber *boolValue = @(value.integerValue);
+                            
+                            //设置值
+                            [model setValue:boolValue forKey:propertyName];
+                            
+                        }else{
+                            
+                            //设置值
+                            [model setValue:value forKey:propertyName];
+                        }
                         
-                        //设置值
-                        [model setValue:value forKey:propertyName];
+
                         
                     }else{
                         if(![fieldsArrayM containsObject:property]) [fieldsArrayM addObject:property];
