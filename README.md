@@ -786,8 +786,21 @@ Pen重写描述:
         )
 
 
-到此，一切都安静了！！！
+<br/>
 
+####来个彩蛋吧！！！！
+你是否发现一个方法？就在CoreModel中？
+
+    /** 读取 */
+    /** 目前是不考虑上拉下拉刷新 */
+    /** 不论是本地查询还是网络请求，均是延时操作，返回block均在子线程中 */
+    +(void)selectWithParams:(NSDictionary *)params userInfo:(NSDictionary *)userInfo beginBlock:(void(^)(BOOL isNetWorkRequest,BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,BaseModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock;
+
+CoreModel第四季动态缓存会让你爽翻的！！！请star本框架！加入组织持续关注吧！！！
+
+
+<br/>
+####到此，一切都安静了！！！
 
 
 <br /><br /><br />
