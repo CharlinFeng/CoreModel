@@ -84,9 +84,9 @@ Charlin Feng开源： OPEN SOURCE
 框架说明：EXPLAIN
 ===============
 1.这是什么框架？<br/>
-本框架是类似java里面的Hibernate。基于FMDB，扩展MJextension，并立志取代Core Data的一个原创框架！<br/>
+本框架是类似java里面的Hibernate。基于FMDB，扩展MJextension，并立志取代Core Data的一个原创框架！<br/><br/>
 2.这个框架能做什么？<br/>
-一键ORM，什么？不知道什么ORM？简单说就是，数据库操作，从此你不需要再写一句sql啦！是不是很棒！<br/>
+一键ORM，什么？不知道什么ORM？简单说就是，数据库操作，从此你不需要再写一句sql啦！是不是很棒！<br/><br/>
 
 
 本作是CoreModel系列第三作，是整个系列真正核心价值所在，也是真正点题MJExtension续作的地方。其复杂度与框架深度绝不比MJExtension低。
