@@ -10,4 +10,9 @@
 
 @implementation User
 
+/** 描述 */
+-(NSString *)description{
+    return [NSString stringWithFormat:@"userName=%@,level=%@,accountMoney=%@,isVip=%@",self.userName,@(self.level),@(self.accountMoney),@(self.isVip)];
+}
+
 @end

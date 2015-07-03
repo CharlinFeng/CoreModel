@@ -10,4 +10,9 @@
 
 @implementation Pen
 
+/** 描述 */
+-(NSString *)description{
+    return [NSString stringWithFormat:@"brandName=%@,usageYear=%@,price=%@",self.brandName,@(self.usageYear),@(self.price)];
+}
+
 @end
