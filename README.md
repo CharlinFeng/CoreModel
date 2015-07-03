@@ -478,12 +478,46 @@ swift中已经无法正常使用。以下是MJ本人对swift版本的说明：<b
         BOOL res = [User saveModels:@[user1,user2]];
 
 <br />
+
+
 #### 8.一键CURD之数据批量操作：模糊保存
 如果你要保存模型，但不确定这是单个模型还是一个模型数组，可模糊保存
 
         //一键CURD：模糊保存
         BOOL res = [User saveDirect:@[user1,user2]];
 
+<br/>
+#### 9.【更新】一键CURD之读取：select
+为了能够很好的查看结果，我们重写了User类的description方法如下：
+
+        /** 描述 */
+        -(NSString *)description{
+            return [NSString stringWithFormat:@"userName=%@,level=%@,accountMoney=%@,isVip=%@",self.userName,@(self.level),@(self.accountMoney),@(self.isVip)];
+        }
+
+好了，我们现在来查询数据吧
+我们在控制器中，直接查询刚刚的数据
+
+            NSArray *users = [User selectWhere:@"userName='张三'" groupBy:nil orderBy:nil limit:nil];
+             NSLog(@"%@",users);
+
+如果你用过ThinkPHP,你会觉得这个方法怎么这么亲切？返回结果是数组这个非常好理解，这是一个结果集：
+我们看看控制台输出了什么？
+
+    2015-07-03 15:21:32.863 CoreClass[4215:607] 表创建完毕<NSThread: 0x7b17bd00>{name = (null), num = 1}
+    2015-07-03 15:21:32.864 CoreClass[4215:607] 字段也检查完毕<NSThread: 0x7b17bd00>{name = (null), num = 1}
+    2015-07-03 15:21:32.864 CoreClass[4215:607] 查询开始：<NSThread: 0x7b17bd00>{name = (null), num = 1}
+    2015-07-03 15:21:32.865 CoreClass[4215:607] 查询完成：<NSThread: 0x7b17bd00>{name = (null), num = 1}
+    2015-07-03 15:21:32.865 CoreClass[4215:607] (
+        "userName=\U5f20\U4e09,level=30,accountMoney=80,isVip=0"
+    )
+
+结果集已经成功呈现在我们眼前，这就是一键读取，还是不需要写一句sql。此外你需要注意的是，您的查询条件，是和写真正的sql差不多的
+，比如下面的示例:
+
+    NSArray *users = [User selectWhere:@"hostID<10'" groupBy:@"userName" orderBy:@"id" limit:@"0,5"];
+
+到这里还没有结束，还有级联查询在下面行着您！
 
 
 <br /><br /><br />
@@ -700,6 +734,53 @@ YES,成功！！！！ 那个Pen表对应真的自动级联了吗？看看Pen表
     1 rows in set (0.02 sec)
 
 celebrate！！！！欢呼！！！！成功！！！！
+
+
+####【更新】级联查询：
+
+刚刚已经为大家演示了如何从单表查询数据，不过多表级联查询是否能够一样一键查询好使到爽爆？？？赶快来试下！
+
+查询之前，我们还是做点准备工作吧，重写Student和Pen的description以备用：
+
+Student重写描述：请注意我在自定义对象Pen的地方做了特别的换行符号
+
+    /** Student描述 */
+    -(NSString *)description{
+        return [NSString stringWithFormat:@"name=%@,childNum=%@,height=%@,earn=%@,isMan=%@,type=%@,age=%@,\r\r\r pen=%@ \r\r\r\r,count=%@,money=%@,",self.name,@(self.childNum),@(self.height),@(self.earn),@(self.isMan),@(self.type),@(self.age),self.pen,@(self.count),@(self.money)];
+    }
+
+Pen重写描述:
+
+    /** 描述 */
+    -(NSString *)description{
+        return [NSString stringWithFormat:@"brandName=%@,usageYear=%@,price=%@",self.brandName,@(self.usageYear),@(self.price)];
+    }
+
+
+级联查询，来了，你准备好了吗？
+
+        //查询
+    NSArray *students = [Student selectWhere:nil groupBy:nil orderBy:nil limit:nil];
+    NSLog(@"%@",students);
+
+赶紧看看控制台输出了什么？？？？
+
+    2015-07-03 15:54:30.612 CoreClass[4588:607] 表创建完毕<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.613 CoreClass[4588:607] 字段也检查完毕<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.613 CoreClass[4588:607] 表创建完毕<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.614 CoreClass[4588:607] 字段也检查完毕<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.614 CoreClass[4588:607] 查询开始：<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.615 CoreClass[4588:607] 查询开始：<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.615 CoreClass[4588:607] 查询完成：<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.616 CoreClass[4588:607] 查询完成：<NSThread: 0x7892dd60>{name = (null), num = 1}
+    2015-07-03 15:54:30.616 CoreClass[4588:607] (
+        "name=\U51af\U6210\U6797,childNum=0,height=0,earn=0,isMan=0,type=0,age=0,
+         pen=brandName=\U56fd\U4ea7\U597d\U94c5\U7b14,usageYear=3,price=10 
+        
+        
+        
+        ,count=0,money=8866,"
+        )
 
 
 到此，一切都安静了！！！
