@@ -735,7 +735,7 @@ YES,成功！！！！ 那个Pen表对应真的自动级联了吗？看看Pen表
 
 celebrate！！！！欢呼！！！！成功！！！！
 
-
+<br/>
 ####【更新】级联查询：
 
 刚刚已经为大家演示了如何从单表查询数据，不过多表级联查询是否能够一样一键查询好使到爽爆？？？赶快来试下！
@@ -775,6 +775,9 @@ Pen重写描述:
     2015-07-03 15:54:30.616 CoreClass[4588:607] 查询完成：<NSThread: 0x7892dd60>{name = (null), num = 1}
     2015-07-03 15:54:30.616 CoreClass[4588:607] (
         "name=\U51af\U6210\U6797,childNum=0,height=0,earn=0,isMan=0,type=0,age=0,
+        
+        
+        
          pen=brandName=\U56fd\U4ea7\U597d\U94c5\U7b14,usageYear=3,price=10 
         
         
