@@ -69,6 +69,7 @@
 		8965A6A21B11AB5C0067043C /* UIView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A68E1B11AB5C0067043C /* UIView+Extend.m */; };
 		8965A6A31B11AB5C0067043C /* UIWindow+Launch.m in Sources */ = {isa = PBXBuildFile; fileRef = 8965A6911B11AB5C0067043C /* UIWindow+Launch.m */; };
 		896959DF1B280A660047DBFB /* BaseGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 896959DE1B280A660047DBFB /* BaseGradientView.m */; };
+		89A75F941B4FBEF6002F02B9 /* tip.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A75F931B4FBEF6002F02B9 /* tip.png */; };
 		89C157E41B3B8C1B00893E99 /* BaseTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C157E31B3B8C1B00893E99 /* BaseTextView.m */; };
 		89CB4FD41B44E80E00B9C214 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FD31B44E80E00B9C214 /* Student.m */; };
 		89CB4FE71B44EA2500B9C214 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CB4FD71B44EA2500B9C214 /* MJConst.m */; };
@@ -231,6 +232,7 @@
 		8965A6911B11AB5C0067043C /* UIWindow+Launch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Launch.m"; sourceTree = "<group>"; };
 		896959DD1B280A660047DBFB /* BaseGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGradientView.h; sourceTree = "<group>"; };
 		896959DE1B280A660047DBFB /* BaseGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGradientView.m; sourceTree = "<group>"; };
+		89A75F931B4FBEF6002F02B9 /* tip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tip.png; sourceTree = "<group>"; };
 		89C157E21B3B8C1B00893E99 /* BaseTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTextView.h; sourceTree = "<group>"; };
 		89C157E31B3B8C1B00893E99 /* BaseTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTextView.m; sourceTree = "<group>"; };
 		89CB4FD21B44E80E00B9C214 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
@@ -882,6 +884,7 @@
 		EE58390A1AB98EDD00516AC1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89A75F931B4FBEF6002F02B9 /* tip.png */,
 				89CB513F1B45447000B9C214 /* show.gif */,
 				891E01AF1B16BC0400FDF43F /* libsqlite3.0.dylib */,
 				EE58390B1AB98EDD00516AC1 /* Info.plist */,
@@ -994,6 +997,7 @@
 				EE58391B1AB98EDD00516AC1 /* LaunchScreen.xib in Resources */,
 				89CB51401B45447000B9C214 /* show.gif in Resources */,
 				EE5839181AB98EDD00516AC1 /* Images.xcassets in Resources */,
+				89A75F941B4FBEF6002F02B9 /* tip.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
