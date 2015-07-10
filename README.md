@@ -24,6 +24,7 @@
 
 
 
+
 CoreModel系列： 请看！！！  SERIES
 ===============
 
@@ -46,6 +47,11 @@ https://github.com/nsdictionary/CoreClass
 本框架是隶属于MJExtension续作，我给这系列框架取了一个整体上的名字叫做：CoreModel。
 CoreClass是系列第三季，共有5季，还有最后两季！连载中，请加群关注最新动态！<br />
 
+
+<br /><br />
+
+
+![image](./CoreClass/tip.png)<br />
 
 <br /><br />
 
