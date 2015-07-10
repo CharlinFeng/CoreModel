@@ -10,6 +10,13 @@
 
 #### 本框架版权归成都冯成林所有！拒绝抄袭！请支持原创！
 
+<br /><br />
+
+![image](./CoreClass/tip.png)<br />
+
+<br /><br />
+
+
 
 框架截图 ，你真的要先认真看看文档 CUT
 ===============
@@ -51,9 +58,7 @@ CoreClass是系列第三季，共有5季，还有最后两季！连载中，请�
 <br /><br />
 
 
-![image](./CoreClass/tip.png)<br />
 
-<br /><br />
 
 组织信息 Charlin Feng：
 ===============
