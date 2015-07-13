@@ -9,6 +9,8 @@
 <br /><br />
 
 #### 本框架版权归成都冯成林所有！拒绝抄袭！请支持原创！
+#### 重磅推出：Swift版的MJExtension，运行时、反射与一键字典模型互转
+文档：https://github.com/nsdictionary/CFRuntime
 
 <br /><br />
 
@@ -34,6 +36,7 @@
 
 CoreModel系列： 请看！！！  SERIES
 ===============
+
 
 第一季：CoreFMDB
 https://github.com/nsdictionary/CoreFMDB
@@ -872,5 +875,4 @@ BaseModel里面还有非常多的强大特性还没有介绍！ 如果你支持�
 ![image](https://github.com/nsdictionary/CoreFMDB/blob/master/CoreFMDB/4.png)<br />
  感谢小饭提供的英文翻译帮助，谢谢！
 <br /> <br /><br />
-
 
