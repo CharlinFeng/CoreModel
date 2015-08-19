@@ -8,12 +8,6 @@
 
 <br /><br />
 
-#### 本框架版权归成都冯成林所有！拒绝抄袭！请支持原创！
-#### 重磅推出：Swift版的MJExtension，运行时、反射与一键字典模型互转
-文档：https://github.com/nsdictionary/CFRuntime
-
-
-<br /><br />
 
 
 
