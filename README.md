@@ -3,9 +3,9 @@
 ### 1.框架完全重写
 ### 2.加入对NSArray的支持，加入对NSData的支持
 ### 3.全面使用NSOperation+GCD多线程，取代之前的全部主线程，效率直线飙升！
-### 4.因为此发动牵扯到第四季以及第五季，所以周期略长。
+### 4.因为此改动牵扯到第四季以及第五季，所以周期略长。
 
-## 敬请期待！
+## 重制中，近期push至本页面，敬请期待，感谢众多朋友对CoreModel的支持！
 
 ![image](https://github.com/nsdictionary/CoreFMDB/blob/master/CoreFMDB/2.png)<br />
 
