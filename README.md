@@ -324,6 +324,7 @@
 十、基本模型 + 单条数据保存
 ==========
 <br/>
+##### 本功能请参考项目中：Test8VC.m
 #### 请注意数据保存(Save) 和数据插入(Insert)是有区别的
 ##### Insert是简单的数据插入，如果数据存在要么抛出错误，要不返回不处理
 ##### Save是指保存数据时，进行智能判断，如果数据记录不存在，执行Insert操作。如果数据已经存在，执行Update操作，总之，执行Save操作后，你指定的数据一定会作为最新数据记录在数据库中。
@@ -360,9 +361,13 @@
 > (1). 如果是单条数据保存，请使用 `+(void)save:(id)model resBlock:(void(^)(BOOL res))resBlock;`<br/>
 > (2). 如果是批量数据保存，请使用 `+(void)saveModels:(NSArray *)models resBlock:(void(^)(BOOL res))resBlock`<br/>
 > (3). 有一种情况比较特殊，就是你不清楚是单条还是批量（CoreModel内部有遇到此种情况并使用了此方法），请使用 `+(void)saveDirect:(id)obj resBlock:(void(^)(BOOL res))resBlock`<br/>
+> (4). 再次提醒，此方法会导致数据一定写入数据库，和insert与update有区别，请知晓。
 
 
 
-
-
+<br/><br/><br/>
+十一、基本模型 + 单条数据保存
+==========
+<br/>
+##### 本功能请参考项目中：Test9VC.m
 
