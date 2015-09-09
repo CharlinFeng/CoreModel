@@ -492,7 +492,72 @@
     }];
 
 <br/><br/><br/>
-十五、NSData的支持
+十五、属性为单模型级联：数据插入
 ==========
 <br/>
-##### 本功能请参考项目中：Test12VC.m
+##### 本功能请参考项目中：Test13VC.m
+##### 首页解释标题意思：指的是模型有一个属性是自定义模型，为了演示效果，我们再定义一个City类，且Person有一个属性是城市。
+
+##### 这个是目前的Person模型：
+
+    @interface Person : CoreModel
+    
+    @property (nonatomic,copy) NSString *name;
+    
+    @property (nonatomic,assign) NSInteger age;
+    
+    @property (nonatomic,assign) CGFloat height;
+    
+    @property (nonatomic,strong) NSData *photoData;
+    
+    @property (nonatomic,strong) City *city;
+    
+    @end
+
+
+##### 这个是目前的City模型,请注意你的City模型当然也必须是CoreModel的子类：
+
+    @interface City : CoreModel
+    
+    @property (nonatomic,copy) NSString *cityName;
+    
+    @property (nonatomic,copy) NSString *spell;
+    
+    @end
+
+下面我们构建数据，执行如下数据并执行级联添加：
+
+    City *city = [[City alloc] init];
+    city.hostID = 1;
+    city.cityName = @"成都";
+    city.spell = @"ChengDu";
+    Person *p5 = [[Person alloc] init];
+    p5.hostID=5;
+    p5.name = @"张三";
+    p5.city=city;
+    [Person insert:p5 resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+    
+#### 执行成功，我们查询结果检验：
+
+sqlite> select * from Person;
++----+--------+-----+--------+-----------+--------+--------+-----+
+| id | name   | age | height | photoData | hostID | pModel | pid |
++----+--------+-----+--------+-----------+--------+--------+-----+
+| 1  | 张三   | 0   | 0.0    |           | 5      |        | 0   |
++----+--------+-----+--------+-----------+--------+--------+-----+
+1 rows in set (0.01 sec)
+
+
+sqlite> select * from City;
++----+----------+---------+--------+-----------+-----+
+| id | cityName | spell   | hostID | pModel    | pid |
++----+----------+---------+--------+-----------+-----+
+| 1  | 成都     | ChengDu | 1      | Person    | 5   |
++----+----------+---------+--------+-----------+-----+
+1 rows in set (0.00 sec)
+
+
+
+
