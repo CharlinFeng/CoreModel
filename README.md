@@ -89,8 +89,17 @@
 
 
 
+<br/><br/><br/>
+四、调试模式与非调试模式
+==========
+<br/>
+#### 框架有极其全面的Debug信息与断言帮助您正确的使用CoreModel
+##### 如果您不喜欢控制台大量输出Debug信息，请到CoreModelConst.h文件，修改以下宏定义：
 
+    /** Debug */
+    #define CoreModelDeBug 1
 
+，如果您修改为1，即是Debug模式，控制台会有大量输出，如果您不需要显示，改为0即可。
 
 
 
