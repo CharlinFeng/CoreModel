@@ -359,7 +359,7 @@
 注意：
 > (1). 如果是单条数据保存，请使用 `+(void)save:(id)model resBlock:(void(^)(BOOL res))resBlock;`<br/>
 > (2). 如果是批量数据保存，请使用 `+(void)saveModels:(NSArray *)models resBlock:(void(^)(BOOL res))resBlock`<br/>
-> (3). 有一种情况比较特殊，就是你不清楚是单条还是批量（CoreModel内部有遇到并使用），请使用 `+(void)saveDirect:(id)obj resBlock:(void(^)(BOOL res))resBlock`<br/>
+> (3). 有一种情况比较特殊，就是你不清楚是单条还是批量（CoreModel内部有遇到此种情况并使用了此方法），请使用 `+(void)saveDirect:(id)obj resBlock:(void(^)(BOOL res))resBlock`<br/>
 
 
 
