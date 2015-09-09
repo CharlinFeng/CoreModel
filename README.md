@@ -69,6 +69,7 @@
     Person *person = [[Person alloc] init];
 
 ,查看控制台输出，已经发现成功创建了数据库，成功创建表，并写入了字段信息：
+
         sqlite> PRAGMA table_info (Person);
         +------+--------+---------+---------+------------+------+
         | cid  | name   | type    | notnull | dflt_value | pk   |
