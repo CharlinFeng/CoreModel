@@ -181,7 +181,7 @@
 注意：
 
 >(1). HostID是对应服务器表的主键，在CoreModel中hostID会自动映射解析服务器json里面的id字段，你无需手动映射。<br/>
->(2). 有的朋友issue我说，他们服务器没有返回id主键，可不可以不传hostID？首页服务器数据如果涉及缓存，不传id本身就不是很规范，再者本地缓存数据是不可信任的，只有服务器的数据才是最可靠的，即是CoreModel的最核心的就是hostID，同时在第四季与第五季中，各种强大的功能全部是基于hostID完成，如果您的数据没有hostID或者是您自己手动保存的缓存数据，请结合CoreFMDDB构建hostID。<br/>
+>(2). 有的朋友issue我说，他们服务器没有返回id主键，可不可以不传hostID？首先服务器数据如果涉及缓存，不传id本身就不是很规范，再者本地缓存数据是不可信任的，只有服务器的数据才是最可靠的，即是CoreModel的最核心的就是hostID，同时在第四季与第五季中，各种强大的功能全部是基于hostID完成，如果您的数据没有hostID或者是您自己手动保存的缓存数据，请结合CoreFMDDB的CountTable功能构建hostID。<br/>
 
 
 
@@ -243,7 +243,7 @@
         [self show:res];
     }];
 
-提示成功，数据库返回结果如下：
+#### 提示成功，数据库返回结果如下：
 
     sqlite> select * from Person;
     +----+-----------+-----+--------+--------+--------+-----+
@@ -272,7 +272,7 @@
         [self show:res];
     }];
 
-执行结果：
+#### 执行结果：
 
     sqlite> select * from Person;
     +----+--------------+-----+--------+--------+--------+-----+
@@ -307,7 +307,7 @@
         [self show:res];
     }];
 
-执行结果：
+#### 执行结果：
 
     sqlite> select * from Person;
     +----+--------------+-----+--------+--------+--------+-----+
@@ -320,9 +320,46 @@
     3 rows in set (0.01 sec)
 
 
+<br/><br/><br/>
+十、基本模型 + 单条数据保存
+==========
+<br/>
+#### 请注意数据保存(Save) 和数据插入(Insert)是有区别的
+##### Insert是简单的数据插入，如果数据存在要么抛出错误，要不返回不处理
+##### Save是指保存数据时，进行智能判断，如果数据记录不存在，执行Insert操作。如果数据已经存在，执行Update操作，总之，执行Save操作后，你指定的数据一定会作为最新数据记录在数据库中。
 
+模型数据：修改了名称与年龄，请注意前后比对：
 
+    Person *p1 = [[Person alloc] init];
+    p1.hostID = 2;
+    p1.name = @"杰克先生";
+    p1.age = 40;
+    p1.height = 180;
+    Person *p2 = [[Person alloc] init];
+    p2.hostID = 3;
+    p2.name = @"吉姆先生";
+    p2.age = 38;
+    p2.height = 172;
+    [Person saveModels:@[p1,p2] resBlock:^(BOOL res) {
+        [self show:res];
+    }];
 
+#### 执行结果：
+
+    sqlite> select * from Person;
+    +----+--------------+-----+--------+--------+--------+-----+
+    | id | name         | age | height | hostID | pModel | pid |
+    +----+--------------+-----+--------+--------+--------+-----+
+    | 1  | Charlin Feng | 28  | 173.5  | 1      |        | 0   |
+    | 2  | 杰克先生 | 40  | 180.0  | 2      |        | 0   |
+    | 3  | 吉姆先生 | 38  | 172.0  | 3      |        | 0   |
+    +----+--------------+-----+--------+--------+--------+-----+
+    3 rows in set (0.01 sec)
+
+注意：
+> (1). 如果是单条数据保存，请使用 `+(void)save:(id)model resBlock:(void(^)(BOOL res))resBlock;`
+> (2). 如果是批量数据保存，请使用 `+(void)saveModels:(NSArray *)models resBlock:(void(^)(BOOL res))resBlock`
+> (3). 有一种情况比较特殊，就是你不清楚是单条还是批量（CoreModel内部有遇到并使用），请使用 `+(void)saveDirect:(id)obj resBlock:(void(^)(BOOL res))resBlock`
 
 
 
