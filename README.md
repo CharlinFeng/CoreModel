@@ -427,9 +427,9 @@
     )
 
 请注意：
-> (1). 因为我们刚刚测试了删除，删除了一条记录，所以现在结果当然是两条。
-> (2). 框架对CoreModel做了desctiontion自动处理，您能直接看到以上结果。
-> (3). 和删除类似，您也可以根据hostID(再次提示，非本地数据库id)快速查找一条记录,使用的方法为:`+(void)find:(NSUInteger)hostID selectResultBlock:(void(^)(id selectResult))selectResultBlock;`
+> (1). 因为我们刚刚测试了删除，删除了一条记录，所以现在结果当然是两条。<br/>
+> (2). 框架对CoreModel做了desctiontion自动处理，您能直接看到以上结果。<br/>
+> (3). 和删除类似，您也可以根据hostID(再次提示，非本地数据库id)快速查找一条记录,使用的方法为:`+(void)find:(NSUInteger)hostID selectResultBlock:(void(^)(id selectResult))selectResultBlock;`<br/>
 
 
 
