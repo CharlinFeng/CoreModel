@@ -69,18 +69,18 @@
     Person *person = [[Person alloc] init];
 
 ,查看控制台输出，已经发现成功创建了数据库，成功创建表，并写入了字段信息：
-sqlite> PRAGMA table_info (Person);
-+------+--------+---------+---------+------------+------+
-| cid  | name   | type    | notnull | dflt_value | pk   |
-+------+--------+---------+---------+------------+------+
-| 0    | id     | INTEGER | 1       | 0          | 1    |
-| 1    | name   | TEXT    | 1       | ''         | 0    |
-| 2    | age    | INTEGER | 1       | 0          | 0    |
-| 3    | hostID | INTEGER | 1       | 0          | 0    |
-| 4    | pModel | TEXT    | 1       | ''         | 0    |
-| 5    | pid    | INTEGER | 1       | 0          | 0    |
-+------+--------+---------+---------+------------+------+
-6 rows in set (0.02 sec)
+    sqlite> PRAGMA table_info (Person);
+    +------+--------+---------+---------+------------+------+
+    | cid  | name   | type    | notnull | dflt_value | pk   |
+    +------+--------+---------+---------+------------+------+
+    | 0    | id     | INTEGER | 1       | 0          | 1    |
+    | 1    | name   | TEXT    | 1       | ''         | 0    |
+    | 2    | age    | INTEGER | 1       | 0          | 0    |
+    | 3    | hostID | INTEGER | 1       | 0          | 0    |
+    | 4    | pModel | TEXT    | 1       | ''         | 0    |
+    | 5    | pid    | INTEGER | 1       | 0          | 0    |
+    +------+--------+---------+---------+------------+------+
+    6 rows in set (0.02 sec)
 
 说明：
 >(1). 有您不熟悉的字段如pid,pModel是框架辅助字段，请不要删除。<br/>
