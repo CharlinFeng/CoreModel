@@ -446,12 +446,53 @@
 
 
 <br/><br/><br/>
-十四、基本模型 + 清空表数据
+十四、NSData的支持
 ==========
 <br/>
+##### 本功能请参考项目中：Test12VC.m
+框架新增加对NSData的支持,我们需要给Person模型增加一个NSData的属性(当然框架会自动新增字段)：
 
+    @interface Person : CoreModel
+    
+    @property (nonatomic,copy) NSString *name;
+    
+    @property (nonatomic,assign) NSInteger age;
+    
+    @property (nonatomic,assign) CGFloat height;
+    
+    @property (nonatomic,strong) NSData *photoData;
+    
+    @end
 
+我们直接使用最普通的方式保存，
 
+    Person *charlin = [[Person alloc] init];
+    charlin.hostID = 1;
+    charlin.name = @"冯成林";
+    charlin.age = 28;
+    charlin.photoData = UIImagePNGRepresentation([UIImage imageNamed:@"1"]);
+    [Person save:charlin resBlock:^(BOOL res) {
+        [self show:res];
+    }];
 
+，然后我们查询数据即可，请注意回调全部是子线程，更新UI请回到主线程：
 
+    __weak typeof(self) weakSelf=self;
+    [Person find:1 selectResultBlock:^(Person *selectResult) {
+        
+        [weakSelf show:selectResult != nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            weakSelf.imageV.image = [[UIImage alloc] initWithData:selectResult.photoData];
+            
+            weakSelf.label.text = [NSString stringWithFormat:@"%@%@",selectResult.name,@(selectResult.age)];
+        });
+        
+    }];
 
+<br/><br/><br/>
+十五、NSData的支持
+==========
+<br/>
+##### 本功能请参考项目中：Test12VC.m
