@@ -36,8 +36,57 @@
 #### 4.最终申明
 在开始之前，请您注意以下几点：<br/>
 >(1). 导入了sqlite3.lib 动态库。<br/>
->(2). 模型继承自CoreModel。<br/>
->(3). 为了更好的说明问题并突出重点，我可能在以下每个例子中使用的模型是不一样的。<br/>
+>(2). 拖拽CoreModel及FrameWorks文件夹到您的项目。<br/>
+
+
+
+<br/><br/><br/>
+二、使用指南
+==========
+
+#### 1.基本使用
+> (1). 新建模型Person，继承自CoreModel，模型加入属性
+
+    #import "CoreModel.h"
+    
+    @interface Person : CoreModel
+    
+    @property (nonatomic,copy) NSString *name;
+    
+    @property (nonatomic,assign) NSInteger age;
+    
+    @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
