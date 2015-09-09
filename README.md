@@ -172,7 +172,9 @@
 
     NSAssert(coreModel.hostID > 0, @"错误：数据插入失败,无hostID的数据插入都是耍流氓，你必须设置模型的模型hostID!");
 
-
+注意：
+>(1). HostID是对应服务器表的主键，在CoreModel中HostID会自动映射解析服务器json里面的id字段，你无需手动映射。
+>(2). 有的朋友issue我说，他们服务器没有返回id主键，可不可以不传hostID？首页服务器数据如果涉及缓存，不传id本身就不是很规范，再者本地缓存数据是不可信任的，只有服务器的数据才是最可靠的，即是CoreModel的最核心的就是HostID，同时在第四季与第五季中，各种强大的功能全部是基于hostID完成，如果您的数据没有hostID或者是您自己手动保存的缓存数据，请结合CoreFMDDB构建HostID。
 
 
 
