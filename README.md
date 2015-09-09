@@ -174,7 +174,7 @@
 
 此外，以下不合法操作均会触发断言：
 >(1). 模型混用，比如使用Cat类方法对Person执行数据操作如[Cat insert:person resBlock:nil];<br/>
->(2). 数组支持中，数组申请OC数组成员为NSInteger、CGFloat、Bool等（后面会有详细介绍）。<br/>
+>(2). 数组支持中，数组申明OC数组成员为NSInteger、CGFloat、Bool等（后面会有详细介绍）。<br/>
 
 
 注意：
@@ -184,5 +184,32 @@
 
 
 
+<br/><br/><br/>
+五、基本模型 + Insert
+==========
+<br/>
 
+#### 我们构建合法的Person对象，并执行Insert操作：
+##### 本功能请查看项目中：Test4VC.m
 
+    Person *person = [[Person alloc] init];
+    person.hostID = 1;
+    person.name = @"冯成林";
+    person.age = 28;
+    person.height = 174.0;
+    /** Insert */
+    [Person insert:person resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+
+，运行结果提示成功，并且控制台输出全部是在子线程中完成，我们查看数据库：
+
+    sqlite> select * from Person;
+    +----+-----------+-----+--------+--------+-----+--------+
+    | id | name      | age | hostID | pModel | pid | height |
+    +----+-----------+-----+--------+--------+-----+--------+
+    | 1  | 冯成林    | 28  | 1      |        | 0   | 174.0  |
+    +----+-----------+-----+--------+--------+-----+--------+
+    1 rows in set (0.05 sec)
+
+##### 注： 当你再次运行Test4VC.m，会发现提示失败，那是因为hostID为1的数据已经存在，你也可以通过查看控制台输出得到答案。
