@@ -366,7 +366,7 @@
 
 
 <br/><br/><br/>
-十一、基本模型 + 数据删除
+十一、基本模型 + 条件删除
 ==========
 <br/>
 ##### 本功能请参考项目中：Test9VC.m
@@ -394,15 +394,49 @@
 
 
 <br/><br/><br/>
-十二、基本模型 + 数据删除
+十二、基本模型 + 条件查询
 ==========
 <br/>
 ##### 本功能请参考项目中：Test10VC.m
+##### 为了更好的检验数据查询是否成功，CoreModel增加了description方法,直接打印即可。
+
+    [Person selectWhere:nil groupBy:nil orderBy:nil limit:nil selectResultsBlock:^(NSArray *selectResults) {
+        
+        NSLog(@"%@",selectResults);
+    }];
+    
+#### 执行结果，  
+
+    2015-09-09 14:52:18.806 CoreModel[5335:3a03] (
+        "[Person]<0x7c199670>: 
+          name: Charlin Feng, 
+          age: 28, 
+          height: 173.5, 
+          hostID: 1, 
+          pModel: , 
+          pid: 0, 
+    ",
+        "[Person]<0x7c19a330>: 
+          name: \U5409\U59c6\U5148\U751f, 
+          age: 38, 
+          height: 172, 
+          hostID: 3, 
+          pModel: , 
+          pid: 0, 
+    "
+    )
+
+请注意：
+> (1). 因为我们刚刚测试了删除，删除了一条记录，所以现在结果当然是两条。
+> (2). 框架对CoreModel做了desctiontion自动处理，您能直接看到以上结果。
+> (3). 和删除类似，您也可以根据hostID(再次提示，非本地数据库id)快速查找一条记录,使用的方法为:`+(void)find:(NSUInteger)hostID selectResultBlock:(void(^)(id selectResult))selectResultBlock;`
 
 
 
-
-
+<br/><br/><br/>
+十三、基本模型 + 清空表数据
+==========
+<br/>
 
 
 
