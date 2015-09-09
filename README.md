@@ -41,11 +41,10 @@
 
 
 <br/><br/><br/>
-二、使用指南
+二、基本使用
 ==========
-
-#### 1.基本使用
-> (1). 新建模型Person，继承自CoreModel，模型加入属性
+<br/>
+####新建模型Person，继承自CoreModel，模型加入以下属性：
 
     #import "CoreModel.h"
     
