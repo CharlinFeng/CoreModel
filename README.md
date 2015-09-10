@@ -569,3 +569,41 @@
 ==========
 <br/>
 ##### 本功能请参考项目中：Test14VC.m
+为了更好的演示本功能，我们再为Person增加一个属性tags，用来表示人的一些标签，请明确，他是字符串数组。
+
+    @property (nonatomic,strong) NSArray *tags;
+
+现在我们来构建模型：
+
+    Person *p = [[Person alloc] init];
+    p.hostID=6;
+    p.name = @"冯成林";
+    p.tags = @[@"工作狂",@"电影迷",@"成都范",@"梦想青年"];
+    [Person save:p resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+
+，我们测试以上代码，发现被断言截获，断言说明如下：
+
+    错误：请在Person类中为您的NSArray类型的tags属性增加说明信息，实现statementForNSArrayProperties静态方法！
+    
+,这个是前面最开始的断言中提到的一种非法使用，当然解决问题的方法很简单，断言也说明的很清楚，您需要告诉CoreModel你的tags数组里面装的是什么类型，实现，格式要求如下：实现statementForNSArrayProperties静态方法，返回一个字典，其实key是数组属性名，value是数组成员的类型字符串，比如此处我们需要在Person类实现方法：
+
+    +(NSDictionary *)statementForNSArrayProperties{
+        return @{@"tags":NSStringFromClass([NSString class])};
+    }
+,有可能您认为您的数组中装的其实是一系列数字，你也许会这样写:
+
+    +(NSDictionary *)statementForNSArrayProperties{
+        return @{@"tags":@"NSInteger"};
+    }
+，这样写，我们直接运行一下，发现同样会触发断言：
+
+    错误：OC数组内不可能存放NSInteger
+
+，就目前来说，服务器给您的的普通数据你直接用NSString来接收就可以了，当然你可能会想写成NSNumber可以不呢？其实我觉得没有这个必要，因为再者转为NSInteger、CGFloat、Double的流程其实是一致的，所以数组里面装的如果是普通数组类型，请直接用NSString来接收。
+
+最后，有朋友会问，
+数组里面装装的如果是字典怎么办？这点上，在面向对象开发，字典一定是可以转为模型的。不建议继续玩字典。
+数组里面装的如果是数组怎么办？转为NSData操作
+关于数组里面装的是NSData和自定义模型，下面马上为您呈现。
