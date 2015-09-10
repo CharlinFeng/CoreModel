@@ -107,6 +107,7 @@
         
         ThreadShow(删除数据)
 
+        TriggerBlock(resBlock, res)
     }];
 }
 
@@ -119,5 +120,21 @@
     [self deleteWhere:where resBlock:resBlock needThread:YES];
 }
 
++(void)truncateTable:(void(^)(BOOL res))resBlock{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if(![self checkTableExists]){
+            
+            if(CoreModelDeBug) NSLog(@"错误：你操作的模型%@在数据库中没有对应的数据表！%@",[self modelName],AutoMsg);
+            if(resBlock != nil) resBlock(NO);
+            return;
+        }
+        
+        BOOL res = [CoreFMDB truncateTable:[self modelName]];
+        
+        TriggerBlock(resBlock, res)
+    });
+    
+}
 
 @end

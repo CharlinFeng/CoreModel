@@ -15,8 +15,6 @@
 +(void)selectWhere:(NSString *)where groupBy:(NSString *)groupBy orderBy:(NSString *)orderBy limit:(NSString *)limit selectResultsBlock:(void(^)(NSArray *selectResults))selectResultsBlock;
 
 
-
-
 +(void)find:(NSUInteger)hostID selectResultBlock:(void(^)(id selectResult))selectResultBlock;
 
 

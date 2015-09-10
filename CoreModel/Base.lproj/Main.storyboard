@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--时点软件 · 冯成林 · OC诀别之作-->
         <scene sceneID="noR-IT-Ifi">
             <objects>
                 <tableViewController id="GDT-gn-Wap" customClass="ListTVC" sceneMemberID="viewController">
@@ -18,11 +18,11 @@
                             <outlet property="delegate" destination="GDT-gn-Wap" id="0ii-I6-d7f"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="372-WB-oFK"/>
+                    <navigationItem key="navigationItem" title="时点软件 · 冯成林 · OC诀别之作" id="372-WB-oFK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cV1-Rl-NM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="812" y="585"/>
+            <point key="canvasLocation" x="813" y="419"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YQU-GN-JFE">

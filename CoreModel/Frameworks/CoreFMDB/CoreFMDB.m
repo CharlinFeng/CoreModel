@@ -106,7 +106,6 @@ HMSingletonM(CoreFMDB)
         
         if(queryResBlock != nil) queryResBlock(set);
         
-        NSLog(@"%@",[NSThread currentThread]);
     }];
 }
 

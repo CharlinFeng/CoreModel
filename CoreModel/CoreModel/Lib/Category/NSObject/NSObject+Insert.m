@@ -33,24 +33,18 @@
         
         return;
     }
-
-    if(![model isKindOfClass:[self class]]){
-        if(CoreModelDeBug) NSLog(@"错误：插入数据请使用%@模型类对象，您使用的是%@类型",[self modelName],[model class]);
-        if(resBlock != nil) resBlock(NO);return;
-    }
     
     CoreModel *coreModel=(CoreModel *)model;
 
-    if(coreModel.hostID==0){
-        if(CoreModelDeBug) NSLog(@"错误：数据插入失败,无hostID的数据插入都是耍流氓，你必须设置模型的模型hostID!");
-        if(resBlock != nil) resBlock(NO);return;
-    }
+    NSAssert(coreModel.hostID > 0, @"错误：数据插入失败,无hostID的数据插入都是耍流氓，你必须设置模型的模型hostID!");
+
     if(CoreModelDeBug)  NSLog(@"数据插入开始%@",[NSThread currentThread]);
 
     [self find:coreModel.hostID selectResultBlock:^(id dbModel) {
         
         if(dbModel!=nil){
-            if(CoreModelDeBug) NSLog(@"%@的数据已经存在",@(coreModel.hostID));
+            
+            if(CoreModelDeBug) NSLog(@"错误：%@表中hostID=%@的数据记录已经存在！",[self modelName],@(coreModel.hostID));
             if(resBlock != nil) resBlock(NO);return;
         }
         
@@ -86,10 +80,12 @@
                         
                     }else if ([property.type.code isEqualToString:CoreNSData]){
                         
-                        if(value == nil) value=@"";
-                        
-                        value =[NSString stringWithFormat:@"'%@'",[(NSData *)value base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
-                        
+                        if(value != nil) {
+                            
+                            value =[NSString stringWithFormat:@"'%@'",[(NSData *)value base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+                        }else{
+                            value = @"''";
+                        }
                     }
                     
                     if([property.type.code isEqualToString:CoreNSArray]){
@@ -122,7 +118,7 @@
                             
                             CoreModel *childModel=(CoreModel *)value;
                             
-                            [childModel setValue:NSStringFromClass(CoreModel.class) forKey:@"pModel"];
+                            [childModel setValue:[self modelName] forKey:@"pModel"];
                             
                             [childModel setValue:@(coreModel.hostID) forKey:@"pid"];
                             
@@ -155,12 +151,11 @@
         
         NSString *sql=[NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@);",[self modelName],fields_sub,values_sub];
         
-        
         BOOL insertRes = [CoreFMDB executeUpdate:sql];
         
         if(CoreModelDeBug) {if(!insertRes) NSLog(@"错误：添加对象失败%@",coreModel);};
         if(CoreModelDeBug) NSLog(@"数据插入结束%@",[NSThread currentThread]);
-
+        TriggerBlock(resBlock, insertRes)
     }];
 }
 

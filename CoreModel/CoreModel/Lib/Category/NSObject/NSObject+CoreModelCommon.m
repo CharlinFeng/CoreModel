@@ -11,6 +11,7 @@
 #import "MJType.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
+#import "NSObject+MJProperty.h"
 
 @implementation NSObject (CoreModelCommon)
 
@@ -111,12 +112,8 @@
 
 +(BOOL)isBasicTypeInNSArray:(NSString *)statement{
     
-    BOOL res = [NSArrayNorlMalTypes containsObject:statement];
-    
     return [NSArrayNorlMalTypes containsObject:statement];
 }
-
-
 
 
 
@@ -126,5 +123,22 @@
 
 
 +(NSDictionary *)statementForNSArrayProperties{return nil;}
+
+
+-(NSString *)description{
+    
+    NSMutableString *strM = [NSMutableString stringWithString:[NSString stringWithFormat:@"[%@]<%p>: \r",NSStringFromClass([self class]), self]];
+    
+    [[self class] enumerateProperties:^(MJProperty *property, BOOL *stop) {
+        BOOL skip=[[self class] skipField:property];
+
+        if(!skip){
+            [strM appendFormat:@"      %@: %@, \r",property.name, [self valueForKeyPath:property.name]];
+        }
+    }];
+    
+    return [strM copy];
+}
+
 
 @end

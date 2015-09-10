@@ -9,7 +9,7 @@
 #ifndef _BaseMoelConst_H_
 #define _BaseMoelConst_H_
 
-
+/** Debug */
 #define CoreModelDeBug 1
 
 
@@ -20,9 +20,10 @@
 #define NSArrayNorlMalTypes @[@"NSString",@"NSData"]
 
 #define ThreadShow(msg) if(CoreModelDeBug){NSLog(@"%@所在线程：%@",@#msg,[NSThread currentThread]);};
-
+#define TriggerBlock(block,res) if(block != nil ) block(res);
 #define AutoMsg @"框架正在全自动创表，并稍后自动重新执行您的操作，请放心！"
 #define AutoTry 0.1
+
 
 /**
  *  NSString

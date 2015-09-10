@@ -87,8 +87,13 @@
                         
                         value=[NSString stringWithFormat:@"'%@'",value];
                     }else if ([property.type.code isEqualToString:CoreNSData]){
-                        if(value == nil) value=@"";
-                        value =[NSString stringWithFormat:@"'%@'",[(NSData *)value base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+                        
+                        if(value != nil) {
+                            
+                            value =[NSString stringWithFormat:@"'%@'",[(NSData *)value base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
+                        }else{
+                            value = @"''";
+                        }
                     }
                     
                     if([property.type.code isEqualToString:CoreNSArray]){
@@ -118,7 +123,7 @@
                             
                             CoreModel *childModel=(CoreModel *)value;
                             
-                            [childModel setValue:NSStringFromClass(CoreModel.class) forKey:@"pModel"];
+                            [childModel setValue:[self modelName] forKey:@"pModel"];
                             
                             [childModel setValue:@(coreModel.hostID) forKey:@"pid"];
                             
@@ -155,6 +160,8 @@
         
         if(CoreModelDeBug) {if(!updateRes) NSLog(@"错误：数据更新出错，出错模型数据为：%@",model);};
 
+        TriggerBlock(resBlock, updateRes)
+        
     }];
 }
 

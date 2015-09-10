@@ -18,4 +18,8 @@
 +(void)delete:(NSUInteger)hostID resBlock:(void(^)(BOOL res))resBlock;
 
 
++(void)truncateTable:(void(^)(BOOL res))resBlock;
+
+
+
 @end
