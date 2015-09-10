@@ -2,9 +2,6 @@
 ![image](https://github.com/CharlinFeng/Resource/blob/master/CoreModel/logo.jpg)<br/><br/>
 
 
-#### 时间软件冯成林原创，因你而精彩！
-[![image](https://github.com/CharlinFeng/Resource/blob/master/ShiDian/shidian.png)](http://ios-android.cn)<br/><br/>
-
 
 <br/><br/><br/>
 一、CoreModel使用前言
@@ -785,6 +782,13 @@ sqlite> select * from Pen;
 #### 第三季CoreModel在我看来是一个底层工具，他的核心价值是为CoreCache和CoreList服务，就在CoreModel中你会发现大量的代码是在本季没有提到，请暂时忽略它吧。
 
 
+<br/><br/><br/>
+
+#### 时间软件冯成林原创，因你而精彩！
+
+#### 支持时点软件发展（前期做全国APP外包），感激不尽！
+
+[![image](https://github.com/CharlinFeng/Resource/blob/master/ShiDian/shidian.png)](http://ios-android.cn)<br/><br/>
 
 
 
