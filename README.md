@@ -619,3 +619,44 @@
 数组里面装装的如果是字典怎么办？这点上，在面向对象开发，字典一定是可以转为模型的。不建议继续玩字典。
 数组里面装的如果是数组怎么办？转为NSData操作
 关于数组里面装的是NSData和自定义模型，下面马上为您呈现。
+
+
+
+<br/><br/><br/>
+十七、数组支持：NSData类型数组
+==========
+<br/>
+##### 本功能请参考项目中：Test15VC.m
+首先，我们增加字段,请明确字段数组里面放的是NSData数据类型:
+
+    @property (nonatomic,strong) NSArray *dreams;
+
+,然后我们需要申明dreams数组内存放的是什么数据类型：
+
+    +(NSDictionary *)statementForNSArrayProperties{
+        return @{@"tags":NSStringFromClass([NSString class]),@"dreams":NSStringFromClass([NSData class])};
+    }
+
+，好了，下面我们开始构建数据：
+
+    Person *p = [[Person alloc] init];
+    p.hostID=7;
+    p.name = @"大雄";
+    p.dreams = @[
+                 [self dataWithImageName:@"p1"],
+                 [self dataWithImageName:@"p2"],
+                 [self dataWithImageName:@"p3"],
+                 ];
+    [Person save:p resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+
+，保存结果请参考框架Test15VC.m演示效果。
+
+
+
+<br/><br/><br/>
+十八、数组支持：自定义模型数组
+==========
+<br/>
+##### 本功能请参考项目中：Test16VC.m
