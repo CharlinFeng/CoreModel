@@ -776,23 +776,19 @@ sqlite> select * from Pen;
 二十、 第四季与第五季预告
 ==========
 
-#### 第四季：CoreCache 动态缓存
-#### 第五季：CoreList 列表终结者
+##### 第四季：CoreCache 动态缓存
+##### 第五季：CoreList 列表终结者
 <br/>
-#### 第三季CoreModel在我看来是一个底层工具，他的核心价值是为CoreCache和CoreList服务，就在CoreModel中你会发现大量的代码是在本季没有提到，请暂时忽略它吧。
+第三季CoreModel在我看来是一个底层工具，他的核心价值是为CoreCache和CoreList服务，就在CoreModel中你会发现大量的代码是在本季没有提到，请暂时忽略它吧。
 
 
 <br/><br/><br/>
 
 #### 时间软件冯成林原创，因你而精彩！
 
-#### 支持时点软件发展（前期做全国APP外包），感激不尽！
+#### 支持时点软件发展（公司前期做全国APP外包），时点软件感激不尽！
 
 [![image](https://github.com/CharlinFeng/Resource/blob/master/ShiDian/shidian.png)](http://ios-android.cn)<br/><br/>
-
-
-
-
 
 
 
