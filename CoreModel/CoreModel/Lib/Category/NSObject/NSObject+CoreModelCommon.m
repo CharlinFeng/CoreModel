@@ -24,6 +24,13 @@
 
     NSString *sqliteTye=[self sqliteType:fieldType];
 
+    if([ivar.type.code isEqualToString:CoreNSArray]){
+        
+        if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][ivar.name]]){
+            sqliteTye = TEXT_TYPE;
+        }
+    }
+    
     if([sqliteTye isEqualToString:EmptyString]){
 
         return EmptyString;

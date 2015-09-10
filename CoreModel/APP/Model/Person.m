@@ -7,7 +7,16 @@
 //
 
 #import "Person.h"
+#import "NSObject+MJKeyValue.h"
 
 @implementation Person
+
++(NSDictionary *)statementForNSArrayProperties{
+    return @{@"tags":NSStringFromClass([NSString class]),@"dreams":NSStringFromClass([NSData class]),@"pens":NSStringFromClass([Pen class])};
+}
+
++(NSDictionary *)objectClassInArray{
+    return @{@"tags":NSStringFromClass([NSString class]),@"pens":NSStringFromClass([Pen class])};
+}
 
 @end

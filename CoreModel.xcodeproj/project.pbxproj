@@ -30,11 +30,17 @@
 		891AA5B51BA01372003A7F73 /* Test15VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5B41BA01372003A7F73 /* Test15VC.m */; };
 		891AA5B81BA01382003A7F73 /* Test16VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5B71BA01382003A7F73 /* Test16VC.m */; };
 		891AA5BB1BA0138E003A7F73 /* Test17VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5BA1BA0138E003A7F73 /* Test17VC.m */; };
-		891AA5BE1BA0139B003A7F73 /* Test18VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5BD1BA0139B003A7F73 /* Test18VC.m */; };
-		891AA5C11BA013A6003A7F73 /* Test19VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5C01BA013A6003A7F73 /* Test19VC.m */; };
-		891AA5C41BA013B0003A7F73 /* Test20VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5C31BA013B0003A7F73 /* Test20VC.m */; };
 		891AA5C61BA01FAA003A7F73 /* Test12VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 891AA5C51BA01FAA003A7F73 /* Test12VC.xib */; };
 		891AA5C91BA0288C003A7F73 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 891AA5C81BA0288C003A7F73 /* City.m */; };
+		894646F51BA11C760051FA78 /* Test15VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 894646F41BA11C760051FA78 /* Test15VC.xib */; };
+		894646F81BA1281E0051FA78 /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = 894646F71BA1281E0051FA78 /* Pen.m */; };
+		8946470A1BA12B9B0051FA78 /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 894646FB1BA12B9B0051FA78 /* CoreHttp.m */; };
+		8946470B1BA12B9B0051FA78 /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 894646FE1BA12B9B0051FA78 /* NSString+CoreHttp.m */; };
+		8946470C1BA12B9B0051FA78 /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 894647011BA12B9B0051FA78 /* NSData+MimeType.m */; };
+		8946470D1BA12B9B0051FA78 /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 894647031BA12B9B0051FA78 /* NSData+Param.m */; };
+		8946470E1BA12B9B0051FA78 /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 894647051BA12B9B0051FA78 /* NSString+File.m */; };
+		8946470F1BA12B9B0051FA78 /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 894647071BA12B9B0051FA78 /* NSURL+File.m */; };
+		894647101BA12B9B0051FA78 /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 894647091BA12B9B0051FA78 /* UploadFile.m */; };
 		896ADB651B9F1BE40041E7CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADB641B9F1BE40041E7CE /* main.m */; };
 		896ADB681B9F1BE40041E7CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADB671B9F1BE40041E7CE /* AppDelegate.m */; };
 		896ADB6E1B9F1BE40041E7CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 896ADB6C1B9F1BE40041E7CE /* Main.storyboard */; };
@@ -48,13 +54,6 @@
 		896ADC031B9F205E0041E7CE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBCE1B9F205E0041E7CE /* FMDatabasePool.m */; };
 		896ADC041B9F205E0041E7CE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBD01B9F205E0041E7CE /* FMDatabaseQueue.m */; };
 		896ADC051B9F205E0041E7CE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBD31B9F205E0041E7CE /* FMResultSet.m */; };
-		896ADC061B9F205E0041E7CE /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBD81B9F205E0041E7CE /* CoreHttp.m */; };
-		896ADC071B9F205E0041E7CE /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBDB1B9F205E0041E7CE /* NSString+CoreHttp.m */; };
-		896ADC081B9F205E0041E7CE /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBDE1B9F205E0041E7CE /* NSData+MimeType.m */; };
-		896ADC091B9F205E0041E7CE /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBE01B9F205E0041E7CE /* NSData+Param.m */; };
-		896ADC0A1B9F205E0041E7CE /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBE21B9F205E0041E7CE /* NSString+File.m */; };
-		896ADC0B1B9F205E0041E7CE /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBE41B9F205E0041E7CE /* NSURL+File.m */; };
-		896ADC0C1B9F205E0041E7CE /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBE61B9F205E0041E7CE /* UploadFile.m */; };
 		896ADC0D1B9F205E0041E7CE /* CoreStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBE91B9F205E0041E7CE /* CoreStatus.m */; };
 		896ADC0E1B9F205E0041E7CE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADBEC1B9F205E0041E7CE /* Reachability.m */; };
 		896ADC181B9F208E0041E7CE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 896ADC171B9F208E0041E7CE /* libsqlite3.0.dylib */; };
@@ -139,15 +138,26 @@
 		891AA5B71BA01382003A7F73 /* Test16VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test16VC.m; sourceTree = "<group>"; };
 		891AA5B91BA0138E003A7F73 /* Test17VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test17VC.h; sourceTree = "<group>"; };
 		891AA5BA1BA0138E003A7F73 /* Test17VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test17VC.m; sourceTree = "<group>"; };
-		891AA5BC1BA0139B003A7F73 /* Test18VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test18VC.h; sourceTree = "<group>"; };
-		891AA5BD1BA0139B003A7F73 /* Test18VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test18VC.m; sourceTree = "<group>"; };
-		891AA5BF1BA013A6003A7F73 /* Test19VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test19VC.h; sourceTree = "<group>"; };
-		891AA5C01BA013A6003A7F73 /* Test19VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test19VC.m; sourceTree = "<group>"; };
-		891AA5C21BA013B0003A7F73 /* Test20VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test20VC.h; sourceTree = "<group>"; };
-		891AA5C31BA013B0003A7F73 /* Test20VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test20VC.m; sourceTree = "<group>"; };
 		891AA5C51BA01FAA003A7F73 /* Test12VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Test12VC.xib; sourceTree = "<group>"; };
 		891AA5C71BA0288C003A7F73 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
 		891AA5C81BA0288C003A7F73 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = City.m; sourceTree = "<group>"; };
+		894646F41BA11C760051FA78 /* Test15VC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Test15VC.xib; sourceTree = "<group>"; };
+		894646F61BA1281E0051FA78 /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
+		894646F71BA1281E0051FA78 /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
+		894646FA1BA12B9B0051FA78 /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
+		894646FB1BA12B9B0051FA78 /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
+		894646FD1BA12B9B0051FA78 /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
+		894646FE1BA12B9B0051FA78 /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
+		894647001BA12B9B0051FA78 /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
+		894647011BA12B9B0051FA78 /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
+		894647021BA12B9B0051FA78 /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
+		894647031BA12B9B0051FA78 /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
+		894647041BA12B9B0051FA78 /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
+		894647051BA12B9B0051FA78 /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
+		894647061BA12B9B0051FA78 /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
+		894647071BA12B9B0051FA78 /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
+		894647081BA12B9B0051FA78 /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
+		894647091BA12B9B0051FA78 /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
 		896ADB5F1B9F1BE40041E7CE /* CoreModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		896ADB631B9F1BE40041E7CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		896ADB641B9F1BE40041E7CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -175,20 +185,6 @@
 		896ADBD21B9F205E0041E7CE /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		896ADBD31B9F205E0041E7CE /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		896ADBD51B9F205E0041E7CE /* CoreFMDBSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreFMDBSingleton.h; sourceTree = "<group>"; };
-		896ADBD71B9F205E0041E7CE /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
-		896ADBD81B9F205E0041E7CE /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
-		896ADBDA1B9F205E0041E7CE /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
-		896ADBDB1B9F205E0041E7CE /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
-		896ADBDD1B9F205E0041E7CE /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
-		896ADBDE1B9F205E0041E7CE /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
-		896ADBDF1B9F205E0041E7CE /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
-		896ADBE01B9F205E0041E7CE /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
-		896ADBE11B9F205E0041E7CE /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
-		896ADBE21B9F205E0041E7CE /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
-		896ADBE31B9F205E0041E7CE /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
-		896ADBE41B9F205E0041E7CE /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
-		896ADBE51B9F205E0041E7CE /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
-		896ADBE61B9F205E0041E7CE /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
 		896ADBE81B9F205E0041E7CE /* CoreStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreStatus.h; sourceTree = "<group>"; };
 		896ADBE91B9F205E0041E7CE /* CoreStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreStatus.m; sourceTree = "<group>"; };
 		896ADBEB1B9F205E0041E7CE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -310,9 +306,6 @@
 		891AA5781BA011A6003A7F73 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				891AA5A61BA0129D003A7F73 /* Test20VC */,
-				891AA5A51BA01297003A7F73 /* Test19VC */,
-				891AA5A41BA01291003A7F73 /* Test18VC */,
 				891AA5A31BA0128B003A7F73 /* Test17VC */,
 				891AA5A21BA01284003A7F73 /* Test16VC */,
 				891AA5A11BA0127D003A7F73 /* Test15VC */,
@@ -456,6 +449,7 @@
 			children = (
 				891AA5B31BA01372003A7F73 /* Test15VC.h */,
 				891AA5B41BA01372003A7F73 /* Test15VC.m */,
+				894646F41BA11C760051FA78 /* Test15VC.xib */,
 			);
 			name = Test15VC;
 			sourceTree = "<group>";
@@ -478,31 +472,41 @@
 			name = Test17VC;
 			sourceTree = "<group>";
 		};
-		891AA5A41BA01291003A7F73 /* Test18VC */ = {
+		894646F91BA12B9B0051FA78 /* CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
-				891AA5BC1BA0139B003A7F73 /* Test18VC.h */,
-				891AA5BD1BA0139B003A7F73 /* Test18VC.m */,
+				894646FA1BA12B9B0051FA78 /* CoreHttp.h */,
+				894646FB1BA12B9B0051FA78 /* CoreHttp.m */,
+				894646FC1BA12B9B0051FA78 /* NSString+CoreHttp */,
+				894646FF1BA12B9B0051FA78 /* Upload */,
 			);
-			name = Test18VC;
+			path = CoreHttp;
 			sourceTree = "<group>";
 		};
-		891AA5A51BA01297003A7F73 /* Test19VC */ = {
+		894646FC1BA12B9B0051FA78 /* NSString+CoreHttp */ = {
 			isa = PBXGroup;
 			children = (
-				891AA5BF1BA013A6003A7F73 /* Test19VC.h */,
-				891AA5C01BA013A6003A7F73 /* Test19VC.m */,
+				894646FD1BA12B9B0051FA78 /* NSString+CoreHttp.h */,
+				894646FE1BA12B9B0051FA78 /* NSString+CoreHttp.m */,
 			);
-			name = Test19VC;
+			path = "NSString+CoreHttp";
 			sourceTree = "<group>";
 		};
-		891AA5A61BA0129D003A7F73 /* Test20VC */ = {
+		894646FF1BA12B9B0051FA78 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
-				891AA5C21BA013B0003A7F73 /* Test20VC.h */,
-				891AA5C31BA013B0003A7F73 /* Test20VC.m */,
+				894647001BA12B9B0051FA78 /* NSData+MimeType.h */,
+				894647011BA12B9B0051FA78 /* NSData+MimeType.m */,
+				894647021BA12B9B0051FA78 /* NSData+Param.h */,
+				894647031BA12B9B0051FA78 /* NSData+Param.m */,
+				894647041BA12B9B0051FA78 /* NSString+File.h */,
+				894647051BA12B9B0051FA78 /* NSString+File.m */,
+				894647061BA12B9B0051FA78 /* NSURL+File.h */,
+				894647071BA12B9B0051FA78 /* NSURL+File.m */,
+				894647081BA12B9B0051FA78 /* UploadFile.h */,
+				894647091BA12B9B0051FA78 /* UploadFile.m */,
 			);
-			name = Test20VC;
+			path = Upload;
 			sourceTree = "<group>";
 		};
 		896ADB561B9F1BE40041E7CE = {
@@ -569,9 +573,9 @@
 		896ADBC01B9F205E0041E7CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				894646F91BA12B9B0051FA78 /* CoreHttp */,
 				896ADC511B9F227F0041E7CE /* MJExtension */,
 				896ADBC11B9F205E0041E7CE /* CoreFMDB */,
-				896ADBD61B9F205E0041E7CE /* CoreHttp */,
 				896ADBE71B9F205E0041E7CE /* CoreStatus */,
 			);
 			path = Frameworks;
@@ -630,43 +634,6 @@
 				896ADBD51B9F205E0041E7CE /* CoreFMDBSingleton.h */,
 			);
 			path = Singleton;
-			sourceTree = "<group>";
-		};
-		896ADBD61B9F205E0041E7CE /* CoreHttp */ = {
-			isa = PBXGroup;
-			children = (
-				896ADBD71B9F205E0041E7CE /* CoreHttp.h */,
-				896ADBD81B9F205E0041E7CE /* CoreHttp.m */,
-				896ADBD91B9F205E0041E7CE /* NSString+CoreHttp */,
-				896ADBDC1B9F205E0041E7CE /* Upload */,
-			);
-			path = CoreHttp;
-			sourceTree = "<group>";
-		};
-		896ADBD91B9F205E0041E7CE /* NSString+CoreHttp */ = {
-			isa = PBXGroup;
-			children = (
-				896ADBDA1B9F205E0041E7CE /* NSString+CoreHttp.h */,
-				896ADBDB1B9F205E0041E7CE /* NSString+CoreHttp.m */,
-			);
-			path = "NSString+CoreHttp";
-			sourceTree = "<group>";
-		};
-		896ADBDC1B9F205E0041E7CE /* Upload */ = {
-			isa = PBXGroup;
-			children = (
-				896ADBDD1B9F205E0041E7CE /* NSData+MimeType.h */,
-				896ADBDE1B9F205E0041E7CE /* NSData+MimeType.m */,
-				896ADBDF1B9F205E0041E7CE /* NSData+Param.h */,
-				896ADBE01B9F205E0041E7CE /* NSData+Param.m */,
-				896ADBE11B9F205E0041E7CE /* NSString+File.h */,
-				896ADBE21B9F205E0041E7CE /* NSString+File.m */,
-				896ADBE31B9F205E0041E7CE /* NSURL+File.h */,
-				896ADBE41B9F205E0041E7CE /* NSURL+File.m */,
-				896ADBE51B9F205E0041E7CE /* UploadFile.h */,
-				896ADBE61B9F205E0041E7CE /* UploadFile.m */,
-			);
-			path = Upload;
 			sourceTree = "<group>";
 		};
 		896ADBE71B9F205E0041E7CE /* CoreStatus */ = {
@@ -857,6 +824,8 @@
 				891AA5321B9FCCBD003A7F73 /* Person.m */,
 				891AA5C71BA0288C003A7F73 /* City.h */,
 				891AA5C81BA0288C003A7F73 /* City.m */,
+				894646F61BA1281E0051FA78 /* Pen.h */,
+				894646F71BA1281E0051FA78 /* Pen.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -945,6 +914,7 @@
 				896ADB6E1B9F1BE40041E7CE /* Main.storyboard in Resources */,
 				896ADB731B9F1BE40041E7CE /* LaunchScreen.xib in Resources */,
 				891AA5C61BA01FAA003A7F73 /* Test12VC.xib in Resources */,
+				894646F51BA11C760051FA78 /* Test15VC.xib in Resources */,
 				896ADB701B9F1BE40041E7CE /* Images.xcassets in Resources */,
 				891AA5561B9FE053003A7F73 /* SVP.bundle in Resources */,
 			);
@@ -965,14 +935,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				891AA5911BA011A6003A7F73 /* Test7VC.m in Sources */,
+				894647101BA12B9B0051FA78 /* UploadFile.m in Sources */,
 				897C44981B9FC7CB00F26261 /* ListTVC.m in Sources */,
 				891AA5BB1BA0138E003A7F73 /* Test17VC.m in Sources */,
-				896ADC0C1B9F205E0041E7CE /* UploadFile.m in Sources */,
 				896ADC481B9F20CA0041E7CE /* NSObject+Create.m in Sources */,
-				891AA5BE1BA0139B003A7F73 /* Test18VC.m in Sources */,
 				896ADBFF1B9F205E0041E7CE /* CoreFMDB.m in Sources */,
-				896ADC071B9F205E0041E7CE /* NSString+CoreHttp.m in Sources */,
-				891AA5C11BA013A6003A7F73 /* Test19VC.m in Sources */,
 				891AA58D1BA011A6003A7F73 /* Test3VC.m in Sources */,
 				896ADC6A1B9F227F0041E7CE /* NSString+MJExtension.m in Sources */,
 				891AA5B81BA01382003A7F73 /* Test16VC.m in Sources */,
@@ -986,7 +953,6 @@
 				896ADC4C1B9F20CA0041E7CE /* NSObject+Select.m in Sources */,
 				891AA58F1BA011A6003A7F73 /* Test5VC.m in Sources */,
 				896ADC031B9F205E0041E7CE /* FMDatabasePool.m in Sources */,
-				891AA5C41BA013B0003A7F73 /* Test20VC.m in Sources */,
 				891AA5931BA011A6003A7F73 /* Test9VC.m in Sources */,
 				891AA58C1BA011A6003A7F73 /* Test2VC.m in Sources */,
 				891AA5B21BA01367003A7F73 /* Test14VC.m in Sources */,
@@ -998,26 +964,28 @@
 				896ADC631B9F227F0041E7CE /* MJConst.m in Sources */,
 				896ADC461B9F20CA0041E7CE /* NSObject+CoreModelCommon.m in Sources */,
 				891AA58E1BA011A6003A7F73 /* Test4VC.m in Sources */,
+				8946470D1BA12B9B0051FA78 /* NSData+Param.m in Sources */,
 				891AA53C1B9FD028003A7F73 /* CommonVC.m in Sources */,
 				896ADC4A1B9F20CA0041E7CE /* NSObject+Insert.m in Sources */,
 				896ADC4E1B9F20CA0041E7CE /* NSOperationQueue+Queue.m in Sources */,
+				8946470C1BA12B9B0051FA78 /* NSData+MimeType.m in Sources */,
 				891AA5B51BA01372003A7F73 /* Test15VC.m in Sources */,
 				891AA5C91BA0288C003A7F73 /* City.m in Sources */,
 				896ADC4B1B9F20CA0041E7CE /* NSObject+Save.m in Sources */,
 				896ADC001B9F205E0041E7CE /* NSString+CoreFMDB.m in Sources */,
-				896ADC061B9F205E0041E7CE /* CoreHttp.m in Sources */,
 				896ADC041B9F205E0041E7CE /* FMDatabaseQueue.m in Sources */,
 				896ADB681B9F1BE40041E7CE /* AppDelegate.m in Sources */,
 				891AA58B1BA011A6003A7F73 /* Test10VC.m in Sources */,
 				896ADC0D1B9F205E0041E7CE /* CoreStatus.m in Sources */,
 				891AA5901BA011A6003A7F73 /* Test6VC.m in Sources */,
+				8946470F1BA12B9B0051FA78 /* NSURL+File.m in Sources */,
 				896ADC441B9F20CA0041E7CE /* NSArray+CoreModel.m in Sources */,
-				896ADC0A1B9F205E0041E7CE /* NSString+File.m in Sources */,
 				891AA5A91BA01314003A7F73 /* Test11VC.m in Sources */,
-				896ADC091B9F205E0041E7CE /* NSData+Param.m in Sources */,
 				891AA5331B9FCCBD003A7F73 /* Person.m in Sources */,
+				8946470A1BA12B9B0051FA78 /* CoreHttp.m in Sources */,
+				894646F81BA1281E0051FA78 /* Pen.m in Sources */,
 				896ADC681B9F227F0041E7CE /* NSObject+MJKeyValue.m in Sources */,
-				896ADC0B1B9F205E0041E7CE /* NSURL+File.m in Sources */,
+				8946470B1BA12B9B0051FA78 /* NSString+CoreHttp.m in Sources */,
 				896ADC451B9F20CA0041E7CE /* NSDictionary+Sqlite.m in Sources */,
 				896ADC0E1B9F205E0041E7CE /* Reachability.m in Sources */,
 				896ADC651B9F227F0041E7CE /* MJProperty.m in Sources */,
@@ -1025,9 +993,9 @@
 				896ADC4F1B9F20CA0041E7CE /* NSString+Stackoverflow.m in Sources */,
 				896ADC671B9F227F0041E7CE /* NSObject+MJCoding.m in Sources */,
 				896ADB651B9F1BE40041E7CE /* main.m in Sources */,
-				896ADC081B9F205E0041E7CE /* NSData+MimeType.m in Sources */,
 				891AA5921BA011A6003A7F73 /* Test8VC.m in Sources */,
 				891AA5551B9FE053003A7F73 /* CoreSVP.m in Sources */,
+				8946470E1BA12B9B0051FA78 /* NSString+File.m in Sources */,
 				896ADC471B9F20CA0041E7CE /* NSObject+Contrast.m in Sources */,
 				891AA5AC1BA0134D003A7F73 /* Test12VC.m in Sources */,
 			);

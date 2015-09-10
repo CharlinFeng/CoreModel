@@ -16,22 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    Person *p = [[Person alloc] init];
+    p.hostID=6;
+    p.name = @"冯成林";
+    p.tags = @[@"工作狂",@"电影迷",@"成都范",@"梦想青年"];
+    
+    [Person insert:p resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

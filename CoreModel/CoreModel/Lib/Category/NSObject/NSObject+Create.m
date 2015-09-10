@@ -46,7 +46,7 @@
             
             NSDictionary *dict = [self statementForNSArrayProperties];
             
-            NSString *errorMsg = [NSString stringWithFormat:@"错误：请为您的NSArray类型的%@属性增加说明信息，实现statementForNSArrayProperties静态方法！",property.name];
+            NSString *errorMsg = [NSString stringWithFormat:@"错误：请在%@类中为您的NSArray类型的%@属性增加说明信息，实现statementForNSArrayProperties静态方法！",[self modelName],property.name];
             
             NSAssert(dict[property.name] != nil, errorMsg);
             NSAssert(![dict[property.name] isEqualToString:@"NSInteger"], @"错误：OC数组内不可能存放NSInteger");

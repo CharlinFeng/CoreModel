@@ -7,6 +7,8 @@
 //
 
 #import "Test17VC.h"
+#import "CoreHttp.h"
+#import "NSObject+MJKeyValue.h"
 
 @interface Test17VC ()
 
@@ -16,22 +18,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *url = @"http://211.149.151.92/mytest/Test/test3";
+    
+    CoreSVPLoading(@"加载中", YES)
+    
+    [CoreHttp getUrl:url params:nil success:^(NSDictionary *dict) {
+        
+        Person *p = [Person objectWithKeyValues:dict[@"data"][@"dataData"][@"person"]];
+        
+        [Person save:p resBlock:^(BOOL res) {
+            
+            [self show:res];
+        }];
+        
+    } errorBlock:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

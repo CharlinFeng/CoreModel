@@ -16,22 +16,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    Pen *pen1=[[Pen alloc] init];
+    pen1.hostID=1;
+    pen1.color = @"red";
+    pen1.price = 12.5;
+    Pen *pen2=[[Pen alloc] init];
+    pen2.hostID=1;
+    pen2.color = @"blue";
+    pen2.price = 9.8;
+    Person *p = [[Person alloc] init];
+    p.hostID = 8;
+    p.name = @"静香";
+    p.pens=@[pen1,pen2];
+    
+    
+    [Person save:p resBlock:^(BOOL res) {
+        [self show:res];
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

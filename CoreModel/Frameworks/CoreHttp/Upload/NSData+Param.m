@@ -79,7 +79,7 @@ NSString *const lineBreak=@"\r\n";                                          //li
         }
         
         if(file.key==nil || file.name==nil || file.mimeType==nil || file.data==nil){
-            NSLog(@"Warnning:上传文件列表数据第%@个文件信息不完整,文件信息为:%@!",@(i),file);
+            NSLog(@"Warnning:上传文件列表数据第%li个文件信息不完整,文件信息为:%@!",i,file);
         }
         
         //添加开头符号

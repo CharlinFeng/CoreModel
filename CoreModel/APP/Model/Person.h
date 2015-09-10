@@ -8,6 +8,7 @@
 
 #import "CoreModel.h"
 #import "City.h"
+#import "Pen.h"
 #import <UIKit/UIKit.h>
 
 @interface Person : CoreModel
@@ -23,5 +24,11 @@
 @property (nonatomic,strong) City *city;
 
 @property (nonatomic,strong) Person *teacher;
+
+@property (nonatomic,strong) NSArray *tags;
+
+@property (nonatomic,strong) NSArray *dreams;
+
+@property (nonatomic,strong) NSArray *pens;
 
 @end

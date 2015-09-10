@@ -10,28 +10,66 @@
 
 @interface Test15VC ()
 
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imgVs;
+
+
 @end
 
 @implementation Test15VC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (IBAction)saveAction:(id)sender {
+    
+    Person *p = [[Person alloc] init];
+    p.hostID=7;
+    p.name = @"大雄";
+    p.dreams = @[
+                 [self dataWithImageName:@"p1"],
+                 [self dataWithImageName:@"p2"],
+                 [self dataWithImageName:@"p3"],
+                 ];
+    
+    [Person save:p resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)readAction:(id)sender {
+    
+    [Person find:7 selectResultBlock:^(Person *p) {
+        
+        
+        CoreSVPSuccess(@"读取成功")
+        
+        [p.dreams enumerateObjectsUsingBlock:^(NSData *data, NSUInteger idx, BOOL *stop) {
+           
+            dispatch_async(dispatch_get_main_queue(), ^{
+                ((UIImageView *)self.imgVs[idx]).image = [[UIImage alloc] initWithData:data];
+            });
+            
+        }];
+        
+        
+    }];
+    
+    
 }
-*/
+
+
+-(NSData *)dataWithImageName:(NSString *)name{
+    return UIImagePNGRepresentation([UIImage imageNamed:name]);
+}
+
+
+
+
+
 
 @end
