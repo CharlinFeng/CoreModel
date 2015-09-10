@@ -80,6 +80,7 @@
 		896ADC691B9F227F0041E7CE /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADC601B9F227F0041E7CE /* NSObject+MJProperty.m */; };
 		896ADC6A1B9F227F0041E7CE /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADC621B9F227F0041E7CE /* NSString+MJExtension.m */; };
 		897C44981B9FC7CB00F26261 /* ListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 897C44971B9FC7CB00F26261 /* ListTVC.m */; };
+		89A9D1891BA1790400B1F79D /* CoreModel+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A9D1881BA1790400B1F79D /* CoreModel+Cache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +241,8 @@
 		896ADC621B9F227F0041E7CE /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
 		897C44961B9FC7CB00F26261 /* ListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTVC.h; sourceTree = "<group>"; };
 		897C44971B9FC7CB00F26261 /* ListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTVC.m; sourceTree = "<group>"; };
+		89A9D1871BA1790400B1F79D /* CoreModel+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreModel+Cache.h"; sourceTree = "<group>"; };
+		89A9D1881BA1790400B1F79D /* CoreModel+Cache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreModel+Cache.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -725,6 +728,8 @@
 				896ADC321B9F20CA0041E7CE /* NSObject+Select.m */,
 				896ADC331B9F20CA0041E7CE /* NSObject+Update.h */,
 				896ADC341B9F20CA0041E7CE /* NSObject+Update.m */,
+				89A9D1871BA1790400B1F79D /* CoreModel+Cache.h */,
+				89A9D1881BA1790400B1F79D /* CoreModel+Cache.m */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -945,6 +950,7 @@
 				891AA5B81BA01382003A7F73 /* Test16VC.m in Sources */,
 				896ADC011B9F205E0041E7CE /* FMDatabase.m in Sources */,
 				896ADC4D1B9F20CA0041E7CE /* NSObject+Update.m in Sources */,
+				89A9D1891BA1790400B1F79D /* CoreModel+Cache.m in Sources */,
 				896ADC691B9F227F0041E7CE /* NSObject+MJProperty.m in Sources */,
 				891AA5591B9FE053003A7F73 /* SVProgressHUD.m in Sources */,
 				896ADC491B9F20CA0041E7CE /* NSObject+Delete.m in Sources */,
