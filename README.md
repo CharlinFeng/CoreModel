@@ -782,11 +782,11 @@ sqlite> select * from Pen;
 第三季CoreModel在我看来是一个底层工具，他的核心价值是为CoreCache和CoreList服务，就在CoreModel中你会发现大量的代码是在本季没有提到，请暂时忽略它吧。
 
 
-<br/><br/><br/>
+<br/><br/><br/><br/>
 
 #### 成都时点软件开发有限公司冯成林原创，因你而精彩！
 
 #### 支持时点软件发展（公司前期做全国APP外包），时点软件感激不尽！
-
+<br/>
 [![image](https://github.com/CharlinFeng/Resource/blob/master/ShiDian/shidian.png)](http://ios-android.cn)<br/><br/>
 
