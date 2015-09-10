@@ -1,11 +1,9 @@
 
-![image](https://github.com/CharlinFeng/Resource/blob/master/ShiDian/shidian.png)(http://ios-android.cn)<br/><br/>
-
-
 ![image](https://github.com/CharlinFeng/Resource/blob/master/CoreModel/logo.jpg)<br/><br/>
 
-##更新特性太多，文档重制中！陆续为您呈现！
-##创业初期精力有限，本人最后一个开源OC框架：因您而精彩！
+
+#### 时间软件冯成林原创，因你而精彩！
+[![image](https://github.com/CharlinFeng/Resource/blob/master/ShiDian/shidian.png)](http://ios-android.cn)<br/><br/>
 
 
 <br/><br/><br/>
