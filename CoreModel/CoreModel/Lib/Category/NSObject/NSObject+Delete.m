@@ -13,7 +13,7 @@
 #import "CoreModel.h"
 #import "NSObject+MJProperty.h"
 #import "MJProperty.h"
-#import "MJType.h"
+#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 
 @implementation NSObject (Delete)
@@ -58,7 +58,7 @@
         
         for (CoreModel *baseModle in deleteModels) {
             
-            [baseModle.class enumerateProperties:^(MJProperty *property, BOOL *stop) {
+            [baseModle.class enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
 
                 BOOL skip=[self skipField:property];
                 

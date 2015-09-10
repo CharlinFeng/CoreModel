@@ -8,7 +8,7 @@
 
 #import "NSObject+CoreModelCommon.h"
 #import "MJProperty.h"
-#import "MJType.h"
+#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
 #import "NSObject+MJProperty.h"
@@ -136,7 +136,7 @@
     
     NSMutableString *strM = [NSMutableString stringWithString:[NSString stringWithFormat:@"[%@]<%p>: \r",NSStringFromClass([self class]), self]];
     
-    [[self class] enumerateProperties:^(MJProperty *property, BOOL *stop) {
+    [[self class] enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
         BOOL skip=[[self class] skipField:property];
 
         if(!skip){
@@ -147,5 +147,12 @@
     return [strM copy];
 }
 
+
+/** 封装 */
++(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties{
+    [self enumerateProperties:^(MJProperty *p, BOOL *stop) {
+        properties(p,stop);
+    }];
+}
 
 @end

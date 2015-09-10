@@ -22,7 +22,7 @@
     pen1.color = @"red";
     pen1.price = 12.5;
     Pen *pen2=[[Pen alloc] init];
-    pen2.hostID=1;
+    pen2.hostID=2;
     pen2.color = @"blue";
     pen2.price = 9.8;
     Person *p = [[Person alloc] init];

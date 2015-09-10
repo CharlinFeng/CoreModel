@@ -11,7 +11,7 @@
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
 #import "MJProperty.h"
-#import "MJType.h"
+#import "MJPropertyType.h"
 #import "NSObject+MJProperty.h"
 
 @implementation NSObject (Create)
@@ -38,7 +38,7 @@
     
     NSMutableArray *ivarsM=[NSMutableArray array];
     
-    [self enumerateProperties:^(MJProperty *property, BOOL *stop) {
+    [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
     
         NSString *sql_field = [self fieldSql:property];
         

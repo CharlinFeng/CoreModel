@@ -10,7 +10,7 @@
 #import "NSObject+MJProperty.h"
 #import "NSString+Stackoverflow.h"
 #import "NSOperationQueue+Queue.h"
-
+#import "MJProperty.h"
 
 
 @interface NSObject (CoreModelCommon)
@@ -39,5 +39,11 @@
 
 /** 当模型中含有NSArray数组成员属性时，需要明确指明NSArray内部数据类型key:属性名，value: 数据类型NSString版 */
 +(NSDictionary *)statementForNSArrayProperties;
+
+/** 封装 */
++(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties;
+
+
+
 
 @end

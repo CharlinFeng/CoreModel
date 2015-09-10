@@ -10,7 +10,7 @@
 #import "CoreModel.h"
 #import "NSObject+MJProperty.h"
 #import "MJProperty.h"
-#import "MJType.h"
+#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 #import "NSObject+CoreModelCommon.h"
 
@@ -57,7 +57,7 @@
     
     __block BOOL contrastRes = YES;
 
-    [model1.class enumerateProperties:^(MJProperty *property, BOOL *stop) {
+    [model1.class enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
         
         NSString *propertyName = property.name;
         

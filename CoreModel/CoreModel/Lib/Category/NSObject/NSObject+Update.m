@@ -11,7 +11,7 @@
 #import "CoreModel.h"
 #import "NSObject+MJProperty.h"
 #import "MJProperty.h"
-#import "MJType.h"
+#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
 #import "NSArray+CoreModel.h"
@@ -62,7 +62,7 @@
         
         NSMutableString *keyValueString=[NSMutableString string];
         
-        [self enumerateProperties:^(MJProperty *property, BOOL *stop) {
+        [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
             
             BOOL skip=[self skipField:property];
             

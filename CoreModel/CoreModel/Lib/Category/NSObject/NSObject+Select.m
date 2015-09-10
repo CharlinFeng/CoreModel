@@ -9,7 +9,7 @@
 #import "NSObject+Select.h"
 #import "CoreFMDB.h"
 #import "MJProperty.h"
-#import "MJType.h"
+#import "MJPropertyType.h"
 #import "CoreModel.h"
 #import "NSObject+CoreModelCommon.h"
 #import "CoreModelConst.h"
@@ -56,7 +56,7 @@
             
             CoreModel *model=[[self alloc] init];
             
-            [self enumerateProperties:^(MJProperty *property, BOOL *stop) {
+            [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
                 
                 BOOL skip=[self skipField:property];
                 

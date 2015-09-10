@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MJConst.h"
+#import "MJExtensionConst.h"
 #import <CoreData/CoreData.h>
 #import "MJProperty.h"
 
@@ -70,28 +70,33 @@
 @interface NSObject (MJKeyValue) <MJKeyValue>
 /**
  *  将字典的键值对转成模型属性
- *  @param keyValues 字典
+ *  @param keyValues 字典(可以是NSDictionary、NSData、NSString)
  */
 - (instancetype)setKeyValues:(id)keyValues;
 - (instancetype)setKeyValues:(id)keyValues error:(NSError **)error;
 
 /**
  *  将字典的键值对转成模型属性
- *  @param keyValues 字典
+ *  @param keyValues 字典(可以是NSDictionary、NSData、NSString)
  *  @param context   CoreData上下文
  */
 - (instancetype)setKeyValues:(id)keyValues context:(NSManagedObjectContext *)context;
 - (instancetype)setKeyValues:(id)keyValues context:(NSManagedObjectContext *)context error:(NSError **)error;
+
+/** 
+ *  模型转字典时，字典的key是否参考replacedKeyFromPropertyName等方法（父类设置了，子类也会继承下来）
+ */
++ (void)referenceReplacedKeyWhenCreatingKeyValues:(BOOL)reference;
 
 /**
  *  将模型转成字典
  *  @return 字典
  */
 - (NSMutableDictionary *)keyValues;
-- (NSMutableDictionary *)keyValuesWithKeys:(NSArray *)keys;
-- (NSMutableDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys;
 - (NSMutableDictionary *)keyValuesWithError:(NSError **)error;
+- (NSMutableDictionary *)keyValuesWithKeys:(NSArray *)keys;
 - (NSMutableDictionary *)keyValuesWithKeys:(NSArray *)keys error:(NSError **)error;
+- (NSMutableDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys;
 - (NSMutableDictionary *)keyValuesWithIgnoredKeys:(NSArray *)ignoredKeys error:(NSError **)error;
 
 /**
@@ -100,10 +105,10 @@
  *  @return 字典数组
  */
 + (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray;
-+ (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys;
-+ (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys;
 + (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray error:(NSError **)error;
++ (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys;
 + (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray keys:(NSArray *)keys error:(NSError **)error;
++ (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys;
 + (NSMutableArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray ignoredKeys:(NSArray *)ignoredKeys error:(NSError **)error;
 
 #pragma mark - 字典转模型
@@ -175,7 +180,16 @@
 + (NSMutableArray *)objectArrayWithFile:(NSString *)file error:(NSError **)error;
 
 #pragma mark - 转换为JSON
+/**
+ *  转换为JSON Data
+ */
 - (NSData *)JSONData;
+/**
+ *  转换为字典或者数组
+ */
 - (id)JSONObject;
+/**
+ *  转换为JSON 字符串
+ */
 - (NSString *)JSONString;
 @end
