@@ -9,7 +9,7 @@
 
 <br/>
 #### 1.为什么要重制？
-在推出了[CoreFMDB](https://github.com/CharlinFeng/CoreFMDB)和[CoreArchive](https://github.com/CharlinFeng/CoreArchive之后)，感谢大量朋友对我的框架的喜欢，同时也提出了各种问题和要求，最重要的有以下：<br/>
+在推出了[CoreFMDB](https://github.com/CharlinFeng/CoreFMDB)和[CoreArchive](https://github.com/CharlinFeng/CoreArchive)之后，感谢大量朋友对我的框架的喜欢，同时也提出了各种问题和要求，最重要的有以下：<br/>
 > (1). 不支持NSData。<br/>
 > (2). 不支持NSArray。<br/>
 > (3). 全部主线程操作，对性能有一定的影响。<br/>
