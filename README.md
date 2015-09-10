@@ -651,7 +651,7 @@
         [self show:res];
     }];
 
-，保存结果请参考框架Test15VC.m演示效果。
+，保存结果请参考框架`数组支持：NSData类型数组`演示效果。
 
 
 
@@ -660,3 +660,134 @@
 ==========
 <br/>
 ##### 本功能请参考项目中：Test16VC.m
+为了演示本功能，我们新增Pen模型，并在Person模型中新增pens属性：
+
+##### Pen模型
+
+    @interface Pen : CoreModel
+    
+    @property (nonatomic,copy) NSString *color;
+    
+    @property (nonatomic,assign) CGFloat price;
+    
+    @end
+
+##### Person中新增pens属性：
+
+    @property (nonatomic,strong) NSArray *pens;
+
+，当然你不能忘记申明pens里面放的是什么数据类型：
+
+    +(NSDictionary *)statementForNSArrayProperties{
+        return @{@"tags":NSStringFromClass([NSString class]),@"dreams":NSStringFromClass([NSData class]),@"pens":NSStringFromClass([Pen class])};
+    }
+
+，下面我们构建模型数据，并执行保存操作：
+
+    Pen *pen1=[[Pen alloc] init];
+    pen1.hostID=1;
+    pen1.color = @"red";
+    pen1.price = 12.5;
+    Pen *pen2=[[Pen alloc] init];
+    pen2.hostID=1;
+    pen2.color = @"blue";
+    pen2.price = 9.8;
+    Person *p = [[Person alloc] init];
+    p.hostID = 8;
+    p.name = @"静香";
+    p.pens=@[pen1,pen2];
+    [Person save:p resBlock:^(BOOL res) {
+        [self show:res];
+    }];
+
+，执行成功，我们看看数据库里面的保存记录：
+
+sqlite> select * from Person;
++----+--------+-----+--------+-----------+------+--------+--------+--------+-----+
+| id | name   | age | height | photoData | tags | dreams | hostID | pModel | pid |
++----+--------+-----+--------+-----------+------+--------+--------+--------+-----+
+| 1  | 静香   | 0   | 0.0    |           |      |        | 8      |        | 0   |
++----+--------+-----+--------+-----------+------+--------+--------+--------+-----+
+1 rows in set (0.01 sec)
+
+sqlite> select * from Pen;
++----+-------+-------+--------+--------+-----+
+| id | color | price | hostID | pModel | pid |
++----+-------+-------+--------+--------+-----+
+| 1  | red   | 12.5  | 1      | Person | 8   |
+| 2  | blue  | 9.8   | 1      | Person | 8   |
++----+-------+-------+--------+--------+-----+
+2 rows in set (0.01 sec)
+
+
+<br/><br/><br/>
+十九、综合实战：网络数据一键CURD
+==========
+<br/>
+##### 本功能请参考项目中：Test17VC.m
+#####为了演示本功能，我为大家准备了一个测试接口，我们所有准备已经做好，直接开工：
+#### 注意：本例是CoreModel最正经的用法，也是我写本框架的最直接的目的所在：
+#### 本例是自定义模型属性数组支持与子模型级联的综合演示：
+
+    NSString *url = @"http://211.149.151.92/mytest/Test/test3";
+    CoreSVPLoading(@"加载中", YES)
+    [CoreHttp getUrl:url params:nil success:^(NSDictionary *dict) {
+        
+        Person *p = [Person objectWithKeyValues:dict[@"data"][@"dataData"][@"person"]];
+        
+        [Person save:p resBlock:^(BOOL res) {
+            
+            [self show:res];
+        }];
+        
+    } errorBlock:nil];
+
+，处理成功，我们来看看表记录：
+
+    sqlite> select * from Person;
+    +----+--------+-----+--------+-----------+------+--------+--------+--------+-----+
+    | id | name   | age | height | photoData | tags | dreams | hostID | pModel | pid |
+    +----+--------+-----+--------+-----------+------+--------+--------+--------+-----+
+    | 1  | 张三   | 18  | 185.0  |           |      |        | 100    |        | 0   |
+    +----+--------+-----+--------+-----------+------+--------+--------+--------+-----+
+    1 rows in set (0.00 sec)
+    
+    sqlite> select * from City;
+    +----+----------+---------+--------+--------+-----+
+    | id | cityName | spell   | hostID | pModel | pid |
+    +----+----------+---------+--------+--------+-----+
+    | 1  | 成都   | ChengDu | 100    | Person | 100 |
+    +----+----------+---------+--------+--------+-----+
+    1 rows in set (0.00 sec)
+    
+    sqlite> select * from Pen;
+    +----+-------+-------+--------+--------+-----+
+    | id | color | price | hostID | pModel | pid |
+    +----+-------+-------+--------+--------+-----+
+    | 1  | red   | 18.55 | 100    | Person | 100 |
+    | 2  | green | 22.22 | 101    | Person | 100 |
+    +----+-------+-------+--------+--------+-----+
+    2 rows in set (0.06 sec)
+
+
+
+
+
+
+<br/><br/><br/>
+二十、综合实战：网络数据一键CURD
+==========
+<br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
