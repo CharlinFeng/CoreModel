@@ -775,9 +775,13 @@ sqlite> select * from Pen;
 
 
 <br/><br/><br/>
-二十、综合实战：网络数据一键CURD
+二十、 第四季与第五季预告
 ==========
+
+#### 第四季：CoreCache 动态缓存
+#### 第五季：CoreList 列表终结者
 <br/>
+#### 第三季CoreModel在我看来是一个底层工具，他的核心价值是为CoreCache和CoreList服务，就在CoreModel中你会发现大量的代码是在本季没有提到，请暂时忽略它吧。
 
 
 
