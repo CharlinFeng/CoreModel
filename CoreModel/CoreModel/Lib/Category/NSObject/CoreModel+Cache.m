@@ -12,7 +12,6 @@
 #import "CoreModelType.h"
 #import "CoreHttp.h"
 #import "NSDictionary+Sqlite.h"
-#import "NSObject+Contrast.h"
 #import "NSObject+MJKeyValue.h"
 
 static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
@@ -173,10 +172,7 @@ static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
     if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult,userInfo); return;}
     
     id modelData = [self hostDataHandle:obj];
-    
-    BOOL isTheSame = [self contrastWithHostModelData:modelData sqliteModelData:model_sqlite_Array];
-    
-    if(isTheSame) return;
+
     if(CoreModelDeBug) NSLog(@"写入数据库");
     
     CoreModelDataSourceType sourceType = CoreModelDataSourceHostType_Sqlite_Deprecated;
@@ -205,40 +201,6 @@ static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
 }
 
 
-
-
-+(BOOL)contrastWithHostModelData:(id)hostModelData sqliteModelData:(id)sqliteModelData{
-    
-    BOOL isTheSame = NO;
-    
-    NSArray *sqliteModelDataArray = (NSArray *)sqliteModelData;
-    
-    CoreModelHostDataType dataType = [self CoreModel_hostDataType];
-    
-    if(hostModelData != nil && (sqliteModelDataArray.count !=0)){
-        
-        if(CoreModelHostDataTypeModelSingle == dataType){//模型：单个
-            
-            CoreModel *sqliteModelSing = sqliteModelDataArray.firstObject;
-            
-            isTheSame = [self contrastModel1:hostModelData model2:sqliteModelSing];
-            
-        }else if (CoreModelHostDataTypeModelArray == dataType){//模型：数组
-            
-            isTheSame = [self contrastModels1:hostModelData models2:sqliteModelDataArray];
-        }
-    }
-    
-    if(isTheSame){
-        if(CoreModelDeBug) NSLog(@"相同");
-    }else{
-        if(CoreModelDeBug) NSLog(@"不同");
-    }
-    
-    ThreadShow(模型字段检查)
-    
-    return isTheSame;
-}
 
 
 +(id)hostDataHandle:(id)obj{
