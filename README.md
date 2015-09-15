@@ -31,13 +31,14 @@
 > (5). 特别提醒：示例程序有强烈的先后顺序，最好不要随便乱点，比如一个数据都没有insert，你点击了update或者delete等操作会达到你难以理解的结果。<br/>
 
 
+
 <br/>
 #### 4.最终申明
 在开始之前，请您注意以下几点：<br/>
 >(1). 导入了sqlite3.lib 动态库。<br/>
 >(2). 拖拽CoreModel及FrameWorks文件夹到您的项目。<br/>
 >(3). 安装了Navicat Preminum。<br/>
-
+>(4). Swift使用，不能Swift中的Model继承CoreModel，主要是因为MJExtension在Swift中无法正常工作，模型一律是OC，使用Swift再使用OC中的CoreModel的子类。
 
 <br/><br/><br/>
 二、基本使用
