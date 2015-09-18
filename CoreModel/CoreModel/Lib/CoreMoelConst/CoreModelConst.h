@@ -134,5 +134,9 @@ UIKIT_EXTERN NSString *const EmptyString;
 UIKIT_EXTERN NSString *const SymbolString;
 
 
+/*
+ *  错误信息
+ */
+UIKIT_EXTERN  NSString *const NetWorkError;
 
 #endif

@@ -14,7 +14,6 @@
 #import "NSDictionary+Sqlite.h"
 #import "NSObject+MJKeyValue.h"
 
-static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
 
 @implementation CoreModel (Cache)
 
@@ -43,7 +42,7 @@ static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
                 
             } errorBlock:^(CoreHttpErrorType errorType) {
                 
-                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
+                if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
             }];
             
         }else{
@@ -54,7 +53,7 @@ static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
                 
             } errorBlock:^(CoreHttpErrorType errorType) {
                 
-                if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
+                if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
             }];
         }
         
@@ -149,7 +148,7 @@ static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
                     
                 } errorBlock:^(CoreHttpErrorType errorType) {
                     
-                    if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
+                    if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
                 }];
                 
             }else{
@@ -160,7 +159,7 @@ static NSString * const HTTP_REQUEST_ERROR_MSG = @"请稍等重试";
                     
                 } errorBlock:^(CoreHttpErrorType errorType) {
                     
-                    if(errorBlock != nil) errorBlock(HTTP_REQUEST_ERROR_MSG,userInfo);
+                    if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
                 }];
             }
             
