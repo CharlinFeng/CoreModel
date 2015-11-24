@@ -13,9 +13,10 @@
 #import "CoreHttp.h"
 #import "NSDictionary+Sqlite.h"
 #import "NSObject+MJKeyValue.h"
-
+#import "CoreStatus.h"
 
 @implementation CoreModel (Cache)
+
 
 +(void)selectWithParams:(NSDictionary *)params ignoreParams:(NSArray *)ignoreParams userInfo:(NSDictionary *)userInfo beginBlock:(void(^)(BOOL isNetWorkRequest,BOOL needHUD))beginBlock successBlock:(void(^)(NSArray *models,CoreModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock{
     
@@ -129,6 +130,8 @@
             
             if(!needHttpRequest) return;
             
+            if(![CoreStatus isNETWORKEnable]) return;
+            
             NSString *url = [self CoreModel_UrlString];
             
             NSDictionary *requestParams = params;
@@ -160,6 +163,7 @@
                 } errorBlock:^(CoreHttpErrorType errorType) {
                     
                     if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
+                    
                 }];
             }
             
@@ -169,7 +173,6 @@
 }
 
 
-
 +(void)sqliteNeedHandleHttpDataObj:(id)obj userInfo:(NSDictionary *)userInfo successBlock:(void(^)(id modelData,CoreModelDataSourceType sourceType,NSDictionary *userInfo))successBlock errorBlock:(void(^)(NSString *errorResult,NSDictionary *userInfo))errorBlock model_sqlite_Array:(NSArray *)model_sqlite_Array nowTime:(NSTimeInterval)nowTime archiverTimeKey:(NSString *)archiverTimeKey{
     
     NSString *errorResult = [self CoreModel_parseErrorData:obj];
@@ -177,7 +180,7 @@
     if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult,userInfo); return;}
     
     id modelData = [self hostDataHandle:obj];
-
+    
     if(CoreModelDeBug) NSLog(@"写入数据库");
     
     CoreModelDataSourceType sourceType = CoreModelDataSourceHostType_Sqlite_Deprecated;
