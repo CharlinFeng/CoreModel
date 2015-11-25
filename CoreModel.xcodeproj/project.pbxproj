@@ -69,8 +69,9 @@
 		89A9D1AA1BA184FA00B1F79D /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A9D19D1BA184FA00B1F79D /* NSObject+MJKeyValue.m */; };
 		89A9D1AB1BA184FA00B1F79D /* NSObject+MJProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A9D19F1BA184FA00B1F79D /* NSObject+MJProperty.m */; };
 		89A9D1AC1BA184FA00B1F79D /* NSString+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A9D1A11BA184FA00B1F79D /* NSString+MJExtension.m */; };
+		89D824241C05A8F6005740B1 /* NSArray+CoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D824231C05A8F6005740B1 /* NSArray+CoreModel.m */; };
+		89D824271C05A8FD005740B1 /* CoreModel+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D824261C05A8FD005740B1 /* CoreModel+Compare.m */; };
 		89D8B27C1BA2ACEC0029837A /* CoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D8B2541BA2ACEC0029837A /* CoreModel.m */; };
-		89D8B27D1BA2ACEC0029837A /* NSArray+CoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D8B2591BA2ACEC0029837A /* NSArray+CoreModel.m */; };
 		89D8B27E1BA2ACEC0029837A /* NSDictionary+Sqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D8B25C1BA2ACEC0029837A /* NSDictionary+Sqlite.m */; };
 		89D8B27F1BA2ACEC0029837A /* CoreModel+Cache.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D8B25F1BA2ACEC0029837A /* CoreModel+Cache.m */; };
 		89D8B2801BA2ACEC0029837A /* NSObject+CoreModelCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D8B2611BA2ACEC0029837A /* NSObject+CoreModelCommon.m */; };
@@ -218,10 +219,12 @@
 		89A9D19F1BA184FA00B1F79D /* NSObject+MJProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJProperty.m"; sourceTree = "<group>"; };
 		89A9D1A01BA184FA00B1F79D /* NSString+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MJExtension.h"; sourceTree = "<group>"; };
 		89A9D1A11BA184FA00B1F79D /* NSString+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MJExtension.m"; sourceTree = "<group>"; };
+		89D824221C05A8F6005740B1 /* NSArray+CoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CoreModel.h"; sourceTree = "<group>"; };
+		89D824231C05A8F6005740B1 /* NSArray+CoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CoreModel.m"; sourceTree = "<group>"; };
+		89D824251C05A8FD005740B1 /* CoreModel+Compare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreModel+Compare.h"; sourceTree = "<group>"; };
+		89D824261C05A8FD005740B1 /* CoreModel+Compare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreModel+Compare.m"; sourceTree = "<group>"; };
 		89D8B2531BA2ACEC0029837A /* CoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreModel.h; sourceTree = "<group>"; };
 		89D8B2541BA2ACEC0029837A /* CoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreModel.m; sourceTree = "<group>"; };
-		89D8B2581BA2ACEC0029837A /* NSArray+CoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CoreModel.h"; sourceTree = "<group>"; };
-		89D8B2591BA2ACEC0029837A /* NSArray+CoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CoreModel.m"; sourceTree = "<group>"; };
 		89D8B25B1BA2ACEC0029837A /* NSDictionary+Sqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Sqlite.h"; sourceTree = "<group>"; };
 		89D8B25C1BA2ACEC0029837A /* NSDictionary+Sqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Sqlite.m"; sourceTree = "<group>"; };
 		89D8B25E1BA2ACEC0029837A /* CoreModel+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreModel+Cache.h"; sourceTree = "<group>"; };
@@ -763,8 +766,8 @@
 		89D8B2571BA2ACEC0029837A /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
-				89D8B2581BA2ACEC0029837A /* NSArray+CoreModel.h */,
-				89D8B2591BA2ACEC0029837A /* NSArray+CoreModel.m */,
+				89D824221C05A8F6005740B1 /* NSArray+CoreModel.h */,
+				89D824231C05A8F6005740B1 /* NSArray+CoreModel.m */,
 			);
 			path = NSArray;
 			sourceTree = "<group>";
@@ -781,6 +784,8 @@
 		89D8B25D1BA2ACEC0029837A /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				89D824251C05A8FD005740B1 /* CoreModel+Compare.h */,
+				89D824261C05A8FD005740B1 /* CoreModel+Compare.m */,
 				89D8B25E1BA2ACEC0029837A /* CoreModel+Cache.h */,
 				89D8B25F1BA2ACEC0029837A /* CoreModel+Cache.m */,
 				89D8B2601BA2ACEC0029837A /* NSObject+CoreModelCommon.h */,
@@ -950,8 +955,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				89D8B2841BA2ACEC0029837A /* NSObject+Save.m in Sources */,
+				89D824241C05A8F6005740B1 /* NSArray+CoreModel.m in Sources */,
 				891AA5911BA011A6003A7F73 /* Test7VC.m in Sources */,
-				89D8B27D1BA2ACEC0029837A /* NSArray+CoreModel.m in Sources */,
 				894647101BA12B9B0051FA78 /* UploadFile.m in Sources */,
 				897C44981B9FC7CB00F26261 /* ListTVC.m in Sources */,
 				89A9D1A41BA184FA00B1F79D /* MJFoundation.m in Sources */,
@@ -971,6 +976,7 @@
 				89D8B2871BA2ACEC0029837A /* NSOperationQueue+Queue.m in Sources */,
 				891AA58C1BA011A6003A7F73 /* Test2VC.m in Sources */,
 				891AA5B21BA01367003A7F73 /* Test14VC.m in Sources */,
+				89D824271C05A8FD005740B1 /* CoreModel+Compare.m in Sources */,
 				896ADC051B9F205E0041E7CE /* FMResultSet.m in Sources */,
 				891AA5AF1BA01357003A7F73 /* Test13VC.m in Sources */,
 				89A9D1A51BA184FA00B1F79D /* MJProperty.m in Sources */,

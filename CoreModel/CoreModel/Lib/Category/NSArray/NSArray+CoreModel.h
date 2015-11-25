@@ -12,6 +12,6 @@
 
 @property (nonatomic,copy,readonly) NSString *toString;
 
-
+@property (nonatomic,strong,readonly) NSArray *descSortedArray;
 
 @end

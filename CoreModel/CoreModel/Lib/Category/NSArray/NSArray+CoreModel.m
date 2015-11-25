@@ -8,6 +8,7 @@
 
 #import "NSArray+CoreModel.h"
 #import "CoreModelConst.h"
+#import "CoreModel.h"
 
 @implementation NSArray (CoreModel)
 
@@ -38,5 +39,19 @@
 
     return [[strM substringToIndex:strM.length-length] copy];
 }
+
+-(NSArray *)descSortedArray{
+    
+    NSArray *sortedArray = [self sortedArrayUsingComparator:^NSComparisonResult(CoreModel *m1, CoreModel *m2) {
+        
+        if (m1.hostID<m2.hostID) return NSOrderedDescending;
+        if (m1.hostID>m2.hostID) return NSOrderedAscending;
+        return NSOrderedSame;
+    }];
+    
+    return sortedArray;
+}
+
+
 
 @end
