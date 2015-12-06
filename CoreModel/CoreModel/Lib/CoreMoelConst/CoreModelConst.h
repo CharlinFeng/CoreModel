@@ -10,7 +10,7 @@
 #define _BaseMoelConst_H_
 
 /** Debug */
-#define CoreModelDeBug 1
+#define CoreModelDeBug 0
 
 
 
@@ -137,6 +137,6 @@ UIKIT_EXTERN NSString *const SymbolString;
 /*
  *  错误信息
  */
-UIKIT_EXTERN  NSString *const NetWorkError;
+UIKIT_EXTERN NSString *const NetWorkError;
 
 #endif

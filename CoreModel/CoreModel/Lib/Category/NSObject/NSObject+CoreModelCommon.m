@@ -132,20 +132,20 @@
 +(NSDictionary *)statementForNSArrayProperties{return nil;}
 
 
--(NSString *)description{
-    
-    NSMutableString *strM = [NSMutableString stringWithString:[NSString stringWithFormat:@"[%@]<%p>: \r",NSStringFromClass([self class]), self]];
-    
-    [[self class] enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
-        BOOL skip=[[self class] skipField:property];
-
-        if(!skip){
-            [strM appendFormat:@"      %@: %@, \r",property.name, [self valueForKeyPath:property.name]];
-        }
-    }];
-    
-    return [strM copy];
-}
+//-(NSString *)description{
+//    
+//    NSMutableString *strM = [NSMutableString stringWithString:[NSString stringWithFormat:@"[%@]<%p>: \r",NSStringFromClass([self class]), self]];
+//    
+//    [[self class] enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+//        BOOL skip=[[self class] skipField:property];
+//
+//        if(!skip){
+//            [strM appendFormat:@"      %@: %@, \r",property.name, [self valueForKeyPath:property.name]];
+//        }
+//    }];
+//    
+//    return [strM copy];
+//}
 
 
 /** 封装 */

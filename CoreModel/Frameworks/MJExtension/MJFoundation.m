@@ -38,7 +38,7 @@ static NSSet *foundationClasses_;
     
     __block BOOL result = NO;
     [[self foundationClasses] enumerateObjectsUsingBlock:^(Class foundationClass, BOOL *stop) {
-        if (c == foundationClass || [c isSubclassOfClass:foundationClass]) {
+        if ([c isSubclassOfClass:foundationClass]) {
             result = YES;
             *stop = YES;
         }

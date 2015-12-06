@@ -12,8 +12,6 @@
 @implementation MJDictionaryCache
 + (id)setObject:(id)object forKey:(id<NSCopying>)key forDictId:(const void *)dictId
 {
-    if([object isKindOfClass:[NSArray class]] && ((NSArray *)object).count==0) return nil;
-    
     // 获得字典
     NSMutableDictionary *dict = [self dictWithDictId:dictId];
     if (dict == nil) {

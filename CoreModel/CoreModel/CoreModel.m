@@ -14,6 +14,8 @@
 
 
 +(void)initialize{
+
+    if(![self CoreModel_NeedFMDB]) return;
     
     //自动创表
     [self tableCreate];

@@ -45,7 +45,8 @@
         _code = [code substringWithRange:NSMakeRange(2, code.length - 3)];
         _typeClass = NSClassFromString(_code);
         _fromFoundation = [MJFoundation isClassFromFoundation:_typeClass];
-        _numberType = (_typeClass == [NSNumber class] || [_typeClass isSubclassOfClass:[NSNumber class]]);
+        _numberType = [_typeClass isSubclassOfClass:[NSNumber class]];
+        
     } else if ([code isEqualToString:MJPropertyTypeSEL] ||
                [code isEqualToString:MJPropertyTypeIvar] ||
                [code isEqualToString:MJPropertyTypeMethod]) {
@@ -54,7 +55,7 @@
     
     // 是否为数字类型
     NSString *lowerCode = _code.lowercaseString;
-    NSArray *numberTypes = @[MJPropertyTypeInt, MJPropertyTypeShort, MJPropertyTypeBOOL1, MJPropertyTypeBOOL2, MJPropertyTypeFloat, MJPropertyTypeDouble, MJPropertyTypeLong, MJPropertyTypeChar];
+    NSArray *numberTypes = @[MJPropertyTypeInt, MJPropertyTypeShort, MJPropertyTypeBOOL1, MJPropertyTypeBOOL2, MJPropertyTypeFloat, MJPropertyTypeDouble, MJPropertyTypeLong, MJPropertyTypeLongLong, MJPropertyTypeChar];
     if ([numberTypes containsObject:lowerCode]) {
         _numberType = YES;
         

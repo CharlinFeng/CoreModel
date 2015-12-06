@@ -180,7 +180,7 @@
     if(errorResult != nil){ if(errorBlock != nil) errorBlock(errorResult,userInfo); return;}
     
     id modelData = [self hostDataHandle:obj];
-    
+
     if(CoreModelDeBug) NSLog(@"写入数据库");
     
     CoreModelDataSourceType sourceType = CoreModelDataSourceHostType_Sqlite_Deprecated;
@@ -244,6 +244,8 @@
     return @[@"pModel",@"pid"];
 }
 
+/** 是否需要本地缓存：此处为CoreModel本身 */
++(BOOL)CoreModel_NeedFMDB{return NO;}
 
 
 @end
