@@ -245,7 +245,7 @@
 }
 
 /** 是否需要本地缓存：此处为CoreModel本身 */
-+(BOOL)CoreModel_NeedFMDB{return NO;}
++(BOOL)CoreModel_NeedFMDB{return YES;}
 
 
 @end

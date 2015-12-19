@@ -14,7 +14,7 @@
 
 
 +(void)initialize{
-
+    
     if(![self CoreModel_NeedFMDB]) return;
     
     //自动创表
@@ -25,8 +25,6 @@
 +(NSDictionary *)replacedKeyFromPropertyName{
     return @{@"hostID":@"id"};
 }
-
-
 
 
 
