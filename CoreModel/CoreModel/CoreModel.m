@@ -15,7 +15,7 @@
 
 +(void)initialize{
     
-    if([[self modelName] isEqualToString:NSStringFromClass([self class])]) return;
+    if([[self modelName] isEqualToString:@"CoreModel"]) return;
     
     if(![self CoreModel_NeedFMDB]) return;
     
