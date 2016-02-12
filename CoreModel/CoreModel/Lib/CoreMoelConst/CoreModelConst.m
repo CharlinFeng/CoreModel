@@ -137,11 +137,5 @@ NSString *const SymbolString = @"SymbolString";
 
 
 
-/*
- *  错误信息
- */
-NSString *const NetWorkError = @"网络错误";
-
-
 
 #endif

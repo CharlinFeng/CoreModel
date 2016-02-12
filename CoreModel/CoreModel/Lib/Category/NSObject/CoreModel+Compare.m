@@ -33,8 +33,8 @@
                 
                 if(m1.hostID == m2.hostID){
                     
-                    NSDictionary *dict1=[m1 keyValues];
-                    NSDictionary *dict2=[m2 keyValues];
+                    NSDictionary *dict1=[m1 mj_keyValues];
+                    NSDictionary *dict2=[m2 mj_keyValues];
                     
                     BOOL compareRes = [dict1 isEqualToDictionary:dict2];
                     

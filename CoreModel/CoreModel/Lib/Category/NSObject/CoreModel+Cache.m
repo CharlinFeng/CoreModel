@@ -41,9 +41,9 @@
                 
                 [self hostWithouSqliteRequestHandleData:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock];
                 
-            } errorBlock:^(CoreHttpErrorType errorType) {
+            } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
                 
-                if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
+                if(errorBlock != nil) errorBlock(errorMsg,userInfo);
             }];
             
         }else{
@@ -52,9 +52,9 @@
                 
                 [self hostWithouSqliteRequestHandleData:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock];
                 
-            } errorBlock:^(CoreHttpErrorType errorType) {
+            } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
                 
-                if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
+                if(errorBlock != nil) errorBlock(errorMsg,userInfo);
             }];
         }
         
@@ -149,9 +149,9 @@
                     
                     [self sqliteNeedHandleHttpDataObj:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock model_sqlite_Array:model_sqlite_Array nowTime:nowTime archiverTimeKey:archiverTimeKey];
                     
-                } errorBlock:^(CoreHttpErrorType errorType) {
+                } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
                     
-                    if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
+                    if(errorBlock != nil) errorBlock(errorMsg,userInfo);
                 }];
                 
             }else{
@@ -160,9 +160,9 @@
                     
                     [self sqliteNeedHandleHttpDataObj:obj userInfo:userInfo successBlock:successBlock errorBlock:errorBlock model_sqlite_Array:model_sqlite_Array nowTime:nowTime archiverTimeKey:archiverTimeKey];
                     
-                } errorBlock:^(CoreHttpErrorType errorType) {
+                } errorBlock:^(CoreHttpErrorType errorType, NSString *errorMsg) {
                     
-                    if(errorBlock != nil) errorBlock(NetWorkError,userInfo);
+                    if(errorBlock != nil) errorBlock(errorMsg,userInfo);
                     
                 }];
             }

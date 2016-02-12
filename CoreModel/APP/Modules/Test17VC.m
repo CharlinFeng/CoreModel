@@ -25,7 +25,7 @@
     
     [CoreHttp getUrl:url params:nil success:^(NSDictionary *dict) {
         
-        Person *p = [Person objectWithKeyValues:dict[@"data"][@"dataData"][@"person"]];
+        Person *p = [Person mj_objectWithKeyValues:dict[@"data"][@"dataData"][@"person"]];
         
         [Person save:p resBlock:^(BOOL res) {
             

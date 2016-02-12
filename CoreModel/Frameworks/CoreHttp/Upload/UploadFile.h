@@ -51,7 +51,7 @@
 /**
  *  如果自动处理mimeType出错，建议使用此方法，一般不使用此方法
  */
-+(instancetype)fileWithKey:(NSString *)key data:(NSData *)data mimeType:(NSString *)mimeType name:(NSString *)name NS_DEPRECATED_IOS(2_0, 6_0, "Charlin提示您：请使用fileWithKey:data:name:");
++(instancetype)fileWithKey:(NSString *)key data:(NSData *)data mimeType:(NSString *)mimeType name:(NSString *)name;
 
 
 

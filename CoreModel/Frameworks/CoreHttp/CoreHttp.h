@@ -6,6 +6,7 @@
 //  全新的网络请求工具类：2.0版本（更新于2015.01.28）
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "UploadFile.h"
 
 typedef enum{
@@ -45,7 +46,7 @@ typedef enum{
 
 typedef void(^SuccessBlock)(id obj);
 
-typedef void(^ErrorBlock)(CoreHttpErrorType errorType);
+typedef void(^ErrorBlock)(CoreHttpErrorType errorType, NSString *errorMsg);
 
 
 
@@ -56,13 +57,13 @@ typedef void(^ErrorBlock)(CoreHttpErrorType errorType);
  *  GET:
  *  params中可指明参数类型
  */
-+(void)getUrl:(NSString *)urlString params:(NSDictionary *)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)getUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 /**
  *  POST:
  */
-+(void)postUrl:(NSString *)urlString params:(NSDictionary *)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)postUrl:(NSString *)urlString params:(id)params success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 
@@ -71,7 +72,7 @@ typedef void(^ErrorBlock)(CoreHttpErrorType errorType);
  *  @params: 普通参数
  *  @files : 文件数据，里面装的都是UploadFile对象
  */
-+(void)uploadUrl:(NSString *)uploadUrl params:(NSDictionary *)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
++(void)uploadUrl:(NSString *)uploadUrl params:(id)params files:(NSArray *)files success:(SuccessBlock)successBlock errorBlock:(ErrorBlock)errorBlock;
 
 
 

@@ -150,7 +150,7 @@
 
 /** 封装 */
 +(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties{
-    [self enumerateProperties:^(MJProperty *p, BOOL *stop) {
+    [self mj_enumerateProperties:^(MJProperty *p, BOOL *stop) {
         properties(p,stop);
     }];
 }

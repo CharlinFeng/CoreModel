@@ -35,6 +35,7 @@
             break;
     }
     
+    
     if(mimeType==nil){
         mimeType=@"image/jpeg";
         NSLog(@"Warnning:请注意，根据NSData获取图片的MimeType的时候出现错误：没有获取到值，框架默认‘image/jpeg’替换！");
