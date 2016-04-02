@@ -39,10 +39,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"成都时点软件原创出品";
+    
     self.dataList = @[
                       
                       @[[Test2VC class],@"子线程全自动创表"],
-                      @[[Test3VC class],@"断言"],
+                      @[[Test3VC class],@"无hostID自动处理"],
                       @[[Test4VC class],@"基本模型 + 单条数据插入"],
                       @[[Test5VC class],@"基本模型 + 批量数据插入"],
                       @[[Test6VC class],@"基本模型 + 单条数据修改"],

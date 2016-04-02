@@ -148,16 +148,12 @@
 
 
 /** 封装 */
-<<<<<<< HEAD
+
 +(void)enumNSObjectProperties:(void(^)(CoreProperty *property, BOOL *stop))properties{
     [self enumeratePropertiesUsingBlock:^(CoreProperty *p) {
         
         properties(p,NO);
-=======
-+(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties{
-    [self mj_enumerateProperties:^(MJProperty *p, BOOL *stop) {
-        properties(p,stop);
->>>>>>> origin/master
+
     }];
 }
 

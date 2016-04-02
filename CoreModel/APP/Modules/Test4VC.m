@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     Person *person = [[Person alloc] init];
-    person.hostID = 1;
+    person.hostID = 12;
     person.name = @"冯成林";
     person.age = 28;
     person.height = 174.0;
