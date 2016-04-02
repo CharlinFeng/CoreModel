@@ -7,24 +7,23 @@
 //
 
 #import "NSObject+CoreModelCommon.h"
-#import "MJProperty.h"
-#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
-#import "NSObject+MJProperty.h"
+#import "NSObject+Runtime.h"
+
 
 @implementation NSObject (CoreModelCommon)
 
 
-+(NSString *)fieldSql:(MJProperty *)ivar{
++(NSString *)fieldSql:(CoreProperty *)ivar{
 
     NSString *fieldName = ivar.name;
     
-    NSString *fieldType = ivar.type.code;
+    NSString *fieldType = ivar.code;
 
     NSString *sqliteTye=[self sqliteType:fieldType];
 
-    if([ivar.type.code isEqualToString:CoreNSArray]){
+    if([ivar.typeString isEqualToString:CoreNSArray]){
         
         if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][ivar.name]]){
             sqliteTye = TEXT_TYPE;
@@ -42,7 +41,7 @@
 }
 
 
-+(BOOL)skipField:(MJProperty *)ivar{
++(BOOL)skipField:(CoreProperty *)ivar{
 
     NSArray *ignoredPropertyNames = nil;
     if ([[self class] respondsToSelector:@selector(ignoredPropertyNamesForSqlTransform)]) {
@@ -79,7 +78,7 @@
             }
         }];
     }];
-
+    
     return sqliteType;
 }
 
@@ -136,7 +135,7 @@
 //    
 //    NSMutableString *strM = [NSMutableString stringWithString:[NSString stringWithFormat:@"[%@]<%p>: \r",NSStringFromClass([self class]), self]];
 //    
-//    [[self class] enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+//    [[self class] enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
 //        BOOL skip=[[self class] skipField:property];
 //
 //        if(!skip){
@@ -149,9 +148,10 @@
 
 
 /** 封装 */
-+(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties{
-    [self enumerateProperties:^(MJProperty *p, BOOL *stop) {
-        properties(p,stop);
++(void)enumNSObjectProperties:(void(^)(CoreProperty *property, BOOL *stop))properties{
+    [self enumeratePropertiesUsingBlock:^(CoreProperty *p) {
+        
+        properties(p,NO);
     }];
 }
 

@@ -8,15 +8,16 @@
 
 #import "NSObject+Insert.h"
 #import "CoreModel.h"
-#import "MJProperty.h"
-#import "MJPropertyType.h"
 #import "NSObject+CoreModelCommon.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
 #import "NSObject+Select.h"
 #import "NSArray+CoreModel.h"
+#import "CoreProperty.h"
 
 @implementation NSObject (Insert)
+
+
 
 
 +(void)insertAction:(id)model resBlock:(void(^)(BOOL res))resBlock {
@@ -35,8 +36,36 @@
     }
     
     CoreModel *coreModel=(CoreModel *)model;
+    
+    if (coreModel.hostID == 0){
+    
+        NSLog(@"错误：数据插入失败,无hostID的数据插入都是耍流氓，你必须设置模型的模型hostID！框架自动生成合理的hostID,不过模型含有服务器的hostID将更可可靠，否则或能出现大量重复数据。");
+    
+        [self selectWhere:nil groupBy:nil orderBy:@"hostID desc" limit:@"0,1" selectResultsBlock:^(NSArray *selectResults) {
+            
+            if (selectResults.count == 0) {
+            
+                coreModel.hostID = 1;
+                
+            }else {
+            
+                CoreModel *lastCoreModel = (CoreModel *)selectResults.lastObject;
+               
+                coreModel.hostID = lastCoreModel.hostID + 1;
+            }
+            
+            [self insertAction_Real:model resBlock:resBlock];
+        }];
+        
+    }else{
+    
+        [self insertAction_Real:model resBlock:resBlock];
+    }
+}
 
-    NSAssert(coreModel.hostID > 0, @"错误：数据插入失败,无hostID的数据插入都是耍流氓，你必须设置模型的模型hostID!");
++(void)insertAction_Real:(id)model resBlock:(void(^)(BOOL res))resBlock {
+    
+    CoreModel *coreModel=(CoreModel *)model;
 
     if(CoreModelDeBug)  NSLog(@"数据插入开始%@",[NSThread currentThread]);
 
@@ -51,17 +80,18 @@
         NSMutableString *fields=[NSMutableString string];
         NSMutableString *values=[NSMutableString string];
         
-        [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+        
+        [self enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
             
             BOOL skip=[self skipField:property];
             
             if(!skip){
                 
-                NSString *sqliteTye=[self sqliteType:property.type.code];
+                NSString *sqliteTye=[self sqliteType:property.code];
    
                 id value =[model valueForKeyPath:property.name];
                 
-                if([property.type.code isEqualToString:CoreNSArray]){
+                if([property.typeString isEqualToString:CoreNSArray]){
                     
                     if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
                         sqliteTye = TEXT_TYPE;
@@ -72,13 +102,13 @@
                     
                     [fields appendFormat:@"%@,",property.name];
                     
-                    if([property.type.code isEqualToString:CoreNSString]){
+                    if([property.typeString isEqualToString:CoreNSString]){
                         
                         if(value == nil) value=@"";
                         
                         value=[NSString stringWithFormat:@"'%@'",value];
                         
-                    }else if ([property.type.code isEqualToString:CoreNSData]){
+                    }else if ([property.typeString isEqualToString:CoreNSData]){
                         
                         if(value != nil) {
                             
@@ -88,7 +118,7 @@
                         }
                     }
                     
-                    if([property.type.code isEqualToString:CoreNSArray]){
+                    if([property.typeString isEqualToString:CoreNSArray]){
                         
                         
                         if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
@@ -114,7 +144,7 @@
                     if(property.name!=nil && value!=nil){
                         
                         
-                        if(![property.type.code isEqualToString:CoreNSArray]){
+                        if(![property.typeString isEqualToString:CoreNSArray]){
                             
                             CoreModel *childModel=(CoreModel *)value;
                             
@@ -122,7 +152,7 @@
                             
                             [childModel setValue:@(coreModel.hostID) forKey:@"pid"];
                             
-                            [NSClassFromString(property.type.code) insert:value resBlock:resBlock];
+                            [NSClassFromString(property.code) insert:value resBlock:resBlock];
 
                         }else{
                             

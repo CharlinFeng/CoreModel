@@ -26,8 +26,8 @@
     p5.hostID=5;
     p5.name = @"张三";
     p5.city=city;
-    
-    [Person insert:p5 resBlock:^(BOOL res) {
+    [Person save:p5 resBlock:^(BOOL res) {
+
         [self show:res];
     }];
     

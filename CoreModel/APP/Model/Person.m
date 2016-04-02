@@ -7,7 +7,7 @@
 //
 
 #import "Person.h"
-#import "NSObject+MJKeyValue.h"
+
 
 @implementation Person
 

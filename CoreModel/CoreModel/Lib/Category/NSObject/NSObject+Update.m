@@ -9,9 +9,6 @@
 #import "NSObject+Update.h"
 #import "NSObject+CoreModelCommon.h"
 #import "CoreModel.h"
-#import "NSObject+MJProperty.h"
-#import "MJProperty.h"
-#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
 #import "NSArray+CoreModel.h"
@@ -62,17 +59,17 @@
         
         NSMutableString *keyValueString=[NSMutableString string];
         
-        [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+        [self enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
             
             BOOL skip=[self skipField:property];
             
             if(!skip){
                 
-                NSString *sqliteTye=[self sqliteType:property.type.code];
+                NSString *sqliteTye=[self sqliteType:property.code];
                 
                 id value =[model valueForKeyPath:property.name];
                 
-                if([property.type.code isEqualToString:CoreNSArray]){
+                if([property.typeString isEqualToString:CoreNSArray]){
                     
                     if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
                         sqliteTye = TEXT_TYPE;
@@ -81,12 +78,12 @@
                 
                 if(![sqliteTye isEqualToString:EmptyString]){
                     
-                    if([property.type.code isEqualToString:CoreNSString]){
+                    if([property.typeString isEqualToString:CoreNSString]){
                         
                         if(value == nil) value=@"";
                         
                         value=[NSString stringWithFormat:@"'%@'",value];
-                    }else if ([property.type.code isEqualToString:CoreNSData]){
+                    }else if ([property.typeString isEqualToString:CoreNSData]){
                         
                         if(value != nil) {
                             
@@ -96,7 +93,7 @@
                         }
                     }
                     
-                    if([property.type.code isEqualToString:CoreNSArray]){
+                    if([property.typeString isEqualToString:CoreNSArray]){
                         
                         if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
                             
@@ -119,7 +116,7 @@
                     
                     if(property.name!=nil && value!=nil){
                         
-                        if(![property.type.code isEqualToString:CoreNSArray]){
+                        if(![property.typeString isEqualToString:CoreNSArray]){
                             
                             CoreModel *childModel=(CoreModel *)value;
                             
@@ -127,7 +124,7 @@
                             
                             [childModel setValue:@(coreModel.hostID) forKey:@"pid"];
                             
-                            [NSClassFromString(property.type.code) update:childModel resBlock:^(BOOL res) {
+                            [NSClassFromString(property.code) update:childModel resBlock:^(BOOL res) {
                                 if(CoreModelDeBug) {if(!res) NSLog(@"错误：级联保存数据失败！级联父类：%@，子属性为：%@",NSStringFromClass(CoreModel.class),value);};
                             }];
                             

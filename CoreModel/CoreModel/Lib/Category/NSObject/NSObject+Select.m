@@ -8,8 +8,6 @@
 
 #import "NSObject+Select.h"
 #import "CoreFMDB.h"
-#import "MJProperty.h"
-#import "MJPropertyType.h"
 #import "CoreModel.h"
 #import "NSObject+CoreModelCommon.h"
 #import "CoreModelConst.h"
@@ -56,17 +54,17 @@
             
             CoreModel *model=[[self alloc] init];
             
-            [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+            [self enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
                 
                 BOOL skip=[self skipField:property];
                 
                 if(!skip){
                     
-                    NSString *code = property.type.code;
+                    NSString *code = property.code;
                     
                     NSString *sqliteTye=[self sqliteType:code];
                     
-                    if([property.type.code isEqualToString:CoreNSArray]){
+                    if([property.typeString isEqualToString:CoreNSArray]){
                         
                         if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
                             sqliteTye = TEXT_TYPE;
@@ -94,7 +92,7 @@
                         }
                         
                         
-                        if([property.type.code isEqualToString:CoreNSArray]){
+                        if([property.typeString isEqualToString:CoreNSArray]){
                             
                             if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
                                 
@@ -121,15 +119,15 @@
         
         [resultsM enumerateObjectsUsingBlock:^(CoreModel *model, NSUInteger idx, BOOL *stop) {
             
-            [fieldsArrayM enumerateObjectsUsingBlock:^(MJProperty *ivar, NSUInteger idx, BOOL *stop) {
+            [fieldsArrayM enumerateObjectsUsingBlock:^(CoreProperty *ivar, NSUInteger idx, BOOL *stop) {
                 
-                if(![ivar.type.code isEqualToString:CoreNSArray]){
+                if(![ivar.typeString isEqualToString:CoreNSArray]){
                     
                     NSString *where_childModelField=[NSString stringWithFormat:@"pModel='%@' AND pid=%@",NSStringFromClass(model.class),@(model.hostID)];
                     
                     NSString *limit=@"1";
                     
-                    [NSClassFromString(ivar.type.code) selectWhere:where_childModelField groupBy:nil orderBy:nil limit:limit selectResultsBlock:^(NSArray *selectResults) {
+                    [NSClassFromString(ivar.typeString) selectWhere:where_childModelField groupBy:nil orderBy:nil limit:limit selectResultsBlock:^(NSArray *selectResults) {
                         
                         if(selectResults.count>0){
                             [model setValue:selectResults.firstObject forKey:ivar.name];
@@ -157,8 +155,6 @@
                     }];
                     
                 }
-                
-
                 
             }];
             

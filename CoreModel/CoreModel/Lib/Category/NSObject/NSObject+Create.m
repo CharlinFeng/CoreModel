@@ -10,9 +10,7 @@
 #import "NSObject+CoreModelCommon.h"
 #import "CoreModelConst.h"
 #import "CoreFMDB.h"
-#import "MJProperty.h"
-#import "MJPropertyType.h"
-#import "NSObject+MJProperty.h"
+
 
 @implementation NSObject (Create)
 
@@ -38,11 +36,11 @@
     
     NSMutableArray *ivarsM=[NSMutableArray array];
     
-    [self enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
-    
+    [self enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
+        
         NSString *sql_field = [self fieldSql:property];
         
-        if([property.type.code isEqualToString:CoreNSArray]){
+        if([property.typeString isEqualToString:CoreNSArray]){
             
             NSDictionary *dict = [self statementForNSArrayProperties];
             
@@ -100,7 +98,7 @@
 
     if(columnsM.count>=ivars.count) return;
 
-    for (MJProperty *ivar in ivars) {
+    for (CoreProperty *ivar in ivars) {
 
         if([columnsM containsObject:ivar.name]) continue;
 

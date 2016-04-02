@@ -11,9 +11,6 @@
 #import "CoreFMDB.h"
 #import "NSObject+Select.h"
 #import "CoreModel.h"
-#import "NSObject+MJProperty.h"
-#import "MJProperty.h"
-#import "MJPropertyType.h"
 #import "CoreModelConst.h"
 
 @implementation NSObject (Delete)
@@ -34,7 +31,6 @@
         [self deleteWhereAction:where resBlock:resBlock];
     }
 }
-
 
 +(void)deleteWhereAction:(NSString *)where resBlock:(void(^)(BOOL res))resBlock{
 
@@ -58,15 +54,15 @@
         
         for (CoreModel *baseModle in deleteModels) {
             
-            [baseModle.class enumNSObjectProperties:^(MJProperty *property, BOOL *stop) {
+            [baseModle.class enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
 
                 BOOL skip=[self skipField:property];
                 
                 if(!skip){
                     
-                    NSString *sqliteTye=[self sqliteType:property.type.code];
+                    NSString *sqliteTye=[self sqliteType:property.code];
                     
-                    if([property.type.code isEqualToString:CoreNSArray]){
+                    if([property.typeString isEqualToString:CoreNSArray]){
                         
                         if([self isBasicTypeInNSArray:[self statementForNSArrayProperties][property.name]]){
                             sqliteTye = TEXT_TYPE;
@@ -76,7 +72,7 @@
  
                     if([sqliteTye isEqualToString:EmptyString]){
                         
-                        if([property.type.code isEqualToString:CoreNSArray]){
+                        if([property.typeString isEqualToString:CoreNSArray]){
                             
                             NSArray *CoreModels = (NSArray *)[baseModle valueForKeyPath:property.name];
                             
@@ -89,7 +85,7 @@
 
                         }else{
                             
-                            Class ModelClass=NSClassFromString(property.type.code);
+                            Class ModelClass=NSClassFromString(property.code);
                             
                             NSString *where=[NSString stringWithFormat:@"pModel='%@' AND pid=%@",NSStringFromClass(baseModle.class),@(baseModle.hostID)];
                             

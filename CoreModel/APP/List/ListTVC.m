@@ -16,14 +16,13 @@
 #import "Test8VC.h"
 #import "Test9VC.h"
 #import "Test10VC.h"
-
 #import "Test11VC.h"
 #import "Test12VC.h"
 #import "Test13VC.h"
 #import "Test14VC.h"
 #import "Test15VC.h"
 #import "Test16VC.h"
-#import "Test17VC.h"
+
 
 
 
@@ -57,9 +56,7 @@
                       @[[Test14VC class],@"数组支持：基本类型数组"],
                       @[[Test15VC class],@"数组支持：NSData类型数组"],
                       @[[Test16VC class],@"数组支持：自定义模型数组"],
-                      @[[Test17VC class],@"综合实战：网络数据一键CURD"],
-                      
-                      ];
+                    ];
     
 }
 

@@ -20,7 +20,7 @@
 @interface CoreModel : NSObject<CoreModelProtocol,CorePageModelProtocol>
 
 
-/** 服务器数据的ID */
+/** 服务器数据的ID：字符串化 */
 @property (nonatomic,assign) NSInteger hostID;
 
 

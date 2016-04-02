@@ -7,18 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSObject+MJProperty.h"
 #import "NSString+Stackoverflow.h"
 #import "NSOperationQueue+Queue.h"
-#import "MJProperty.h"
+#import "CoreProperty.h"
 
 
 @interface NSObject (CoreModelCommon)
 
 
-+(NSString *)fieldSql:(MJProperty *)ivar;
++(NSString *)fieldSql:(CoreProperty *)ivar;
 
-+(BOOL)skipField:(MJProperty *)ivar;
++(BOOL)skipField:(CoreProperty *)ivar;
 
 + (NSArray *)ignoredPropertyNamesForSqlTransform;
 
@@ -32,7 +31,7 @@
 
 +(NSString *)modelName;
 
-+(BOOL)isBasicTypeInNSArray:(MJProperty *)property;
++(BOOL)isBasicTypeInNSArray:(CoreProperty *)property;
 
 /** 模型对比时需要忽略的字段 */
 +(NSArray *)constrastIgnorFields;
@@ -41,7 +40,7 @@
 +(NSDictionary *)statementForNSArrayProperties;
 
 /** 封装 */
-+(void)enumNSObjectProperties:(void(^)(MJProperty *property, BOOL *stop))properties;
++(void)enumNSObjectProperties:(void(^)(CoreProperty *property, BOOL *stop))properties;
 
 
 
