@@ -2,6 +2,8 @@
 ![image](https://github.com/CharlinFeng/Resource/blob/master/CoreModel/logo.jpg)<br/><br/>
 
 
+##### 不需要懂sql，一键数据库存储工具（成都时点软件开发有限公司冯成林原创出品）。
+
 
 <br/><br/><br/>
 一、CoreModel使用前言
@@ -9,23 +11,28 @@
 
 <br/>
 #### 1.为什么要重制？
-在推出了[CoreFMDB](https://github.com/CharlinFeng/CoreFMDB)和[CoreArchive](https://github.com/CharlinFeng/CoreArchive)之后，感谢大量朋友对我的框架的喜欢，同时也提出了各种问题和要求，最重要的有以下：<br/>
+在推出了CoreModel感谢大量朋友对我的框架的喜欢，同时也提出了各种问题和要求，最重要的有以下：<br/>
 > (1). 不支持NSData。<br/>
 > (2). 不支持NSArray。<br/>
 > (3). 全部主线程操作，对性能有一定的影响。<br/>
 
 <br/>
-#### 2.框架依赖
+#### 1.本次更新了什么新特性？
+> (4). Reflect全面抛弃MJExtension，此框架在CoreModel中有大量崩溃。目前框架全面原创。
+> (5). 无hostID可以全自动创建。不会再触发断言。不过不建议无hostID的数据插入，可能会造成大量重复数据。
+注： 有很多朋友提到hostID需要字符串化，因为有的服务器的id是一个特别的字符串，现在你可以把这个类似id的字符串存为一个普通字段，然后无hostID存入即可。后面CURD直接根据此字段来关联操作即可。
+
+<br/>
+#### 3.框架依赖
 > (1). CoreFMDB 数据库操作。<br/>
-> (2). CoreHttp 网络请求：第四季及第五季用到。<br/>
-> (3). CoreStatus 网络状态检测：第四季及第五季用到。<br/>
-> (4). MJExtension 整个框架仅仅用了他的遍历成员属性这唯一的一个功能，别无他用。<br/>
+
+
 
 
 <br/>
 #### 3.其他说明（持续关注[信息公告牌](https://github.com/CharlinFeng/Show)）
 > (1). 强烈建议关注：`信息公告牌`以便获取最实时的框架更新动态。<br/>
-> (2). 开源第四季动态缓存的条件为：`CoreModel的Star数据超过1000`。<br/>
+> (2). 开源第四季一键列表的条件为：`CoreModel的Star数据超过1000`。<br/>
 > (3). 之前有朋友过于喜欢我的框架，导致在没有任何说明的情况下借用我的代码，所以本次框架去除了所有的中文注释。从使用的角度上来说对您没有任何影响。<br/>
 > (4). 请添加异常断点，以便捕获我提供的大量断言。<br/>
 > (5). 特别提醒：示例程序有强烈的先后顺序，最好不要随便乱点，比如一个数据都没有insert，你点击了update或者delete等操作会达到你难以理解的结果。<br/>
@@ -38,7 +45,7 @@
 >(1). 导入了sqlite3.lib 动态库。<br/>
 >(2). 拖拽CoreModel及FrameWorks文件夹到您的项目。<br/>
 >(3). 安装了Navicat Preminum。<br/>
->(4). Swift使用，不能Swift中的Model继承CoreModel，主要是因为MJExtension在Swift中无法正常工作，模型一律是OC，使用Swift再使用OC中的CoreModel的子类。
+>(4). Swift使用，不能Swift中的Model继承CoreModel。
 
 <br/><br/><br/>
 二、基本使用
@@ -164,13 +171,11 @@
 
 
 <br/><br/><br/>
-五、断言
+五、无hostID操作
 ==========
 <br/>
 ##### 本功能请参考项目中：Test3VC.m
-#### 为了让您正确的使用CoreModel，框架做了大量的断言帮助您正确的使用，最容易出现的错误就是对HostID认识不够深刻，假如您的模型没有设置HostID，会触发断言：
-
-    NSAssert(coreModel.hostID > 0, @"错误：数据插入失败,无hostID的数据插入都是耍流氓，你必须设置模型的模型hostID!");
+#### 为了让您正确的使用CoreModel，框架做了大量的断言帮助您正确的使用，最容易出现的错误就是对HostID认识不够深刻，假如您的模型没有设置HostID，现在框架会自动创建hostID,请一定要注意这种情况下可能会有重复数据出现。
 
 此外，以下不合法操作均会触发断言：
 >(1). 模型混用，比如使用Cat类方法对Person执行数据操作如[Cat insert:person resBlock:nil];<br/>
@@ -180,7 +185,7 @@
 注意：
 
 >(1). HostID是对应服务器表的主键，在CoreModel中hostID会自动映射解析服务器json里面的id字段，你无需手动映射。<br/>
->(2). 有的朋友issue我说，他们服务器没有返回id主键，可不可以不传hostID？首先服务器数据如果涉及缓存，不传id本身就不是很规范，再者本地缓存数据是不可信任的，只有服务器的数据才是最可靠的，即是CoreModel的最核心的就是hostID，同时在第四季与第五季中，各种强大的功能全部是基于hostID完成，如果您的数据没有hostID或者是您自己手动保存的缓存数据，请结合CoreFMDDB的CountTable功能构建hostID。<br/>
+
 
 
 
@@ -491,7 +496,7 @@
     }];
 
 <br/><br/><br/>
-十五、属性为单模型级联：数据插入
+十五、属性为单模型级联：数据插入（级联模型请一定要全部是CoreModel的子类！）
 ==========
 <br/>
 ##### 本功能请参考项目中：Test13VC.m
