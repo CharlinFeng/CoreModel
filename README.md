@@ -19,7 +19,7 @@
 
 <br/>
 #### 1.本次更新了什么新特性？
-> (1). Reflect全面抛弃MJExtension，此框架在CoreModel中有大量崩溃。目前框架全面原创。 <br/>
+> (1). Reflect全面抛弃MJExtension，此框架在CoreModel中有大量崩溃。目前框架全面原创，自有Reflect，从此CoreModel再无崩溃。 <br/>
 > (2). 无hostID可以全自动创建。不会再触发断言。不过不建议无hostID的数据插入，可能会造成大量重复数据。<br/>
 
 注： 有很多朋友提到hostID需要字符串化，因为有的服务器的id是一个特别的字符串，现在你可以把这个类似id的字符串存为一个普通字段，然后无hostID存入即可。后面CURD直接根据此字段来关联操作即可。
