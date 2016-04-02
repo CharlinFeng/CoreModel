@@ -55,6 +55,7 @@
 		896ADB7F1B9F1BE50041E7CE /* CoreModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 896ADB7E1B9F1BE50041E7CE /* CoreModelTests.m */; };
 		896ADC181B9F208E0041E7CE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 896ADC171B9F208E0041E7CE /* libsqlite3.0.dylib */; };
 		897C44981B9FC7CB00F26261 /* ListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 897C44971B9FC7CB00F26261 /* ListTVC.m */; };
+<<<<<<< HEAD
 		89A261041CAFC0D5009B1BBA /* CoreFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A260F11CAFC0D5009B1BBA /* CoreFMDB.m */; };
 		89A261051CAFC0D5009B1BBA /* NSString+CoreFMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A260F51CAFC0D5009B1BBA /* NSString+CoreFMDB.m */; };
 		89A261061CAFC0D5009B1BBA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A260F81CAFC0D5009B1BBA /* FMDatabase.m */; };
@@ -64,6 +65,15 @@
 		89A2610A1CAFC0D5009B1BBA /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A261011CAFC0D5009B1BBA /* FMResultSet.m */; };
 		89A261101CAFC26E009B1BBA /* CoreProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A2610D1CAFC26E009B1BBA /* CoreProperty.m */; };
 		89A261111CAFC26E009B1BBA /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A2610F1CAFC26E009B1BBA /* NSObject+Runtime.m */; };
+=======
+		89F7F6FA1C6E1089009716BE /* CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6EB1C6E1089009716BE /* CoreHttp.m */; };
+		89F7F6FB1C6E1089009716BE /* NSString+CoreHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6EE1C6E1089009716BE /* NSString+CoreHttp.m */; };
+		89F7F6FC1C6E1089009716BE /* NSData+MimeType.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6F11C6E1089009716BE /* NSData+MimeType.m */; };
+		89F7F6FD1C6E1089009716BE /* NSData+Param.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6F31C6E1089009716BE /* NSData+Param.m */; };
+		89F7F6FE1C6E1089009716BE /* NSString+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6F51C6E1089009716BE /* NSString+File.m */; };
+		89F7F6FF1C6E1089009716BE /* NSURL+File.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6F71C6E1089009716BE /* NSURL+File.m */; };
+		89F7F7001C6E1089009716BE /* UploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7F6F91C6E1089009716BE /* UploadFile.m */; };
+>>>>>>> origin/master
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +181,7 @@
 		896ADC171B9F208E0041E7CE /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		897C44961B9FC7CB00F26261 /* ListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTVC.h; sourceTree = "<group>"; };
 		897C44971B9FC7CB00F26261 /* ListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTVC.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		89A260F01CAFC0D5009B1BBA /* CoreFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreFMDB.h; sourceTree = "<group>"; };
 		89A260F11CAFC0D5009B1BBA /* CoreFMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreFMDB.m; sourceTree = "<group>"; };
 		89A260F41CAFC0D5009B1BBA /* NSString+CoreFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreFMDB.h"; sourceTree = "<group>"; };
@@ -191,6 +202,22 @@
 		89A2610D1CAFC26E009B1BBA /* CoreProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreProperty.m; sourceTree = "<group>"; };
 		89A2610E1CAFC26E009B1BBA /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
 		89A2610F1CAFC26E009B1BBA /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
+=======
+		89F7F6EA1C6E1089009716BE /* CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreHttp.h; sourceTree = "<group>"; };
+		89F7F6EB1C6E1089009716BE /* CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreHttp.m; sourceTree = "<group>"; };
+		89F7F6ED1C6E1089009716BE /* NSString+CoreHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CoreHttp.h"; sourceTree = "<group>"; };
+		89F7F6EE1C6E1089009716BE /* NSString+CoreHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CoreHttp.m"; sourceTree = "<group>"; };
+		89F7F6F01C6E1089009716BE /* NSData+MimeType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MimeType.h"; sourceTree = "<group>"; };
+		89F7F6F11C6E1089009716BE /* NSData+MimeType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MimeType.m"; sourceTree = "<group>"; };
+		89F7F6F21C6E1089009716BE /* NSData+Param.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Param.h"; sourceTree = "<group>"; };
+		89F7F6F31C6E1089009716BE /* NSData+Param.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Param.m"; sourceTree = "<group>"; };
+		89F7F6F41C6E1089009716BE /* NSString+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+File.h"; sourceTree = "<group>"; };
+		89F7F6F51C6E1089009716BE /* NSString+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+File.m"; sourceTree = "<group>"; };
+		89F7F6F61C6E1089009716BE /* NSURL+File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+File.h"; sourceTree = "<group>"; };
+		89F7F6F71C6E1089009716BE /* NSURL+File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+File.m"; sourceTree = "<group>"; };
+		89F7F6F81C6E1089009716BE /* UploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadFile.h; sourceTree = "<group>"; };
+		89F7F6F91C6E1089009716BE /* UploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadFile.m; sourceTree = "<group>"; };
+>>>>>>> origin/master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +440,48 @@
 			name = Test16VC;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		891AA5A31BA0128B003A7F73 /* Test17VC */ = {
+			isa = PBXGroup;
+			children = (
+				891AA5B91BA0138E003A7F73 /* Test17VC.h */,
+				891AA5BA1BA0138E003A7F73 /* Test17VC.m */,
+			);
+			name = Test17VC;
+			sourceTree = "<group>";
+		};
+		893FC00E1C255AD700BA59BD /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				893FC00F1C255AD700BA59BD /* MJDictionaryCache.h */,
+				893FC0101C255AD700BA59BD /* MJDictionaryCache.m */,
+				893FC0111C255AD700BA59BD /* MJExtension.h */,
+				893FC0121C255AD700BA59BD /* MJExtensionConst.h */,
+				893FC0131C255AD700BA59BD /* MJExtensionConst.m */,
+				893FC0141C255AD700BA59BD /* MJFoundation.h */,
+				893FC0151C255AD700BA59BD /* MJFoundation.m */,
+				893FC0161C255AD700BA59BD /* MJProperty.h */,
+				893FC0171C255AD700BA59BD /* MJProperty.m */,
+				893FC0181C255AD700BA59BD /* MJPropertyKey.h */,
+				893FC0191C255AD700BA59BD /* MJPropertyKey.m */,
+				893FC01A1C255AD700BA59BD /* MJPropertyType.h */,
+				893FC01B1C255AD700BA59BD /* MJPropertyType.m */,
+				893FC01C1C255AD700BA59BD /* NSObject+MJClass.h */,
+				893FC01D1C255AD700BA59BD /* NSObject+MJClass.m */,
+				893FC01E1C255AD700BA59BD /* NSObject+MJCoding.h */,
+				893FC01F1C255AD700BA59BD /* NSObject+MJCoding.m */,
+				893FC0201C255AD700BA59BD /* NSObject+MJKeyValue.h */,
+				893FC0211C255AD700BA59BD /* NSObject+MJKeyValue.m */,
+				893FC0221C255AD700BA59BD /* NSObject+MJProperty.h */,
+				893FC0231C255AD700BA59BD /* NSObject+MJProperty.m */,
+				893FC0241C255AD700BA59BD /* NSString+MJExtension.h */,
+				893FC0251C255AD700BA59BD /* NSString+MJExtension.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
+		};
+>>>>>>> origin/master
 		8949BD0D1C13E91C00410385 /* CoreModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,7 +662,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		897C44941B9FC7B600F26261 /* APP */ = {
+=======
+		896ADBC01B9F205E0041E7CE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89F7F6E91C6E1089009716BE /* CoreHttp */,
+				893FC00E1C255AD700BA59BD /* MJExtension */,
+				896ADBC11B9F205E0041E7CE /* CoreFMDB */,
+				896ADBE71B9F205E0041E7CE /* CoreStatus */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		896ADBC11B9F205E0041E7CE /* CoreFMDB */ = {
+>>>>>>> origin/master
 			isa = PBXGroup;
 			children = (
 				891AA5391B9FD01A003A7F73 /* Common */,
@@ -698,6 +782,43 @@
 				89A2610F1CAFC26E009B1BBA /* NSObject+Runtime.m */,
 			);
 			path = Reflect;
+			sourceTree = "<group>";
+		};
+		89F7F6E91C6E1089009716BE /* CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				89F7F6EA1C6E1089009716BE /* CoreHttp.h */,
+				89F7F6EB1C6E1089009716BE /* CoreHttp.m */,
+				89F7F6EC1C6E1089009716BE /* NSString+CoreHttp */,
+				89F7F6EF1C6E1089009716BE /* Upload */,
+			);
+			path = CoreHttp;
+			sourceTree = "<group>";
+		};
+		89F7F6EC1C6E1089009716BE /* NSString+CoreHttp */ = {
+			isa = PBXGroup;
+			children = (
+				89F7F6ED1C6E1089009716BE /* NSString+CoreHttp.h */,
+				89F7F6EE1C6E1089009716BE /* NSString+CoreHttp.m */,
+			);
+			path = "NSString+CoreHttp";
+			sourceTree = "<group>";
+		};
+		89F7F6EF1C6E1089009716BE /* Upload */ = {
+			isa = PBXGroup;
+			children = (
+				89F7F6F01C6E1089009716BE /* NSData+MimeType.h */,
+				89F7F6F11C6E1089009716BE /* NSData+MimeType.m */,
+				89F7F6F21C6E1089009716BE /* NSData+Param.h */,
+				89F7F6F31C6E1089009716BE /* NSData+Param.m */,
+				89F7F6F41C6E1089009716BE /* NSString+File.h */,
+				89F7F6F51C6E1089009716BE /* NSString+File.m */,
+				89F7F6F61C6E1089009716BE /* NSURL+File.h */,
+				89F7F6F71C6E1089009716BE /* NSURL+File.m */,
+				89F7F6F81C6E1089009716BE /* UploadFile.h */,
+				89F7F6F91C6E1089009716BE /* UploadFile.m */,
+			);
+			path = Upload;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -806,30 +927,50 @@
 			files = (
 				891AA5911BA011A6003A7F73 /* Test7VC.m in Sources */,
 				8949BD3A1C13E91C00410385 /* NSArray+CoreModel.m in Sources */,
+<<<<<<< HEAD
+=======
+				893FC0281C255AD700BA59BD /* MJFoundation.m in Sources */,
+				893FC02E1C255AD700BA59BD /* NSObject+MJKeyValue.m in Sources */,
+>>>>>>> origin/master
 				897C44981B9FC7CB00F26261 /* ListTVC.m in Sources */,
 				89A261081CAFC0D5009B1BBA /* FMDatabasePool.m in Sources */,
 				891AA58D1BA011A6003A7F73 /* Test3VC.m in Sources */,
 				891AA5B81BA01382003A7F73 /* Test16VC.m in Sources */,
 				89A2610A1CAFC0D5009B1BBA /* FMResultSet.m in Sources */,
 				8949BD451C13E91C00410385 /* NSOperationQueue+Queue.m in Sources */,
+				89F7F7001C6E1089009716BE /* UploadFile.m in Sources */,
 				891AA5591B9FE053003A7F73 /* SVProgressHUD.m in Sources */,
 				891AA5571B9FE053003A7F73 /* SVIndefiniteAnimatedView.m in Sources */,
+				89F7F6FA1C6E1089009716BE /* CoreHttp.m in Sources */,
 				891AA58F1BA011A6003A7F73 /* Test5VC.m in Sources */,
 				89A261091CAFC0D5009B1BBA /* FMDatabaseQueue.m in Sources */,
 				891AA5931BA011A6003A7F73 /* Test9VC.m in Sources */,
 				891AA58C1BA011A6003A7F73 /* Test2VC.m in Sources */,
 				89A261101CAFC26E009B1BBA /* CoreProperty.m in Sources */,
 				891AA5B21BA01367003A7F73 /* Test14VC.m in Sources */,
+<<<<<<< HEAD
+=======
+				896ADC051B9F205E0041E7CE /* FMResultSet.m in Sources */,
+				89F7F6FF1C6E1089009716BE /* NSURL+File.m in Sources */,
+>>>>>>> origin/master
 				8949BD411C13E91C00410385 /* NSObject+Insert.m in Sources */,
 				89A261071CAFC0D5009B1BBA /* FMDatabaseAdditions.m in Sources */,
 				89A261051CAFC0D5009B1BBA /* NSString+CoreFMDB.m in Sources */,
 				891AA5AF1BA01357003A7F73 /* Test13VC.m in Sources */,
 				89A261111CAFC26E009B1BBA /* NSObject+Runtime.m in Sources */,
 				891AA58E1BA011A6003A7F73 /* Test4VC.m in Sources */,
+				89F7F6FE1C6E1089009716BE /* NSString+File.m in Sources */,
+				89F7F6FD1C6E1089009716BE /* NSData+Param.m in Sources */,
 				8949BD391C13E91C00410385 /* CoreModel.m in Sources */,
 				8949BD3E1C13E91C00410385 /* NSObject+CoreModelCommon.m in Sources */,
+<<<<<<< HEAD
 				89A261041CAFC0D5009B1BBA /* CoreFMDB.m in Sources */,
 				891AA53C1B9FD028003A7F73 /* CommonVC.m in Sources */,
+=======
+				89F7F6FC1C6E1089009716BE /* NSData+MimeType.m in Sources */,
+				891AA53C1B9FD028003A7F73 /* CommonVC.m in Sources */,
+				893FC02C1C255AD700BA59BD /* NSObject+MJClass.m in Sources */,
+>>>>>>> origin/master
 				8949BD471C13E91C00410385 /* CoreModelConst.m in Sources */,
 				8949BD461C13E91C00410385 /* NSString+Stackoverflow.m in Sources */,
 				891AA5B51BA01372003A7F73 /* Test15VC.m in Sources */,
@@ -839,16 +980,31 @@
 				8949BD441C13E91C00410385 /* NSObject+Update.m in Sources */,
 				8949BD3B1C13E91C00410385 /* NSDictionary+Sqlite.m in Sources */,
 				891AA5901BA011A6003A7F73 /* Test6VC.m in Sources */,
+<<<<<<< HEAD
 				89A261061CAFC0D5009B1BBA /* FMDatabase.m in Sources */,
+=======
+>>>>>>> origin/master
 				891AA5A91BA01314003A7F73 /* Test11VC.m in Sources */,
 				891AA5331B9FCCBD003A7F73 /* Person.m in Sources */,
 				8949BD431C13E91C00410385 /* NSObject+Select.m in Sources */,
 				8949BD3C1C13E91C00410385 /* CoreModel+Cache.m in Sources */,
 				894646F81BA1281E0051FA78 /* Pen.m in Sources */,
+<<<<<<< HEAD
 				896ADB651B9F1BE40041E7CE /* main.m in Sources */,
 				891AA5921BA011A6003A7F73 /* Test8VC.m in Sources */,
 				8949BD3F1C13E91C00410385 /* NSObject+Create.m in Sources */,
 				891AA5551B9FE053003A7F73 /* CoreSVP.m in Sources */,
+=======
+				893FC0261C255AD700BA59BD /* MJDictionaryCache.m in Sources */,
+				896ADC0E1B9F205E0041E7CE /* Reachability.m in Sources */,
+				896ADB651B9F1BE40041E7CE /* main.m in Sources */,
+				893FC02B1C255AD700BA59BD /* MJPropertyType.m in Sources */,
+				89F7F6FB1C6E1089009716BE /* NSString+CoreHttp.m in Sources */,
+				891AA5921BA011A6003A7F73 /* Test8VC.m in Sources */,
+				8949BD3F1C13E91C00410385 /* NSObject+Create.m in Sources */,
+				891AA5551B9FE053003A7F73 /* CoreSVP.m in Sources */,
+				893FC02D1C255AD700BA59BD /* NSObject+MJCoding.m in Sources */,
+>>>>>>> origin/master
 				8949BD401C13E91C00410385 /* NSObject+Delete.m in Sources */,
 				8949BD421C13E91C00410385 /* NSObject+Save.m in Sources */,
 				891AA5AC1BA0134D003A7F73 /* Test12VC.m in Sources */,
