@@ -2,7 +2,7 @@
 ![image](https://github.com/CharlinFeng/Resource/blob/master/CoreModel/logo.jpg)<br/><br/>
 
 
-##### 不需要懂sql，一键数据库存储工具（成都时点软件开发有限公司冯成林原创出品）。
+#### 不需要懂sql，一键数据库存储工具（成都时点软件开发有限公司原创出品）
 
 
 <br/><br/><br/>
