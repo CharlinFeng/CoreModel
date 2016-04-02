@@ -2,7 +2,8 @@
 ![image](https://github.com/CharlinFeng/Resource/blob/master/CoreModel/logo.jpg)<br/><br/>
 
 
-#### 不需要懂sql，一键数据库存储工具（成都时点软件开发有限公司原创出品）
+#### 不需要懂sql，一键数据库存储工具（[成都时点软件开发有限公司](http://ios-android.cn)原创出品）
+##### 列表终结者框架即将开源：一键实现一个列表，含有上拉下拉与分页，全自动数据解析，加载视图，动态缓存。
 
 
 <br/><br/><br/>
