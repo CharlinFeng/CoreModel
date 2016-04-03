@@ -84,7 +84,6 @@
         NSMutableString *fields=[NSMutableString string];
         NSMutableString *values=[NSMutableString string];
         
-        
         [self enumNSObjectProperties:^(CoreProperty *property, BOOL *stop) {
             
             BOOL skip=[self skipField:property];
@@ -184,8 +183,6 @@
         NSString *values_sub=[self deleteLastChar:values];
         
         NSString *sql=[NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@);",[self modelName],fields_sub,values_sub];
-        
-        [self deleteModel:model];
         
         BOOL insertRes = [CoreFMDB executeUpdate:sql];
         
