@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8955203C1CB0C99800305B24 /* Test17VC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8955203B1CB0C99800305B24 /* Test17VC.m */; };
 		89CFA0A71CAFCB1700A280D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CFA0A61CAFCB1700A280D2 /* main.m */; };
 		89CFA0AA1CAFCB1700A280D2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CFA0A91CAFCB1700A280D2 /* AppDelegate.m */; };
 		89CFA0AD1CAFCB1700A280D2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CFA0AC1CAFCB1700A280D2 /* ViewController.m */; };
@@ -67,6 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8955203A1CB0C99800305B24 /* Test17VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test17VC.h; sourceTree = "<group>"; };
+		8955203B1CB0C99800305B24 /* Test17VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test17VC.m; sourceTree = "<group>"; };
 		89CFA0A21CAFCB1700A280D2 /* CoreModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89CFA0A61CAFCB1700A280D2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		89CFA0A81CAFCB1700A280D2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -525,6 +528,8 @@
 				89CFA1421CAFCB5000A280D2 /* Test15VC.xib */,
 				89CFA1431CAFCB5000A280D2 /* Test16VC.h */,
 				89CFA1441CAFCB5000A280D2 /* Test16VC.m */,
+				8955203A1CB0C99800305B24 /* Test17VC.h */,
+				8955203B1CB0C99800305B24 /* Test17VC.m */,
 				89CFA1461CAFCB5000A280D2 /* Test2VC.h */,
 				89CFA1471CAFCB5000A280D2 /* Test2VC.m */,
 				89CFA1481CAFCB5000A280D2 /* Test3VC.h */,
@@ -641,6 +646,7 @@
 				89CFA0AD1CAFCB1700A280D2 /* ViewController.m in Sources */,
 				89CFA0F21CAFCB3400A280D2 /* NSObject+Create.m in Sources */,
 				89CFA15C1CAFCB5000A280D2 /* ListTVC.m in Sources */,
+				8955203C1CB0C99800305B24 /* Test17VC.m in Sources */,
 				89CFA1571CAFCB5000A280D2 /* CoreSVP.m in Sources */,
 				89CFA0F31CAFCB3400A280D2 /* NSObject+Delete.m in Sources */,
 				89CFA1601CAFCB5000A280D2 /* Test10VC.m in Sources */,
@@ -818,6 +824,7 @@
 				89CFA0BB1CAFCB1700A280D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

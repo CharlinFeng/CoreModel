@@ -74,6 +74,10 @@
         if(dbModel!=nil){
             
             if(CoreModelDeBug) NSLog(@"错误：%@表中hostID=%@的数据记录已经存在！",[self modelName],@(coreModel.hostID));
+            [self deleteModel:model];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self insertAction_Real:model resBlock:resBlock];
+            });
             if(resBlock != nil) resBlock(NO);return;
         }
         
@@ -181,12 +185,21 @@
         
         NSString *sql=[NSString stringWithFormat:@"INSERT INTO %@ (%@) VALUES (%@);",[self modelName],fields_sub,values_sub];
         
+        [self deleteModel:model];
+        
         BOOL insertRes = [CoreFMDB executeUpdate:sql];
         
         if(CoreModelDeBug) {if(!insertRes) NSLog(@"错误：添加对象失败%@",coreModel);};
         if(CoreModelDeBug) NSLog(@"数据插入结束%@",[NSThread currentThread]);
         TriggerBlock(resBlock, insertRes)
     }];
+}
+
++(void)deleteModel:(id)model{
+
+    NSString *sql = [NSString stringWithFormat:@"DELETE FROM %@ WHERE hostID = %@",[self modelName],@([model hostID])];
+    
+    [CoreFMDB executeUpdate:sql];
 }
 
 

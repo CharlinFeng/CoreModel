@@ -36,7 +36,7 @@
 
     if(where != nil) [sqlM appendFormat:@" WHERE %@",where];
 
-    if(groupBy != nil) [sqlM appendFormat:@" GROUP BY %@",groupBy];
+    if(groupBy != nil){[sqlM appendFormat:@" GROUP BY hostID,%@",groupBy];}else{[sqlM appendString:@" GROUP BY hostID"];};
 
     if(orderBy != nil) [sqlM appendFormat:@" ORDER BY %@",orderBy];
 

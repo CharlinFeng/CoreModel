@@ -22,6 +22,7 @@
 #import "Test14VC.h"
 #import "Test15VC.h"
 #import "Test16VC.h"
+#import "Test17VC.h"
 
 
 
@@ -58,6 +59,7 @@
                       @[[Test14VC class],@"数组支持：基本类型数组"],
                       @[[Test15VC class],@"数组支持：NSData类型数组"],
                       @[[Test16VC class],@"数组支持：自定义模型数组"],
+                      @[[Test17VC class],@"大数量调整并发"],
                     ];
     
 }
